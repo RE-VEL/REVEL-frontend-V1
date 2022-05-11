@@ -1,7 +1,7 @@
-import type { NextPage } from "next";
+import type { NextPage } from 'next';
 
 const Home: NextPage = () => {
-  return <div>REVEL Web</div>;
+  return <div>REVEL Web mainPage</div>;
 };
 
 export default Home;
