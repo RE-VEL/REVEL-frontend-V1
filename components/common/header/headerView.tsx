@@ -47,6 +47,11 @@ const Profile = styled.div`
 
 const NavItem = styled.span`
   font-size: 14px;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export default HeaderVAC;
