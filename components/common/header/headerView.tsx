@@ -1,7 +1,13 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 
-const HeaderVAC: NextPage = () => {
+interface props {
+  profileHover: boolean;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+}
+
+const HeaderView = ({ profileHover, onMouseEnter, onMouseLeave }: props) => {
   return (
     <HedaerContaner>
       <Nav>
@@ -10,7 +16,14 @@ const HeaderVAC: NextPage = () => {
         <NavItem>About us</NavItem>
         <NavItem>Chat</NavItem>
       </Nav>
-      <Profile></Profile>
+      <Profile onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />
+      <MenuFrame onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        <DropMenu profileHover={profileHover}>
+          <Menu>프로필</Menu>
+          <Menu>문의하기</Menu>
+          <Menu>로그아웃</Menu>
+        </DropMenu>
+      </MenuFrame>
     </HedaerContaner>
   );
 };
@@ -54,4 +67,38 @@ const NavItem = styled.span`
   }
 `;
 
-export default HeaderVAC;
+const DropMenu = styled.div`
+  width: 150px;
+  height: 180px;
+  background-color: rgba(50, 50, 50, 0.5);
+  border-radius: 10px;
+  padding: 20px 16px;
+  display: ${({ profileHover }: { profileHover: boolean }) =>
+    profileHover ? 'flex' : 'none'};
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+`;
+
+const Menu = styled.div`
+  color: white;
+  display: flex;
+  cursor: pointer;
+
+  &:nth-child(3) {
+    margin-top: 30px;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+const MenuFrame = styled.div`
+  position: fixed;
+  top: 0px;
+  right: 10px;
+  padding-top: 60px;
+`;
+
+export default HeaderView;
