@@ -7,7 +7,7 @@ interface props {
 }
 
 const Card: NextPage<props> = ({ card }: props) => {
-  const { id, clubName, tags, banner, icon } = card;
+  const { clubName, tags, banner, icon } = card;
   return (
     <CardFrame>
       <Banner banner={banner}>
@@ -15,14 +15,20 @@ const Card: NextPage<props> = ({ card }: props) => {
           <Tag key={tag}>{`#${tag}`}</Tag>
         ))}
       </Banner>
+      <CardInfo>
+        <ClubIcon icon={icon} />
+        <ClubName>{clubName}</ClubName>
+        <SeeMore>SEE MORE +</SeeMore>
+      </CardInfo>
     </CardFrame>
   );
 };
 
 const CardFrame = styled.div`
   width: 270px;
-  height: 390px;
+  height: 400px;
   border-radius: 15px;
+  margin: 0 1px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 `;
 
@@ -52,6 +58,42 @@ const Tag = styled.p`
   width: fit-content;
   height: fit-content;
   border-radius: 16px;
+`;
+
+const CardInfo = styled.div`
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const ClubIcon = styled.div`
+  background-image: url(${({ icon }: { icon: string }) => icon});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 90px;
+  height: 90px;
+  border: white 1px solid;
+  border-radius: 50%;
+  margin-top: -45px;
+`;
+
+const ClubName = styled.p`
+  color: #0a2d5e;
+  margin: 0;
+  font-size: 23px;
+`;
+
+const SeeMore = styled.button`
+  color: white;
+  background-color: #b2b2b2;
+  border: none;
+  font-size: 16px;
+  padding: 8px 30px;
+  border-radius: 20px;
+  margin-top: 10px;
 `;
 
 export default Card;
