@@ -6,4 +6,5 @@ export interface sliderSetting {
   autoplaySpeed: number;
   slidesToShow: number;
   slidesToScroll: number;
+  arrows: boolean;
 }

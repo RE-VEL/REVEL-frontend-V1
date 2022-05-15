@@ -11,9 +11,7 @@ const AboutClub: NextPage = () => {
     autoplaySpeed: 3000,
     slidesToShow: 3,
     slidesToScroll: 1,
-
-    // centerMode: true,
-    // centerPadding: "200px",
+    arrows: false,
   };
 
   const cards = [
