@@ -37,6 +37,8 @@ const Back = styled.div`
   height: 100vh;
   top: 0;
   left: 0;
+
+  overflow: hidden;
 `;
 
 export default BackCircle;
