@@ -2,16 +2,16 @@ import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { sliderSetting } from '../../interface/sliderSetting';
-import { card } from '../../interface/card';
 import BackCircle from './BackCircle';
 import Carousel from './Carousel';
+import CategoryNavigator from './CategoryNavigator';
 
 const AboutClubView: NextPage = () => {
   return (
     <AboutClubSection>
       <BackCircle />
       <Carousel />
+      <CategoryNavigator />
     </AboutClubSection>
   );
 };
