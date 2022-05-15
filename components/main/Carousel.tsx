@@ -5,11 +5,59 @@ import { card } from '../../interface/card';
 import { sliderSetting } from '../../interface/sliderSetting';
 import Card from '../card/card';
 
-interface props {
-  settings: sliderSetting;
-  cards: card[];
-}
-const Carousel: NextPage<props> = ({ settings, cards }: props) => {
+const settings: sliderSetting = {
+  dots: true,
+  infinite: true,
+  speed: 1000,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  arrows: false,
+};
+
+const cards = [
+  {
+    id: 1,
+    clubName: 'Reverie',
+    tags: [
+      '전공동아리운영위원회전공동아리운영위원회전공동아리운영위원회전공동아리운영위원회',
+      '자율동아리',
+    ],
+    banner: '/img/banner.png',
+    icon: '/img/icon.png',
+  },
+  {
+    id: 2,
+    clubName: 'Reverie',
+    tags: ['전공동아리운영위원회', '자율동아리'],
+    banner: '/img/banner.png',
+    icon: '/img/icon.png',
+  },
+  {
+    id: 2,
+    clubName: 'Reverie',
+    tags: ['전공동아리운영위원회', '자율동아리'],
+    banner: '/img/banner.png',
+    icon: '/img/icon.png',
+  },
+  {
+    id: 2,
+    clubName: 'Reverie',
+    tags: ['전공동아리운영위원회', '자율동아리'],
+    banner: '/img/banner.png',
+    icon: '/img/icon.png',
+  },
+  {
+    id: 2,
+    clubName: 'Reverie',
+    tags: ['전공동아리운영위원회', '자율동아리'],
+    banner: '/img/banner.png',
+    icon: '/img/icon.png',
+  },
+];
+
+const Carousel: NextPage = () => {
   return (
     <>
       <TitleContainer>

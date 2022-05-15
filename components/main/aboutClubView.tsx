@@ -7,16 +7,11 @@ import { card } from '../../interface/card';
 import BackCircle from './BackCircle';
 import Carousel from './Carousel';
 
-interface props {
-  settings: sliderSetting;
-  cards: card[];
-}
-
-const AboutClubView: NextPage<props> = ({ settings, cards }: props) => {
+const AboutClubView: NextPage = () => {
   return (
     <AboutClubSection>
       <BackCircle />
-      <Carousel settings={settings} cards={cards} />
+      <Carousel />
     </AboutClubSection>
   );
 };
