@@ -29,6 +29,7 @@ const CardFrame = styled.div`
   height: 400px;
   border-radius: 15px;
   margin: 0 3px;
+  background-color: white;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 `;
 
@@ -94,6 +95,8 @@ const SeeMore = styled.button`
   padding: 8px 30px;
   border-radius: 20px;
   margin-top: 10px;
+
+  cursor: pointer;
 `;
 
 export default Card;
