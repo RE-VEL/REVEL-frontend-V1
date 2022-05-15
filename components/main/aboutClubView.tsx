@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { sliderSetting } from '../../interface/sliderSetting';
 import { card } from '../../interface/card';
 import Card from '../card/card';
+import BackCircle from './BackCircle';
 
 interface props {
   settings: sliderSetting;
@@ -14,7 +15,8 @@ interface props {
 
 const AboutClubView: NextPage<props> = ({ settings, cards }: props) => {
   return (
-    <div>
+    <AboutClubSection>
+      <BackCircle />
       <TitleContainer>
         <SectionTitle>
           <p>ABOUT</p>
@@ -34,15 +36,25 @@ const AboutClubView: NextPage<props> = ({ settings, cards }: props) => {
           </div>
         ))}
       </StyledSlider>
-    </div>
+    </AboutClubSection>
   );
 };
+
+const AboutClubSection = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+`;
 
 const TitleContainer = styled.div`
   display: flex;
   gap: 40px;
   align-items: center;
   margin-left: 150px;
+  z-index: 3;
 `;
 
 const SectionTitle = styled.div`
@@ -62,7 +74,7 @@ const SectionMessage = styled.div`
 `;
 
 const StyledSlider = styled(Slider)`
-  .slick-slide div {
+  /* .slick-slide div {
     outline: none; // 슬라이드 클릭시 파란선을 제거하기 위해서 작성
   }
   .slick-dots li {
@@ -73,9 +85,10 @@ const StyledSlider = styled(Slider)`
   .slick-dots li.slick-active span {
     filter: grayscale(0);
     transform: scale(1.3);
-  }
+  } */
 
   width: 1000px;
+  margin-left: 80px;
 `;
 
 export default AboutClubView;
