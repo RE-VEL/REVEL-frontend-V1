@@ -89,6 +89,7 @@ const TitleContainer = styled.div`
   align-items: center;
   margin-left: 150px;
   z-index: 3;
+  margin-bottom: 50px;
 `;
 
 const SectionTitle = styled.div`
