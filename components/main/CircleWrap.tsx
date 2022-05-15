@@ -29,7 +29,9 @@ const setLocation = ({ top, left, right, opcity }: locationProps) => {
   return css`
     opacity: ${opcity};
     top: ${top}%;
-    ${left === null ? `right:${right}%` : `left:${left}%`}
+    ${left === null ? `right:${right}%` : `left:${left}%`};
+
+    transform: rotate(${Math.random() * 360}deg);
   `;
 };
 
