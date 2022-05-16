@@ -21,6 +21,8 @@ const Navigator = styled.aside`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  overflow-x: hidden;
 `;
 
 export default CategoryNavigator;

@@ -6,7 +6,7 @@ import { sliderSetting } from '../../interface/sliderSetting';
 import Card from '../card/card';
 
 const settings: sliderSetting = {
-  dots: true,
+  dots: false,
   infinite: true,
   speed: 1000,
   autoplay: true,
