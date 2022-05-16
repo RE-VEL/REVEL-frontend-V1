@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import Slider from 'react-slick';
-import { card } from '../../interface/card';
-import { sliderSetting } from '../../interface/sliderSetting';
-import Card from '../card/card';
+import { card } from '../../../interface/card';
+import { sliderSetting } from '../../../interface/sliderSetting';
+import Card from '../../card/card';
 
 const settings: sliderSetting = {
   dots: false,
