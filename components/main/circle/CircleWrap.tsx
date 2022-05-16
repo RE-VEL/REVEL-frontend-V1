@@ -1,13 +1,17 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import { useState } from 'react';
 
 interface locationProps {
   top: number;
   left: number | null;
   right: number | null;
   opcity: number;
+  size: number;
+}
+interface circleType {
+  size: number;
+  color: string;
 }
 
 const CircleWrap: NextPage<locationProps & { color: string }> = ({
@@ -16,28 +20,54 @@ const CircleWrap: NextPage<locationProps & { color: string }> = ({
   right,
   opcity,
   color,
+  size,
 }: locationProps & { color: string }) => {
   return (
-    <CircleWrapBox top={top} left={left} right={right} opcity={opcity}>
-      <CircleTop color={color} />
-      <CircleBottom color={color} />
+    <CircleWrapBox
+      size={size}
+      top={top}
+      left={left}
+      right={right}
+      opcity={opcity}
+    >
+      <CircleTop size={size} color={color} />
+      <CircleBottom size={size} color={color} />
     </CircleWrapBox>
   );
 };
 
-const setLocation = ({ top, left, right, opcity }: locationProps) => {
+const setLocation = ({ top, left, right, opcity, size }: locationProps) => {
   return css`
     opacity: ${opcity};
     top: ${top}%;
     ${left === null ? `right:${right}%` : `left:${left}%`};
 
-    transform: rotate(${Math.random() * 360}deg);
+    /* transform: rotate(${Math.random() * 360}deg); */
+
+    width: ${size}px;
+    height: ${size}px;
+  `;
+};
+
+const circleSize = ({ size, color }: circleType) => {
+  return css`
+    border: ${size / 2}px solid transparent;
+
+    border-top-color: ${color};
+    border-left-color: ${color};
+
+    width: ${size}px;
+    height: ${size}px;
+  `;
+};
+
+const setTop = ({ size, color }: circleType) => {
+  return css`
+    top: -${size / 2 + 1}px;
   `;
 };
 
 const CircleWrapBox = styled.div`
-  width: 400px;
-  height: 400px;
   position: absolute;
 
   ${setLocation};
@@ -50,6 +80,7 @@ const CircleWrapBox = styled.div`
       opacity: 1;
     }
   }
+
   & > div {
     animation: circle-opacity 1s 1 linear both;
   }
@@ -64,25 +95,21 @@ const CircleTop = styled.div`
       transform: rotate(45deg);
     }
   }
+  height: 50%;
 
   position: relative;
   overflow: hidden;
-  height: 50%;
 
   &:after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 400px;
-    height: 400px;
     box-sizing: border-box;
     border-radius: 50%;
 
-    border: 200px solid transparent;
-    border-top-color: ${({ color }: { color: string }) => color};
-    border-left-color: ${({ color }: { color: string }) => color};
     animation: spin-circle-top 0.5s 1 linear both;
+    ${circleSize};
   }
 `;
 
@@ -105,17 +132,14 @@ const CircleBottom = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    width: 400px;
-    height: 400px;
     box-sizing: border-box;
     border-radius: 50%;
-
-    border: 200px solid transparent;
 
     border-top-color: ${({ color }: { color: string }) => color};
     border-left-color: ${({ color }: { color: string }) => color};
 
-    top: -201px;
+    ${circleSize}
+    ${setTop}
 
     animation: spin-circle-bottom 0.5s 0.5s 1 linear both;
   }
