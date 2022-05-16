@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import CircleWrap from './CircleWrap';
+import CircleWrap from '../../circle/CircleWrap';
 
 const BackCircle: NextPage = () => {
   return (

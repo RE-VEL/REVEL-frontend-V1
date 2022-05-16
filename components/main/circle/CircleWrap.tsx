@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import { useState } from 'react';
 
 interface locationProps {
   top: number;
@@ -36,9 +35,10 @@ const setLocation = ({ top, left, right, opcity }: locationProps) => {
 };
 
 const CircleWrapBox = styled.div`
+  position: absolute;
+
   width: 400px;
   height: 400px;
-  position: absolute;
 
   ${setLocation};
 
@@ -50,6 +50,7 @@ const CircleWrapBox = styled.div`
       opacity: 1;
     }
   }
+
   & > div {
     animation: circle-opacity 1s 1 linear both;
   }
@@ -64,25 +65,27 @@ const CircleTop = styled.div`
       transform: rotate(45deg);
     }
   }
+  height: 50%;
 
   position: relative;
   overflow: hidden;
-  height: 50%;
 
   &:after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 400px;
-    height: 400px;
     box-sizing: border-box;
     border-radius: 50%;
 
+    animation: spin-circle-top 0.5s 1 linear both;
     border: 200px solid transparent;
+
     border-top-color: ${({ color }: { color: string }) => color};
     border-left-color: ${({ color }: { color: string }) => color};
-    animation: spin-circle-top 0.5s 1 linear both;
+
+    width: 400px;
+    height: 400px;
   }
 `;
 
@@ -105,16 +108,18 @@ const CircleBottom = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    width: 400px;
-    height: 400px;
     box-sizing: border-box;
     border-radius: 50%;
-
-    border: 200px solid transparent;
 
     border-top-color: ${({ color }: { color: string }) => color};
     border-left-color: ${({ color }: { color: string }) => color};
 
+    border: 200px solid transparent;
+    border-top-color: ${({ color }: { color: string }) => color};
+    border-left-color: ${({ color }: { color: string }) => color};
+
+    width: 400px;
+    height: 400px;
     top: -201px;
 
     animation: spin-circle-bottom 0.5s 0.5s 1 linear both;

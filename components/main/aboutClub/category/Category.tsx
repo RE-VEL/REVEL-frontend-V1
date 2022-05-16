@@ -30,6 +30,8 @@ const CategoryContainer = styled.div`
 
   background-color: #7ca4d6;
 
+  cursor: pointer;
+
   & > p {
     writing-mode: vertical-rl;
     text-orientation: upright;
@@ -38,7 +40,6 @@ const CategoryContainer = styled.div`
     font-size: 24px;
   }
   & > button {
-    cursor: pointer;
     margin: 0;
     padding: 0;
     background-color: transparent;
