@@ -7,11 +7,6 @@ interface locationProps {
   left: number | null;
   right: number | null;
   opcity: number;
-  size: number;
-}
-interface circleType {
-  size: number;
-  color: string;
 }
 
 const CircleWrap: NextPage<locationProps & { color: string }> = ({
@@ -20,55 +15,30 @@ const CircleWrap: NextPage<locationProps & { color: string }> = ({
   right,
   opcity,
   color,
-  size,
 }: locationProps & { color: string }) => {
   return (
-    <CircleWrapBox
-      size={size}
-      top={top}
-      left={left}
-      right={right}
-      opcity={opcity}
-    >
-      <CircleTop size={size} color={color} />
-      <CircleBottom size={size} color={color} />
+    <CircleWrapBox top={top} left={left} right={right} opcity={opcity}>
+      <CircleTop color={color} />
+      <CircleBottom color={color} />
     </CircleWrapBox>
   );
 };
 
-const setLocation = ({ top, left, right, opcity, size }: locationProps) => {
+const setLocation = ({ top, left, right, opcity }: locationProps) => {
   return css`
     opacity: ${opcity};
     top: ${top}%;
     ${left === null ? `right:${right}%` : `left:${left}%`};
 
-    /* transform: rotate(${Math.random() * 360}deg); */
-
-    width: ${size}px;
-    height: ${size}px;
-  `;
-};
-
-const circleSize = ({ size, color }: circleType) => {
-  return css`
-    border: ${size / 2}px solid transparent;
-
-    border-top-color: ${color};
-    border-left-color: ${color};
-
-    width: ${size}px;
-    height: ${size}px;
-  `;
-};
-
-const setTop = ({ size, color }: circleType) => {
-  return css`
-    top: -${size / 2 + 1}px;
+    transform: rotate(${Math.random() * 360}deg);
   `;
 };
 
 const CircleWrapBox = styled.div`
   position: absolute;
+
+  width: 400px;
+  height: 400px;
 
   ${setLocation};
 
@@ -109,7 +79,13 @@ const CircleTop = styled.div`
     border-radius: 50%;
 
     animation: spin-circle-top 0.5s 1 linear both;
-    ${circleSize};
+    border: 200px solid transparent;
+
+    border-top-color: ${({ color }: { color: string }) => color};
+    border-left-color: ${({ color }: { color: string }) => color};
+
+    width: 400px;
+    height: 400px;
   }
 `;
 
@@ -138,8 +114,13 @@ const CircleBottom = styled.div`
     border-top-color: ${({ color }: { color: string }) => color};
     border-left-color: ${({ color }: { color: string }) => color};
 
-    ${circleSize}
-    ${setTop}
+    border: 200px solid transparent;
+    border-top-color: ${({ color }: { color: string }) => color};
+    border-left-color: ${({ color }: { color: string }) => color};
+
+    width: 400px;
+    height: 400px;
+    top: -201px;
 
     animation: spin-circle-bottom 0.5s 0.5s 1 linear both;
   }
