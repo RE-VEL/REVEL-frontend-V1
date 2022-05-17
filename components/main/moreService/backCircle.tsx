@@ -1,9 +1,36 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-// import CircleWrap from '../circle/CircleWrap';
+import Circle from './circle';
 
 const BackCircle: NextPage = () => {
-  return <Back>{/* <CircleWrap top: */}</Back>;
+  return (
+    <Back>
+      <Circle
+        top={-40}
+        left={-15}
+        right={null}
+        color={'#E7F1FE'}
+        opcity={1}
+        size={900}
+      />
+      <Circle
+        top={30}
+        left={null}
+        right={-15}
+        color={'#E7F1FE'}
+        opcity={1}
+        size={900}
+      />
+      <Circle
+        top={58}
+        left={null}
+        right={5}
+        color={'#8DA3C2'}
+        opcity={0.2}
+        size={1000}
+      />
+    </Back>
+  );
 };
 
 const Back = styled.div`
