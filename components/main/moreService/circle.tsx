@@ -46,9 +46,19 @@ const setStyle = ({ top, left, right, opcity, color, size }: locationProps) => {
 };
 
 const CircleContainer = styled.div`
-  position: absolute;
+  @keyframes FadeIn {
+    from {
+      transform: scale(0);
+    }
 
-  ${setStyle}
+    to {
+      transform: scale(1);
+    }
+  }
+
+  position: absolute;
+  animation: FadeIn 0.6s ease-in-out;
+  ${setStyle};
 `;
 
 export default Circle;
