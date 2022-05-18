@@ -11,6 +11,7 @@ const MyProfile: NextPage = () => {
             <MyName>2301김순호</MyName>
           </Border>
         </MyInfo>
+        <CreateClubBtn>동아리 생성</CreateClubBtn>
       </InfoWraper>
       <div></div>
     </MyPage>
@@ -28,6 +29,7 @@ const MyPage = styled.main`
 const InfoWraper = styled.div`
   display: grid;
   align-items: flex-end;
+  position: relative;
 `;
 
 const MyInfo = styled.section`
@@ -57,6 +59,22 @@ const Border = styled.div`
   border-bottom: 2px solid black;
   padding: 0 150px 0 0px;
   margin-top: -25px;
+`;
+
+const CreateClubBtn = styled.button`
+  background-color: #f6f5f6;
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 4px #505050;
+
+  position: absolute;
+  bottom: 0;
+  right: -20px;
+  color: #002e63;
+  font-size: 14px;
 `;
 
 export default MyProfile;
