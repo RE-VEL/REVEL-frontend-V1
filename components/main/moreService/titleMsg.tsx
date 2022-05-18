@@ -19,9 +19,9 @@ const TitleContainer = styled.div`
   display: flex;
   gap: 40px;
   align-items: center;
-  margin-left: 150px;
+  margin-left: 15vw;
   z-index: 3;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 `;
 const SectionTitle = styled.div`
   p {
