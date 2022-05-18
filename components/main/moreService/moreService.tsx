@@ -1,11 +1,15 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import BackCircle from './backCircle';
+import ServiceSections from './serviceSections';
+import TitleMsg from './titleMsg';
 
 const MoreService: NextPage = () => {
   return (
     <MoreServiceSection>
       <BackCircle />
+      <TitleMsg />
+      <ServiceSections />
     </MoreServiceSection>
   );
 };
