@@ -37,6 +37,7 @@ const HedaerContaner = styled.header`
   align-items: center;
 
   border-bottom: grey 1px solid;
+  z-index: 10;
 
   position: fixed;
   top: 0;
