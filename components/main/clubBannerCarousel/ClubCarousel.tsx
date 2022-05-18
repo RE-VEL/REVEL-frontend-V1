@@ -43,14 +43,16 @@ const BannerCarouselSection = styled.section`
 const StyledSlider = styled(Slider)`
   width: 100%;
   height: 100%;
+  padding-top: 80px;
+
+  & div {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const Banner = styled.div`
-  width: 100vw;
-  padding-top: 80px;
-  height: 100vh;
   box-sizing: border-box;
-  /* background-color: red; */
   background-image: url(${({ src }: { src: string }) => src});
   background-position: center;
   background-repeat: no-repeat;
