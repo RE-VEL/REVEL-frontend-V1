@@ -37,12 +37,30 @@ const Notice = styled.div`
   background-repeat: no-repeat;
   border-radius: 30px;
   box-shadow: 0 0 5px black;
+  position: relative;
   cursor: pointer;
 
   & > p {
     color: white;
     font-size: 40px;
     margin: 40px 0 0 30px;
+  }
+
+  &:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.3s ease-in-out;
+    pointer-events: none;
+  }
+
+  &:hover:after {
+    opacity: 0;
   }
 `;
 
@@ -60,12 +78,30 @@ const CreateClub = styled.div`
   box-shadow: 0 0 5px black;
   align-items: center;
   display: flex;
+  position: relative;
   cursor: pointer;
 
   & > p {
     color: white;
     font-size: 40px;
     margin: 0 0 0 30px;
+  }
+
+  &:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.3s ease-in-out;
+    pointer-events: none;
+  }
+
+  &:hover:after {
+    opacity: 0;
   }
 `;
 
@@ -76,6 +112,7 @@ const ClubManegement = styled.div`
   background-repeat: no-repeat;
   border-radius: 30px;
   box-shadow: 0 0 5px black;
+  position: relative;
 
   justify-content: center;
   display: flex;
@@ -86,6 +123,23 @@ const ClubManegement = styled.div`
     color: white;
     font-size: 40px;
     margin: 0 0 0 30px;
+  }
+
+  &:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.3s ease-in-out;
+    pointer-events: none;
+  }
+
+  &:hover:after {
+    opacity: 0;
   }
 `;
 
