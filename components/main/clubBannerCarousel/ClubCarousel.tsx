@@ -38,13 +38,13 @@ const ClubBannerCarousel: NextPage = () => {
 const BannerCarouselSection = styled.section`
   width: 100vw;
   height: 100vh;
+
+  padding-top: 80px;
 `;
 
 const StyledSlider = styled(Slider)`
   width: 100%;
   height: 100%;
-  padding-top: 80px;
-
   & div {
     width: 100%;
     height: 100%;
@@ -52,7 +52,6 @@ const StyledSlider = styled(Slider)`
 `;
 
 const Banner = styled.div`
-  box-sizing: border-box;
   background-image: url(${({ src }: { src: string }) => src});
   background-position: center;
   background-repeat: no-repeat;
