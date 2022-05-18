@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
+import { useCallback, useRef } from 'react';
 import Slider from 'react-slick';
 import { sliderSetting } from '../../../interface/sliderSetting';
 
@@ -24,13 +25,25 @@ const testBanner = [
 ];
 
 const ClubBannerCarousel: NextPage = () => {
+  const slickRef = useRef<Slider>(null);
+
+  const prevEvent = useCallback(() => {
+    slickRef?.current?.slickPrev();
+  }, []);
+
+  const nextEvent = useCallback(() => {
+    slickRef?.current?.slickNext();
+  }, []);
+
   return (
     <BannerCarouselSection>
-      <StyledSlider {...settings}>
+      <StyledSlider ref={slickRef} {...settings}>
         {testBanner.map((bannerImg, i) => (
           <Banner key={i} src={bannerImg} />
         ))}
       </StyledSlider>
+      <NextBtn onClick={nextEvent}></NextBtn>
+      <PrevBtn onClick={prevEvent}></PrevBtn>
     </BannerCarouselSection>
   );
 };
@@ -38,6 +51,7 @@ const ClubBannerCarousel: NextPage = () => {
 const BannerCarouselSection = styled.section`
   width: 100vw;
   height: 100vh;
+  position: relative;
 
   padding-top: 80px;
 `;
@@ -57,4 +71,28 @@ const Banner = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
 `;
+
+const NextBtn = styled.button`
+  border: none;
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  background-color: transparent;
+  cursor: pointer;
+  width: 40px;
+  height: 50px;
+  padding: 0;
+
+  background-image: url('/img/nextBtn.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+`;
+
+const PrevBtn = styled(NextBtn)`
+  transform: rotate(180deg);
+  right: 0;
+  left: 30px;
+`;
+
 export default ClubBannerCarousel;
