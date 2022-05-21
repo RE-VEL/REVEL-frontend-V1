@@ -81,7 +81,7 @@ const Mentor = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  height: 65px;
+  max-height: 65px;
   padding-bottom: 5px;
   overflow-y: auto;
 `;

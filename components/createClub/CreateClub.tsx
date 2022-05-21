@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 import ClubRoom from './clubRoom';
 import CorporateMentor from './corporateMentor';
+import Information from './Information';
 import MemberList from './memberList';
 import Represen from './represen';
 
@@ -21,6 +22,7 @@ const CreateClub: NextPage = () => {
         <MemberList />
         <CorporateMentor />
         <ClubRoom />
+        <Information />
       </ClubDataForm>
       <DocsForm>
         <Textareas>
@@ -67,7 +69,7 @@ const ClubDataForm = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 50px;
+  gap: 30px;
 `;
 
 const ClubName = styled.input`
