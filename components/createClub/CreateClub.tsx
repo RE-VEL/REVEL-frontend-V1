@@ -23,17 +23,45 @@ const CreateClub: NextPage = () => {
         <ClubRoom />
       </ClubDataForm>
       <DocsForm>
-        <DocInputField
-          onChange={change}
-          value={content}
-          readOnly={false}
-          placeholder="동아리 활동목적을 구체적으로 적어주세요."
-        />
-        <DocInputField placeholder="동아리 예상 성과물을 작성해 주세요." />
+        <Textareas>
+          <DocInputField
+            onChange={change}
+            value={content}
+            readOnly={false}
+            placeholder="동아리 활동목적을 구체적으로 적어주세요."
+          />
+          <DocInputField placeholder="동아리 예상 성과물을 작성해 주세요." />
+        </Textareas>
+        <CreateClubBtn>생성요청</CreateClubBtn>
       </DocsForm>
     </CreateClubPage>
   );
 };
+
+const CreateClubBtn = styled.button`
+  width: 100px;
+  height: 40px;
+  background-color: #87a4c5;
+  align-self: flex-end;
+  margin-right: 3vw;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(0.98);
+  }
+`;
+
+const Textareas = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
 
 const ClubDataForm = styled.section`
   display: flex;
@@ -71,8 +99,8 @@ const DocsForm = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 50px;
   z-index: 101;
+  gap: 30px;
 `;
 
 const DocInputField = styled.textarea`
@@ -80,8 +108,8 @@ const DocInputField = styled.textarea`
   border: none;
   border-radius: 20px;
   box-shadow: 0px 15px 15px #40404040, 0px 0px 15px #40404020;
-  width: 90%;
-  height: 30%;
+  width: 30vw;
+  height: 30vh;
   padding: 20px 30px;
   font-size: 20px;
   z-index: 102;
