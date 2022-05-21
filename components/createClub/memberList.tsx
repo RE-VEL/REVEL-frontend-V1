@@ -1,23 +1,29 @@
 import styled from '@emotion/styled';
+import { useState } from 'react';
+
+interface memberType {
+  id: number;
+  name: string;
+}
 
 const MemberList = () => {
-  const members = [];
+  const [members, setMembers] = useState<memberType[]>([{ id: 0, name: '' }]);
+
+  const addMember = (): void => {
+    const id = members[members.length - 1].id + 1;
+    setMembers([...members, { id, name: '' }]);
+  };
+
   return (
     <InputForm>
       <FormLabel>
         구성원
-        <AddMember></AddMember>
+        <AddMember onClick={addMember} />
       </FormLabel>
       <Memebrs>
-        <FormInput placeholder="2502 홍길순" />
-
-        <FormInput placeholder="2502 홍길순" />
-        <FormInput placeholder="2502 홍길순" />
-        <FormInput placeholder="2502 홍길순" />
-        <FormInput placeholder="2502 홍길순" />
-        <FormInput placeholder="2502 홍길순" />
-        <FormInput placeholder="2502 홍길순" />
-        <FormInput placeholder="2502 홍길순" />
+        {members.map((member) => (
+          <FormInput key={member.id} placeholder="2502 홍길순" />
+        ))}
       </Memebrs>
     </InputForm>
   );
@@ -46,9 +52,10 @@ const AddMember = styled.button`
 const Memebrs = styled.div`
   display: flex;
   width: 45vw;
-  /* background-color: red; */
-  gap: 8px 20px;
+  height: 60px;
+  gap: 10px 20px;
   flex-wrap: wrap;
+  overflow-y: auto;
 `;
 
 const InputForm = styled.div`
@@ -69,6 +76,7 @@ const FormInput = styled.input`
   margin: 0;
   width: 10vw;
   text-align: center;
+  height: 20px;
   font-size: 16px;
   border: none;
   border-bottom: 1px gray solid;
