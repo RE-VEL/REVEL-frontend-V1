@@ -1,21 +1,28 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent, useState } from 'react';
+import MemberList from './memberList';
+import Represen from './represen';
 
 const CreateClub: NextPage = () => {
   const [content, setContent] = useState<string>('');
 
-  const change = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setContent(e.target.value);
+  const change = (e: any) => {
+    console.log('change');
   };
 
   return (
     <CreateClubPage>
-      <ClubDataForm></ClubDataForm>
+      <ClubDataForm>
+        <ClubName onChange={change} placeholder="동아리명" value="레베리" />
+        <Represen />
+        <MemberList />
+      </ClubDataForm>
       <DocsForm>
         <DocInputField
           onChange={change}
           value={content}
+          readOnly={false}
           placeholder="동아리 활동목적을 구체적으로 적어주세요."
         />
         <DocInputField placeholder="동아리 예상 성과물을 작성해 주세요." />
@@ -24,7 +31,25 @@ const CreateClub: NextPage = () => {
   );
 };
 
-const ClubDataForm = styled.section``;
+const ClubDataForm = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+`;
+
+const ClubName = styled.input`
+  background-color: none;
+  width: 25vw;
+  height: 70px;
+  border: none;
+  border-bottom: 2px solid black;
+  font-size: 50px;
+  text-align: center;
+  color: #5c7cfa;
+  outline: 0;
+  font-weight: 500;
+`;
 
 const CreateClubPage = styled.main`
   width: 100vw;
