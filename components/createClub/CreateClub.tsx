@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent, useState } from 'react';
+import ClubRoom from './clubRoom';
 import CorporateMentor from './corporateMentor';
 import MemberList from './memberList';
 import Represen from './represen';
@@ -19,6 +20,7 @@ const CreateClub: NextPage = () => {
         <Represen />
         <MemberList />
         <CorporateMentor />
+        <ClubRoom />
       </ClubDataForm>
       <DocsForm>
         <DocInputField
