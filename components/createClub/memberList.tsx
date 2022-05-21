@@ -52,8 +52,9 @@ const AddMember = styled.button`
 const Memebrs = styled.div`
   display: flex;
   width: 45vw;
-  height: 60px;
-  gap: 10px 20px;
+  max-height: 65px;
+  padding-bottom: 5px;
+  gap: 20px 20px;
   flex-wrap: wrap;
   overflow-y: auto;
 `;
