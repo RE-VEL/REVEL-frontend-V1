@@ -16,6 +16,7 @@ const Page = styled.main`
   width: 100vw;
   height: 100vh;
   padding-top: 80px;
+  display: flex;
 `;
 
 export default Chat;
