@@ -71,6 +71,7 @@ const SubmitBtn = styled.button`
   margin-top: 16px;
   align-self: flex-end;
   background-color: #f6f6f6;
+  color: #002e63;
 
   box-shadow: 0 0 5px #00000040;
   cursor: pointer;
