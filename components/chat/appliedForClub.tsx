@@ -16,14 +16,43 @@ const AppliedForClub: NextPage<Props> = ({
 }: Props) => {
   return (
     <ApplicantContainer>
-      <Name>{}</Name>
+      <Icon logo={logo} />
+      <MessageWrap>
+        <ClubName>{clubName}</ClubName>
+        <Message>{lastMessage}</Message>
+      </MessageWrap>
     </ApplicantContainer>
   );
 };
 
-const Name = styled.p`
+const MessageWrap = styled.div`
+  width: 100%;
+  padding-left: 90px;
+  margin-left: -90px;
+`;
+
+const ClubName = styled.p`
   margin: 0;
-  font-size: 20px;
+  font-size: 18px;
+`;
+
+const Message = styled.p`
+  margin: 0;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+
+  font-size: 18px;
+  color: grey;
+`;
+
+const Icon = styled.div`
+  height: 70px;
+  width: 70px;
+  background-image: url(${({ logo }: { logo: string }) => logo});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 const ApplicantContainer = styled.div`
@@ -35,8 +64,8 @@ const ApplicantContainer = styled.div`
   margin-top: -1px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
+  gap: 10px;
+  padding: 0 10px;
 `;
 
 export default AppliedForClub;

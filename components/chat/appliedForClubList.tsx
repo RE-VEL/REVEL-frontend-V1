@@ -7,7 +7,8 @@ const ClubList = [
     id: 0,
     logo: '/img/icon.png',
     clubName: 'REVERIE',
-    lastMessage: '순호킴님의 면접일자는 4월 13일 00시 00분 입니다',
+    lastMessage:
+      '순호킴님의 면접일자는 4월 13일 00시 00분 입니다순호킴님의 면접일자는 4월 13일 00시 00분 입니다',
   },
   {
     id: 1,
