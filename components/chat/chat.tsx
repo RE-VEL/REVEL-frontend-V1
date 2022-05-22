@@ -1,11 +1,13 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import AppliedForClubList from './appliedForClubList';
+import ChatSection from './chatSection';
 
 const Chat: NextPage = () => {
   return (
     <Page>
       <AppliedForClubList />
+      <ChatSection />
     </Page>
   );
 };
