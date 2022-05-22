@@ -3,7 +3,7 @@ import { NextPage } from 'next';
 import { useState } from 'react';
 import ClubRoom from './clubRoom';
 import CorporateMentor from './corporateMentor';
-import Information from './Information';
+import Information from './information';
 import MemberList from './memberList';
 import Represen from './represen';
 
