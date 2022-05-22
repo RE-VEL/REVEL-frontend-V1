@@ -102,7 +102,7 @@ const SubmitBtn = styled.button`
   width: 8vh;
   cursor: pointer;
   background-color: transparent;
-  background-image: url('/img/nextBtn.svg');
+  background-image: url('/img/chatSubmit.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
