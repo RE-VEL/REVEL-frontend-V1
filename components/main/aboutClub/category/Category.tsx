@@ -53,7 +53,7 @@ const CategoryContainer = styled.div`
     }
   }
 
-  &:nth-child(2) {
+  &:nth-of-type(2) {
     background-color: #bbd0e9;
 
     & > button > span,
