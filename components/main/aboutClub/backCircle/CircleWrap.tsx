@@ -37,6 +37,9 @@ const setLocation = ({ top, left, right, opcity }: locationProps) => {
 const CircleWrapBox = styled.div`
   position: absolute;
 
+  width: 400px;
+  height: 400px;
+
   ${setLocation};
 
   @keyframes circle-opacity {
@@ -47,6 +50,7 @@ const CircleWrapBox = styled.div`
       opacity: 1;
     }
   }
+
   & > div {
     animation: circle-opacity 1s 1 linear both;
   }
@@ -61,10 +65,10 @@ const CircleTop = styled.div`
       transform: rotate(45deg);
     }
   }
+  height: 50%;
 
   position: relative;
   overflow: hidden;
-  height: 50%;
 
   &:after {
     content: '';
@@ -75,6 +79,13 @@ const CircleTop = styled.div`
     border-radius: 50%;
 
     animation: spin-circle-top 0.5s 1 linear both;
+    border: 200px solid transparent;
+
+    border-top-color: ${({ color }: { color: string }) => color};
+    border-left-color: ${({ color }: { color: string }) => color};
+
+    width: 400px;
+    height: 400px;
   }
 `;
 
@@ -102,6 +113,14 @@ const CircleBottom = styled.div`
 
     border-top-color: ${({ color }: { color: string }) => color};
     border-left-color: ${({ color }: { color: string }) => color};
+
+    border: 200px solid transparent;
+    border-top-color: ${({ color }: { color: string }) => color};
+    border-left-color: ${({ color }: { color: string }) => color};
+
+    width: 400px;
+    height: 400px;
+    top: -201px;
 
     animation: spin-circle-bottom 0.5s 0.5s 1 linear both;
   }
