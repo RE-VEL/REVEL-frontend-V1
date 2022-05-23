@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import Message from './Message';
+import Message from './message';
 
 const chats = [
   {
