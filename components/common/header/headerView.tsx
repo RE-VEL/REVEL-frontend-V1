@@ -86,7 +86,7 @@ const Menu = styled.div`
   display: flex;
   cursor: pointer;
 
-  &:nth-child(3) {
+  &:nth-of-type(3) {
     margin-top: 30px;
   }
 
