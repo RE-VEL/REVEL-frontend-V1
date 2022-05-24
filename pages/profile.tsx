@@ -170,6 +170,7 @@ const MyPage = styled.main`
   height: 100vh;
   display: grid;
   padding: 5vh 5vw;
+  gap: 50px;
   grid-template-rows: repeat(2, 1fr);
 `;
 
