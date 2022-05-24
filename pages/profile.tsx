@@ -216,7 +216,7 @@ const CreateClubBtn = styled.button`
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0 0 4px #505050;
+  box-shadow: 0 2px 10px #50505080;
 
   position: absolute;
   bottom: 0;
