@@ -1,26 +1,15 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import Slider from 'react-slick';
-import { sliderSetting } from '../interface/sliderSetting';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { card } from '../interface/card';
-
-const settings: sliderSetting = {
-  dots: true,
-  infinite: true,
-  speed: 1000,
-  autoplay: true,
-  autoplaySpeed: 3000,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: false,
-};
+import Card from '../components/card/card';
+import { useState } from 'react';
 
 const cards = [
   {
     id: 1,
-    clubName: 'Reverie',
+    clubName: 'Reverie0',
     tags: [
       '전공동아리운영위원회전공동아리운영위원회전공동아리운영위원회전공동아리운영위원회',
       '자율동아리',
@@ -30,28 +19,56 @@ const cards = [
   },
   {
     id: 2,
-    clubName: 'Reverie',
+    clubName: 'Reverie1',
     tags: ['전공동아리운영위원회', '자율동아리'],
     banner: '/img/banner.png',
     icon: '/img/icon.png',
   },
   {
-    id: 2,
-    clubName: 'Reverie',
+    id: 3,
+    clubName: 'Reverie2',
     tags: ['전공동아리운영위원회', '자율동아리'],
     banner: '/img/banner.png',
     icon: '/img/icon.png',
   },
   {
-    id: 2,
-    clubName: 'Reverie',
+    id: 4,
+    clubName: 'Reverie3',
     tags: ['전공동아리운영위원회', '자율동아리'],
     banner: '/img/banner.png',
     icon: '/img/icon.png',
   },
   {
-    id: 2,
-    clubName: 'Reverie',
+    id: 5,
+    clubName: 'Reverie4',
+    tags: ['전공동아리운영위원회', '자율동아리'],
+    banner: '/img/banner.png',
+    icon: '/img/icon.png',
+  },
+  {
+    id: 6,
+    clubName: 'Reverie5',
+    tags: ['전공동아리운영위원회', '자율동아리'],
+    banner: '/img/banner.png',
+    icon: '/img/icon.png',
+  },
+  {
+    id: 7,
+    clubName: 'Reverie6',
+    tags: ['전공동아리운영위원회', '자율동아리'],
+    banner: '/img/banner.png',
+    icon: '/img/icon.png',
+  },
+  {
+    id: 8,
+    clubName: 'Reverie7',
+    tags: ['전공동아리운영위원회', '자율동아리'],
+    banner: '/img/banner.png',
+    icon: '/img/icon.png',
+  },
+  {
+    id: 9,
+    clubName: 'Reverie8',
     tags: ['전공동아리운영위원회', '자율동아리'],
     banner: '/img/banner.png',
     icon: '/img/icon.png',
@@ -59,6 +76,20 @@ const cards = [
 ];
 
 const MyProfile: NextPage = () => {
+  const [clubScroll, setClubScroll] = useState<number>(0);
+
+  const preClub = () => {
+    if (clubScroll) {
+      setClubScroll((pre) => pre - 1);
+    }
+  };
+
+  const nextClub = () => {
+    if (Math.floor(cards.length / 4) !== clubScroll) {
+      setClubScroll((pre) => pre + 1);
+    }
+  };
+
   return (
     <MyPage>
       <InfoWraper>
@@ -71,26 +102,25 @@ const MyProfile: NextPage = () => {
         <CreateClubBtn>동아리 생성</CreateClubBtn>
       </InfoWraper>
       <div>
-        <SliderSection {...settings}>
-          <MyClub>3</MyClub>
-          <MyClub>3</MyClub>
-          <MyClub>3</MyClub>
-          <MyClub>3</MyClub>
-        </SliderSection>
+        <MyClub>
+          {cards.slice(clubScroll * 4, clubScroll * 4 + 4).map((card: card) => (
+            <Card key={card.id} card={card}></Card>
+          ))}
+        </MyClub>
+        <button onClick={preClub}>pre</button>
+        <button onClick={nextClub}>next</button>
       </div>
     </MyPage>
   );
 };
 
-const SliderSection = styled(Slider)`
-  width: 100%;
-  height: 100%;
-  background-color: red;
-`;
-
 const MyClub = styled.div`
-  background-color: blue;
-  margin: 10px;
+  width: 1165px;
+  height: 410px;
+  display: flex;
+  gap: 20px;
+
+  overflow: hidden;
 `;
 
 const MyPage = styled.main`
