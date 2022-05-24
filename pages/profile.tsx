@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { card } from '../interface/card';
 import Card from '../components/card/card';
 import { useState } from 'react';
+import { css } from '@emotion/react';
 
 const cards = [
   {
@@ -76,17 +77,17 @@ const cards = [
 ];
 
 const MyProfile: NextPage = () => {
-  const [clubScroll, setClubScroll] = useState<number>(0);
+  const [scrollNum, setScrollNum] = useState<number>(0);
 
   const preClub = () => {
-    if (clubScroll) {
-      setClubScroll((pre) => pre - 1);
+    if (scrollNum) {
+      setScrollNum((pre) => pre - 1);
     }
   };
 
   const nextClub = () => {
-    if (Math.floor(cards.length / 4) !== clubScroll) {
-      setClubScroll((pre) => pre + 1);
+    if (Math.floor(cards.length / 4) !== scrollNum) {
+      setScrollNum((pre) => pre + 1);
     }
   };
 
@@ -103,22 +104,63 @@ const MyProfile: NextPage = () => {
       </InfoWraper>
       <div>
         <MyClub>
-          {cards.slice(clubScroll * 4, clubScroll * 4 + 4).map((card: card) => (
+          {cards.slice(scrollNum * 4, scrollNum * 4 + 4).map((card: card) => (
             <Card key={card.id} card={card}></Card>
           ))}
+          <PrevBtn onClick={preClub} scrollNum={!!scrollNum} />
+          <NextBtn
+            onClick={nextClub}
+            scrollNum={Math.floor(cards.length / 4) !== scrollNum}
+          />
         </MyClub>
-        <button onClick={preClub}>pre</button>
-        <button onClick={nextClub}>next</button>
       </div>
     </MyPage>
   );
 };
+
+const NextBtn = styled.button`
+  border: none;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  background-color: transparent;
+  cursor: pointer;
+  width: 40px;
+  height: 50px;
+  padding: 0;
+  display: block;
+  transform: translate(0, -50%);
+
+  background-image: url('/img/nextBtn.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  ${({ scrollNum }: { scrollNum: boolean }) =>
+    scrollNum ||
+    css`
+      display: none;
+    `}
+`;
+
+const PrevBtn = styled(NextBtn)`
+  transform: translate(0, -50%) rotate(180deg);
+  right: 0;
+  left: 10px;
+
+  ${({ scrollNum }: { scrollNum: boolean }) =>
+    scrollNum ||
+    css`
+      display: none;
+    `}
+`;
 
 const MyClub = styled.div`
   width: 1165px;
   height: 410px;
   display: flex;
   gap: 20px;
+  position: relative;
 
   overflow: hidden;
 `;
