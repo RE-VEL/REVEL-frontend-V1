@@ -32,18 +32,8 @@ const Join = () => {
           </div>
           <div className="phone">
             <h3>이름</h3>
-            <GetInfo
-              id="firstName"
-              type="text"
-              placeholder="성"
-              //   onInput={changeName1()}
-            />
-            <GetInfo
-              id="lastName"
-              type="text"
-              placeholder="이름"
-              //   onInput={changeName1()}
-            />
+            <GetInfo id="firstName" type="text" placeholder="성" />
+            <GetInfo id="lastName" type="text" placeholder="이름" />
           </div>
           <div className="classnum">
             <h3>학번</h3>
@@ -55,9 +45,9 @@ const Join = () => {
             <div id="classnumError" className="error"></div>
           </div>
         </TopInput>
-        <Joined className="signUp">
-          <button disabled>가입하기</button>
-        </Joined>
+        <div className="signUp">
+          <Joined disabled>가입하기</Joined>
+        </div>
       </Whole>
     </Outer>
   );
@@ -68,8 +58,7 @@ const Outer = styled.div`
   font-size: 11px;
   width: 45%;
   display: flex;
-  text-align: center;
-  justify-content: center;
+  vertical-align: middle;
   margin: 30%;
 `;
 const TopInput = styled.div`
@@ -77,16 +66,15 @@ const TopInput = styled.div`
 `;
 const GetInfo = styled.input`
   padding: 12px 20px;
-  margin: 5px;
   display: inline-block;
-  border: 1px #ccc;
+  border: 1px solid #939393;
   outline: none;
   box-sizing: border-box;
   border-radius: 10px;
   font-size: 17px;
-  height: 70px;
+  height: 55px;
   width: 100%;
-  max-width: 626px;
+  max-width: 700px;
 `;
 const Whole = styled.div`
   width: 100%;
@@ -94,14 +82,18 @@ const Whole = styled.div`
   font-weight: 700;
   font-size: 15px;
 `;
-const Joined = styled.label`
-  color: #433e50;
+const Joined = styled.button`
+  background-color: #082d5f;
+  color: white;
+  margin: 10px;
   border: none;
-  margin: none;
+  display: inline-block;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
+  border-radius: 10px;
+  font-size: 32px;
+  height: 60px;
   width: 100%;
+  max-width: 700px;
 `;
 
 /*function changeName1():
