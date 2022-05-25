@@ -111,7 +111,7 @@ const SubmitBtn = styled.button`
 
 const ChatContainer = styled.section`
   height: 100%;
-  width: 70vw;
+  width: 100%;
 `;
 
 export default ChatSection;

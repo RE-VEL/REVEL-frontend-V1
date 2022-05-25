@@ -7,10 +7,17 @@ const Chat: NextPage = () => {
   return (
     <Page>
       <AppliedForClubList />
-      <ChatSection />
+      <ChatWrap>
+        <ChatSection />
+      </ChatWrap>
     </Page>
   );
 };
+
+const ChatWrap = styled.div`
+  height: 100%;
+  width: 70vw;
+`;
 
 const Page = styled.main`
   width: 100vw;
