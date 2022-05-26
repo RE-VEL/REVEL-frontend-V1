@@ -4,38 +4,29 @@ const Join = () => {
   return (
     <Outer>
       <Whole>
-        <ClassNum>이메일</ClassNum>
+        <Intro>이메일</Intro>
         <GetInfo id="email" type="text" placeholder="이메일을 입력해 주세요." />
         <div>
-          <ClassNum>인증번호 입력</ClassNum>
-          <GetInfo
-            id="code"
-            type="text"
-            placeholder="인증번호를 입력해 주세요."
-          />
+          <Intro>인증번호 입력</Intro>
+          <GetInfo type="number" placeholder="인증번호를 입력해 주세요." />
         </div>
         <div className="password">
-          <ClassNum>비밀번호</ClassNum>
-          <GetInfo
-            id="password"
-            type="password"
-            placeholder="비밀번호를 입력해 주세요."
-          />
-          <div id="passwordError" className="error"></div>
+          <Intro>비밀번호</Intro>
+          <GetInfo type="password" placeholder="비밀번호를 입력해 주세요." />
         </div>
         <div className="phone">
-          <ClassNum>이름</ClassNum>
+          <Intro>이름</Intro>
           <GetFirst id="firstName" type="text" placeholder="성" />
           <GetRight id="lastName" type="text" placeholder="이름" />
         </div>
         <div className="classnum">
-          <ClassNum>학번</ClassNum>
+          <Intro>학번</Intro>
           <GetInfo
             id="classnum"
-            type="text"
+            type="number"
+            maxlength="4"
             placeholder="학번을 입력해 주세요."
           />
-          <div id="classnumError" className="error"></div>
         </div>
         <div className="signUp">
           <Joined disabled>가입하기</Joined>
@@ -90,8 +81,8 @@ const GetRight = styled.input`
   width: 46%;
   max-width: 240px;
 `;
-const ClassNum = styled.h4`
-  margin-left: 100px;
+const Intro = styled.h4`
+  margin-left: 15%;
   margin-top: 1%;
   margin-bottom: 1%;
   display: flex;
