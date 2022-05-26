@@ -23,7 +23,7 @@ const Page = styled.main`
 
 const ChatWrap = styled.div`
   height: 100%;
-  width: 60vw;
+  width: 80vw;
 `;
 
 export default ChatPage;

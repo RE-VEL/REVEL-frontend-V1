@@ -76,6 +76,13 @@ const ChattingWrap = styled.div`
   overflow-y: auto;
   padding: 0 1.5vw;
   padding-bottom: 20px;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
 `;
 
 const ChatInputWrap = styled.div`
