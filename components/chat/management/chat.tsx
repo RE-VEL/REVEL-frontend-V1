@@ -1,12 +1,52 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
+import { applicantType } from '../../../interface/applicant';
 import ChatSection from '../chatSection';
 import AppliedForClubList from './appliedForClubList';
+
+const clubList: applicantType[] = [
+  {
+    id: 0,
+    name: '2301 김순호',
+    interviewDay: {
+      year: 2022,
+      month: 5,
+      date: 30,
+      hours: 20,
+      minute: 30,
+    },
+    interviewCompleted: true,
+  },
+  {
+    id: 1,
+    name: '2501 순호킴',
+    interviewDay: {
+      year: 2022,
+      month: 5,
+      date: 30,
+      hours: 20,
+      minute: 30,
+    },
+    interviewCompleted: false,
+  },
+  {
+    id: 2,
+    name: '2502 호순김',
+    interviewDay: {
+      year: 2022,
+      month: 5,
+      date: 30,
+      hours: 20,
+      minute: 30,
+    },
+    interviewCompleted: true,
+  },
+];
 
 const ChatPage: NextPage = () => {
   return (
     <Page>
-      <AppliedForClubList />
+      <AppliedForClubList clubList={clubList} />
       <ChatWrap>
         <ChatSection />
       </ChatWrap>

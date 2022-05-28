@@ -1,25 +1,13 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
+import { applicantType } from '../../../interface/applicant';
 
-interface props {
-  id: number;
-  name: string;
-  interviewDay: {
-    year: number | null;
-    month: number | null;
-    date: number | null;
-    hours: number | null;
-    minute: number | null;
-  };
-  interviewCompleted: boolean;
-}
-
-const AppliedForClub: NextPage<props> = ({
+const AppliedForClub: NextPage<applicantType> = ({
   id,
   name,
   interviewDay,
   interviewCompleted,
-}: props) => {
+}: applicantType) => {
   const Btn: NextPage = () => {
     return interviewCompleted ? (
       <BtnWrap>
