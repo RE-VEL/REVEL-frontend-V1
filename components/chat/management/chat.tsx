@@ -3,6 +3,7 @@ import { NextPage } from 'next';
 import { applicantType } from '../../../interface/applicant';
 import ChatSection from '../chatSection';
 import AppliedForClubList from './appliedForClubList';
+import DateDesignation from './dateDesignation';
 
 const clubList: applicantType[] = [
   {
@@ -47,6 +48,7 @@ const ChatPage: NextPage = () => {
   return (
     <Page>
       <AppliedForClubList clubList={clubList} />
+      <DateDesignation />
       <ChatWrap>
         <ChatSection />
       </ChatWrap>
@@ -63,7 +65,7 @@ const Page = styled.main`
 
 const ChatWrap = styled.div`
   height: 100%;
-  width: 80vw;
+  width: 55vw;
 `;
 
 export default ChatPage;
