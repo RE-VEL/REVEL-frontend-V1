@@ -7,7 +7,11 @@ interface props {
   onMouseLeave: () => void;
 }
 
-const HeaderView = ({ profileHover, onMouseEnter, onMouseLeave }: props) => {
+const HeaderView: NextPage<props> = ({
+  profileHover,
+  onMouseEnter,
+  onMouseLeave,
+}: props) => {
   return (
     <HedaerContaner>
       <Nav>
@@ -31,7 +35,7 @@ const HeaderView = ({ profileHover, onMouseEnter, onMouseLeave }: props) => {
 const HedaerContaner = styled.header`
   width: 100vw;
   height: 80px;
-  background-color: white;
+  background-color: #ffffffa0;
   display: flex;
   justify-content: flex-end;
   align-items: center;
