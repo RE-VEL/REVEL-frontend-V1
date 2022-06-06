@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
-import CreateClub from '../components/createClub/createClub';
-// import CreateClub from '../components/createClub/createClub';
+import CreateClub from '../components/createClub/CreateClub';
 
 const CreateClubPage: NextPage = () => {
   return (
