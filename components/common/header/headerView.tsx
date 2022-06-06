@@ -14,6 +14,7 @@ const HeaderView: NextPage<props> = ({
 }: props) => {
   return (
     <HedaerContaner>
+      <Logo />
       <Nav>
         <NavItem>Club</NavItem>
         <NavItem>Notion</NavItem>
@@ -31,6 +32,21 @@ const HeaderView: NextPage<props> = ({
     </HedaerContaner>
   );
 };
+
+const Logo = styled.div`
+  background-image: url('/img/logo.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 60px;
+  width: 150px;
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+`;
 
 const HedaerContaner = styled.header`
   width: 100vw;
