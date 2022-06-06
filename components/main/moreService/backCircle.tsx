@@ -1,10 +1,32 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
+import { useEffect, useState } from 'react';
 import Circle from './circle';
 
 const BackCircle: NextPage = () => {
+  const [isShow, setIsShow] = useState<boolean>(false);
+  const [isEnter, setIsEnter] = useState<boolean>(false);
+
+  const handleScroll = () => {
+    if (!isEnter && window.innerHeight * 1.2 < window.scrollY) {
+      setIsShow(true);
+      setIsEnter(true);
+    } else if (window.innerHeight * 1 >= window.scrollY) {
+      setIsShow(false);
+      setIsEnter(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <Back>
+    <Back isShow={isShow}>
       <Circle
         top={-40}
         left={-15}
@@ -33,6 +55,12 @@ const BackCircle: NextPage = () => {
   );
 };
 
+const show = ({ isShow }: { isShow: boolean }) => {
+  return css`
+    ${isShow ? 'display:block' : 'display:none'}
+  `;
+};
+
 const Back = styled.div`
   position: absolute;
   width: 100vw;
@@ -41,6 +69,7 @@ const Back = styled.div`
   left: 0;
 
   overflow: hidden;
+  ${show}
 `;
 
 export default BackCircle;
