@@ -6,9 +6,16 @@ import Circle from './circle';
 
 const BackCircle: NextPage = () => {
   const [isShow, setIsShow] = useState<boolean>(false);
+  const [isEnter, setIsEnter] = useState<boolean>(false);
 
   const handleScroll = () => {
-    setIsShow(window.innerHeight * 1.2 < window.scrollY);
+    if (!isEnter && window.innerHeight * 1.2 < window.scrollY) {
+      setIsShow(true);
+      setIsEnter(true);
+    } else if (window.innerHeight * 1 >= window.scrollY) {
+      setIsShow(false);
+      setIsEnter(false);
+    }
   };
 
   useEffect(() => {
