@@ -1,7 +1,6 @@
-import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { useEffect, useRef } from 'react';
-import MargueeItem from './margueeItem';
+import MargueeView from './margueeView';
 
 const Marguee: NextPage = () => {
   const margueeRef = useRef<HTMLDivElement>(null);
@@ -30,27 +29,12 @@ const Marguee: NextPage = () => {
   useEffect(() => {
     animate();
   }, []);
-  return (
-    <MargueeSection>
-      <MargueeContainer ref={margueeRef}>
-        <MargueeItem />
-        <MargueeItem />
-      </MargueeContainer>
-    </MargueeSection>
-  );
+
+  const props = {
+    margueeRef,
+  };
+
+  return <MargueeView {...props} />;
 };
-
-const MargueeSection = styled.section`
-  width: 100vw;
-  height: 70px;
-  background-color: #e7f1fe;
-  overflow-x: hidden;
-`;
-
-const MargueeContainer = styled.div`
-  display: flex;
-  height: 100%;
-  align-items: center;
-`;
 
 export default Marguee;
