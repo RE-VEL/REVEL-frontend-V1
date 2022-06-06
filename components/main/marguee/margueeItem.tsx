@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
 import { NextPage } from 'next';
+import MargueeItemView from './margueeItemView';
 
 const items = [
   '인석썜 어디계신지 보신분? 진짜 아무도 몰라요??',
@@ -18,32 +18,10 @@ const items = [
 ];
 
 const MargueeItem: NextPage = () => {
-  return (
-    <ItemsContainer>
-      {items.map((item, i) => (
-        <Item key={i}>{item}</Item>
-      ))}
-    </ItemsContainer>
-  );
+  const props = {
+    items,
+  };
+  return <MargueeItemView {...props} />;
 };
-
-const Item = styled.div`
-  background-color: #7ca4d6;
-  color: white;
-  height: 70%;
-  white-space: nowrap;
-  margin-left: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px 20px;
-  border-radius: 50px;
-`;
-
-const ItemsContainer = styled.div`
-  display: flex;
-  align-items: center;
-  height: 100%;
-`;
 
 export default MargueeItem;
