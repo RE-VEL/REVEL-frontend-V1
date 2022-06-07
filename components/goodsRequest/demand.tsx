@@ -59,6 +59,12 @@ const FormInput = styled.input`
   border-bottom: 1px gray solid;
   padding-bottom: 5px;
   outline: none;
+
+  &[type='number']::-webkit-outer-spin-button,
+  &[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
 
 const UrlInput = styled(FormInput)`
