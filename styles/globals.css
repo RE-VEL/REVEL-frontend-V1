@@ -4,6 +4,13 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  height: fit-content;
+  scrollbar-width: none; /* Firefox */
+}
+:is(html, body)::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
 }
 
 a {

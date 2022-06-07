@@ -30,14 +30,13 @@ const CategoryContainer = styled.div`
 
   background-color: #7ca4d6;
 
-  cursor: pointer;
-
   & > p {
     writing-mode: vertical-rl;
     text-orientation: upright;
     margin: 0;
     color: white;
     font-size: 24px;
+    cursor: default;
   }
   & > button {
     margin: 0;
@@ -46,6 +45,7 @@ const CategoryContainer = styled.div`
     border: none;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 
     & > span {
       color: white;

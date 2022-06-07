@@ -1,23 +1,16 @@
 import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
-import BackCircleView from './BackCircleView';
+import BackCircleView from './backCircleView';
 
 const BackCircle: NextPage = () => {
   const [isShow, setIsShow] = useState<boolean>(false);
   const [isEnter, setIsEnter] = useState<boolean>(false);
 
   const handleScroll = () => {
-    if (
-      !isEnter &&
-      window.innerHeight * 0.2 < window.scrollY &&
-      window.innerHeight * 1.8 > window.scrollY
-    ) {
+    if (!isEnter && window.innerHeight * 1.2 < window.scrollY) {
       setIsShow(true);
       setIsEnter(true);
-    } else if (
-      0 === window.scrollY ||
-      window.innerHeight * 2 <= window.scrollY
-    ) {
+    } else if (window.innerHeight * 1 >= window.scrollY) {
       setIsShow(false);
       setIsEnter(false);
     }
