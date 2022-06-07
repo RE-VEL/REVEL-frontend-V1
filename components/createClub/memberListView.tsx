@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { memberType } from '../../interface/clubMember';
-import { FormInput, FormLabel, InputForm } from './inputFormStyle';
+import { FormInput, InputForm, SectionLabel } from './inputFormStyle';
 
 interface props {
   members: memberType[];
@@ -9,17 +9,17 @@ interface props {
 
 const MemberListView = ({ members, addMember }: props) => {
   return (
-    <Form>
-      <FormLabel>
+    <InputForm>
+      <SectionLabel>
         구성원
         <AddMember onClick={addMember} />
-      </FormLabel>
+      </SectionLabel>
       <Memebrs>
         {members.map((member: memberType) => (
           <FormInput key={member.id} placeholder="2502 홍길순" />
         ))}
       </Memebrs>
-    </Form>
+    </InputForm>
   );
 };
 
@@ -51,10 +51,6 @@ const Memebrs = styled.div`
   gap: 20px 20px;
   flex-wrap: wrap;
   overflow-y: auto;
-`;
-
-const Form = styled(InputForm)`
-  flex-direction: column;
 `;
 
 export default MemberListView;

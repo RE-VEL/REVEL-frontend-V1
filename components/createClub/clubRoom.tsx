@@ -5,18 +5,18 @@ import { FormInput, FormLabel, InputForm } from './inputFormStyle';
 const ClubRoom: NextPage = () => {
   return (
     <Container>
-      <Form>
+      <InputForm>
         <FormLabel>메모</FormLabel>
         <MemoInput placeholder="특이사항이 있다면 적어주세요." />
-      </Form>
-      <Form>
+      </InputForm>
+      <InputForm>
         <FormLabel>희망 세미나실 1</FormLabel>
         <FormInput placeholder="세미나실 2-1" />
-      </Form>
-      <Form>
+      </InputForm>
+      <InputForm>
         <FormLabel>희망 세미나실 2</FormLabel>
         <FormInput placeholder="세미나실 2-2" />
-      </Form>
+      </InputForm>
     </Container>
   );
 };
@@ -24,10 +24,6 @@ const ClubRoom: NextPage = () => {
 const Container = styled.section`
   display: flex;
   gap: 20px;
-`;
-
-const Form = styled(InputForm)`
-  flex-direction: column;
 `;
 
 const MemoInput = styled(FormInput)`

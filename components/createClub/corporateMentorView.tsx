@@ -1,7 +1,12 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { mentorType } from '../../interface/corporateMentor';
-import { FormInput, FormLabel, InputForm } from './inputFormStyle';
+import {
+  FormInput,
+  FormLabel,
+  InputForm,
+  SectionLabel,
+} from './inputFormStyle';
 
 interface props {
   mentors: mentorType[];
@@ -19,19 +24,19 @@ const CorporateMentorView: NextPage<props> = ({
         <AddMember onClick={addMentor} />
       </SectionLabel>
       <Members>
-        <InputForm>
+        <Form>
           <FormLabel>이름</FormLabel>
           <FormLabel>회사 및 소속</FormLabel>
           <EmailFormLabel>연락처</EmailFormLabel>
-        </InputForm>
+        </Form>
         <Mentor>
           {mentors.map((mentor: mentorType) => (
-            <InputForm key={mentor.id}>
+            <Form key={mentor.id}>
               <FormInput placeholder="고길동" />
               <FormInput placeholder="대전적십자회" />
               <EmailInput placeholder="daemahs@dsm.hs.kr" />
               <FormInput placeholder="042-8282-8282" />
-            </InputForm>
+            </Form>
           ))}
         </Mentor>
       </Members>
@@ -74,20 +79,16 @@ const Mentor = styled.div`
   overflow-y: auto;
 `;
 
-const SectionLabel = styled.p`
-  width: 10vw;
-  text-align: center;
-  font-size: 16px;
-  position: relative;
-  margin: 0 0 10px 0;
-`;
-
 const EmailInput = styled(FormInput)`
   width: 15vw;
 `;
 
 const EmailFormLabel = styled(FormLabel)`
   width: 15vw;
+`;
+
+const Form = styled(InputForm)`
+  flex-direction: row;
 `;
 
 export default CorporateMentorView;
