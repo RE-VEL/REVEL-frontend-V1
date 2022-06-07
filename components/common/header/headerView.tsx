@@ -7,9 +7,14 @@ interface props {
   onMouseLeave: () => void;
 }
 
-const HeaderView = ({ profileHover, onMouseEnter, onMouseLeave }: props) => {
+const HeaderView: NextPage<props> = ({
+  profileHover,
+  onMouseEnter,
+  onMouseLeave,
+}: props) => {
   return (
     <HedaerContaner>
+      <Logo />
       <Nav>
         <NavItem>Club</NavItem>
         <NavItem>Notion</NavItem>
@@ -28,10 +33,25 @@ const HeaderView = ({ profileHover, onMouseEnter, onMouseLeave }: props) => {
   );
 };
 
+const Logo = styled.div`
+  background-image: url('/img/logo.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 60px;
+  width: 150px;
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+`;
+
 const HedaerContaner = styled.header`
   width: 100vw;
   height: 80px;
-  background-color: white;
+  background-color: #ffffffa0;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -86,7 +106,7 @@ const Menu = styled.div`
   display: flex;
   cursor: pointer;
 
-  &:nth-child(3) {
+  &:nth-of-type(3) {
     margin-top: 30px;
   }
 

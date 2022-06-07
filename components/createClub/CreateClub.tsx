@@ -26,12 +26,7 @@ const CreateClub: NextPage = () => {
       </ClubDataForm>
       <DocsForm>
         <Textareas>
-          <DocInputField
-            onChange={change}
-            value={content}
-            readOnly={false}
-            placeholder="동아리 활동목적을 구체적으로 적어주세요."
-          />
+          <DocInputField placeholder="동아리 활동목적을 구체적으로 적어주세요." />
           <DocInputField placeholder="동아리 예상 성과물을 작성해 주세요." />
         </Textareas>
         <CreateClubBtn>생성요청</CreateClubBtn>

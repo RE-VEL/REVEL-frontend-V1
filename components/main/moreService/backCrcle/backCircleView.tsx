@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import Circle from './circle';
 
-const BackCircle: NextPage = () => {
+const BackCircleView: NextPage = () => {
   return (
     <Back>
       <Circle
@@ -43,4 +43,4 @@ const Back = styled.div`
   overflow: hidden;
 `;
 
-export default BackCircle;
+export default BackCircleView;
