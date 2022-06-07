@@ -1,20 +1,21 @@
 import styled from '@emotion/styled';
+import { FormInput, FormLabel, InputForm } from './inputFormStyle';
 
 const Represen = () => {
   return (
     <RepresenInfo>
-      <InputForm>
+      <Form>
         <FormLabel>창립학기</FormLabel>
         <FormInput placeholder="2022년 1학기" />
-      </InputForm>
-      <InputForm>
+      </Form>
+      <Form>
         <FormLabel>대표학생</FormLabel>
         <FormInput placeholder="2501 홍길동" />
-      </InputForm>
-      <InputForm>
+      </Form>
+      <Form>
         <FormLabel>지도교사</FormLabel>
         <FormInput placeholder="황희" />
-      </InputForm>
+      </Form>
     </RepresenInfo>
   );
 };
@@ -24,27 +25,8 @@ const RepresenInfo = styled.div`
   gap: 20px;
 `;
 
-const InputForm = styled.div`
-  width: fit-content;
-  display: flex;
+const Form = styled(InputForm)`
   flex-direction: column;
-  gap: 10px;
-`;
-
-const FormLabel = styled.label`
-  width: 10vw;
-  text-align: center;
-  font-size: 16px;
-`;
-
-const FormInput = styled.input`
-  width: 10vw;
-  text-align: center;
-  font-size: 16px;
-  border: none;
-  border-bottom: 1px gray solid;
-  padding-bottom: 5px;
-  outline: none;
 `;
 
 export default Represen;

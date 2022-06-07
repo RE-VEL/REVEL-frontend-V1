@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { memberType } from '../../interface/clubMember';
+import { FormInput, FormLabel, InputForm } from './inputFormStyle';
 
 interface props {
   members: memberType[];
@@ -8,7 +9,7 @@ interface props {
 
 const MemberListView = ({ members, addMember }: props) => {
   return (
-    <InputForm>
+    <Form>
       <FormLabel>
         구성원
         <AddMember onClick={addMember} />
@@ -18,7 +19,7 @@ const MemberListView = ({ members, addMember }: props) => {
           <FormInput key={member.id} placeholder="2502 홍길순" />
         ))}
       </Memebrs>
-    </InputForm>
+    </Form>
   );
 };
 
@@ -52,30 +53,8 @@ const Memebrs = styled.div`
   overflow-y: auto;
 `;
 
-const InputForm = styled.div`
-  width: fit-content;
-  display: flex;
+const Form = styled(InputForm)`
   flex-direction: column;
-  gap: 10px;
-`;
-
-const FormLabel = styled.label`
-  width: 10vw;
-  text-align: center;
-  font-size: 16px;
-  position: relative;
-`;
-
-const FormInput = styled.input`
-  margin: 0;
-  width: 10vw;
-  text-align: center;
-  height: 20px;
-  font-size: 16px;
-  border: none;
-  border-bottom: 1px gray solid;
-  padding-bottom: 5px;
-  outline: none;
 `;
 
 export default MemberListView;

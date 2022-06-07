@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { mentorType } from '../../interface/corporateMentor';
+import { FormInput, FormLabel, InputForm } from './inputFormStyle';
 
 interface props {
   mentors: mentorType[];
@@ -73,37 +74,12 @@ const Mentor = styled.div`
   overflow-y: auto;
 `;
 
-const InputForm = styled.div`
-  width: fit-content;
-  display: flex;
-  gap: 20px 10px;
-`;
-
-const FormLabel = styled.label`
-  width: 10vw;
-  text-align: center;
-  font-size: 16px;
-  position: relative;
-`;
-
 const SectionLabel = styled.p`
   width: 10vw;
   text-align: center;
   font-size: 16px;
   position: relative;
   margin: 0 0 10px 0;
-`;
-
-const FormInput = styled.input`
-  margin: 0;
-  width: 10vw;
-  text-align: center;
-  height: 20px;
-  font-size: 16px;
-  border: none;
-  border-bottom: 1px gray solid;
-  padding-bottom: 5px;
-  outline: none;
 `;
 
 const EmailInput = styled(FormInput)`
