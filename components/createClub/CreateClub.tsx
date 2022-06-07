@@ -10,6 +10,10 @@ const CreateClub: NextPage = () => {
     memo: '',
     firstDesiredRoom: '',
     secondDesiredRoom: '',
+    clubName: '',
+    founding: '',
+    rep: '',
+    teacher: '',
   });
 
   const changeClubData = (

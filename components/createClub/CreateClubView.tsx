@@ -22,8 +22,13 @@ const CreateClubView: NextPage<props> = ({
   return (
     <CreateClubPage>
       <ClubDataForm>
-        <ClubName placeholder="동아리명" />
-        <Represen />
+        <ClubName
+          placeholder="동아리명"
+          name="clubName"
+          onChange={changeClubData}
+          value={clubData.clubName}
+        />
+        <Represen clubData={clubData} changeClubData={changeClubData} />
         <MemberList />
         <CorporateMentor />
         <ClubRoom clubData={clubData} changeClubData={changeClubData} />

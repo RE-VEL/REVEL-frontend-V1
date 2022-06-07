@@ -4,4 +4,8 @@ export interface clubType {
   memo: string;
   firstDesiredRoom: string;
   secondDesiredRoom: string;
+  clubName: string;
+  founding: string;
+  rep: string;
+  teacher: string;
 }
