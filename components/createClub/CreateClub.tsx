@@ -8,6 +8,8 @@ const CreateClub: NextPage = () => {
     purpose: '',
     achievement: '',
     memo: '',
+    firstDesiredRoom: '',
+    secondDesiredRoom: '',
   });
 
   const changeClubData = (

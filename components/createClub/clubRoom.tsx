@@ -25,11 +25,21 @@ const ClubRoom: NextPage<props> = ({ clubData, changeClubData }: props) => {
       </InputForm>
       <InputForm>
         <FormLabel>희망 세미나실 1</FormLabel>
-        <FormInput placeholder="세미나실 2-1" />
+        <FormInput
+          name="firstDesiredRoom"
+          onChange={changeClubData}
+          value={clubData.firstDesiredRoom}
+          placeholder="세미나실 2-1"
+        />
       </InputForm>
       <InputForm>
         <FormLabel>희망 세미나실 2</FormLabel>
-        <FormInput placeholder="세미나실 2-2" />
+        <FormInput
+          name="secondDesiredRoom"
+          onChange={changeClubData}
+          value={clubData.secondDesiredRoom}
+          placeholder="세미나실 2-2"
+        />
       </InputForm>
     </Container>
   );
