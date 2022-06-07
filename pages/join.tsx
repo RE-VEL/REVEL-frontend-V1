@@ -35,6 +35,8 @@ const Join = () => {
             type="number"
             maxLength={4}
             placeholder="학번을 입력해 주세요."
+            max={3420}
+            min={0}
           />
         </div>
         <div className="signUp">
