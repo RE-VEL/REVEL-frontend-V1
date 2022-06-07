@@ -26,7 +26,7 @@ const CreateClubView: NextPage<props> = ({
         <Represen />
         <MemberList />
         <CorporateMentor />
-        <ClubRoom />
+        <ClubRoom clubData={clubData} changeClubData={changeClubData} />
         <Information />
       </ClubDataForm>
       <DocsForm>

@@ -7,6 +7,7 @@ const CreateClub: NextPage = () => {
   const [clubData, setClubData] = useState<clubType>({
     purpose: '',
     achievement: '',
+    memo: '',
   });
 
   const changeClubData = (

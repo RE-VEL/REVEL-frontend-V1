@@ -1,13 +1,27 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
+import { ChangeEvent } from 'react';
+import { clubType } from '../../interface/clubData';
 import { FormInput, FormLabel, InputForm } from './inputFormStyle';
 
-const ClubRoom: NextPage = () => {
+interface props {
+  clubData: clubType;
+  changeClubData: (
+    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
+  ) => void;
+}
+
+const ClubRoom: NextPage<props> = ({ clubData, changeClubData }: props) => {
   return (
     <Container>
       <InputForm>
         <FormLabel>메모</FormLabel>
-        <MemoInput placeholder="특이사항이 있다면 적어주세요." />
+        <MemoInput
+          name="memo"
+          onChange={changeClubData}
+          value={clubData.memo}
+          placeholder="특이사항이 있다면 적어주세요."
+        />
       </InputForm>
       <InputForm>
         <FormLabel>희망 세미나실 1</FormLabel>
