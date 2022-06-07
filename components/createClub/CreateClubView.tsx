@@ -13,11 +13,13 @@ interface props {
   changeClubData: (
     e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
   ) => void;
+  changeClubDoc: (name: string, value: any) => void;
 }
 
 const CreateClubView: NextPage<props> = ({
   clubData,
   changeClubData,
+  changeClubDoc,
 }: props) => {
   return (
     <CreateClubPage>
@@ -29,7 +31,7 @@ const CreateClubView: NextPage<props> = ({
           value={clubData.clubName}
         />
         <Represen clubData={clubData} changeClubData={changeClubData} />
-        <MemberList />
+        <MemberList changeClubDoc={changeClubDoc} />
         <CorporateMentor />
         <ClubRoom clubData={clubData} changeClubData={changeClubData} />
         <Information />

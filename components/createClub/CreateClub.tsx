@@ -14,6 +14,7 @@ const CreateClub: NextPage = () => {
     founding: '',
     rep: '',
     teacher: '',
+    members: [],
   });
 
   const changeClubData = (
@@ -26,9 +27,15 @@ const CreateClub: NextPage = () => {
     setClubData({ ...clubData, [name]: value });
   };
 
+  const changeClubDoc = (name: string, value: any): void => {
+    setClubData({ ...clubData, [name]: value });
+    console.log(clubData);
+  };
+
   const props = {
     clubData,
     changeClubData,
+    changeClubDoc,
   };
 
   return <CreateClubView {...props} />;

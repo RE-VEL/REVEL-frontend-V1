@@ -8,4 +8,5 @@ export interface clubType {
   founding: string;
   rep: string;
   teacher: string;
+  members: string[];
 }

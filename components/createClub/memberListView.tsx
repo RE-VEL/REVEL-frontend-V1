@@ -1,13 +1,15 @@
 import styled from '@emotion/styled';
+import { ChangeEvent } from 'react';
 import { memberType } from '../../interface/clubMember';
 import { FormInput, InputForm, SectionLabel } from './inputFormStyle';
 
 interface props {
-  members: memberType[];
+  members: memberType;
   addMember: () => void;
+  changeMemberData: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const MemberListView = ({ members, addMember }: props) => {
+const MemberListView = ({ members, addMember, changeMemberData }: props) => {
   return (
     <InputForm>
       <SectionLabel>
@@ -15,8 +17,14 @@ const MemberListView = ({ members, addMember }: props) => {
         <AddMember onClick={addMember} />
       </SectionLabel>
       <Memebrs>
-        {members.map((member: memberType) => (
-          <FormInput key={member.id} placeholder="2502 홍길순" />
+        {Object.keys(members).map((key: string) => (
+          <FormInput
+            key={key}
+            name={key}
+            onChange={changeMemberData}
+            value={members[parseInt(key)]}
+            placeholder="2502 홍길순"
+          />
         ))}
       </Memebrs>
     </InputForm>

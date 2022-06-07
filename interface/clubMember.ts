@@ -1,4 +1,3 @@
 export interface memberType {
-  id: number;
-  name: string;
+  [key: number]: string;
 }
