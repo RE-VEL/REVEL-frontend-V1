@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import { useState } from 'react';
 import ClubRoom from './clubRoom';
 import CorporateMentor from './corporateMentor';
 import Information from './information';
@@ -8,16 +7,10 @@ import MemberList from './memberList';
 import Represen from './represen';
 
 const CreateClub: NextPage = () => {
-  const [content, setContent] = useState<string>('');
-
-  const change = (e: any) => {
-    console.log('change');
-  };
-
   return (
     <CreateClubPage>
       <ClubDataForm>
-        <ClubName onChange={change} placeholder="동아리명" value="레베리" />
+        <ClubName placeholder="동아리명" />
         <Represen />
         <MemberList />
         <CorporateMentor />
