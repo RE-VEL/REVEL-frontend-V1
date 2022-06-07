@@ -5,14 +5,23 @@ const Join = () => {
     <Outer>
       <Whole>
         <Intro>이메일</Intro>
-        <GetInfo id="email" type="text" placeholder="이메일을 입력해 주세요." />
+        <GetEmail
+          id="email"
+          type="text"
+          placeholder="이메일을 입력해 주세요."
+        />
+        <GetCode type="button" value="인증번호 전송"></GetCode>
         <div>
           <Intro>인증번호 입력</Intro>
           <GetInfo type="number" placeholder="인증번호를 입력해 주세요." />
         </div>
         <div className="password">
           <Intro>비밀번호</Intro>
-          <GetInfo type="password" placeholder="비밀번호를 입력해 주세요." />
+          <GetInfo
+            type="password"
+            placeholder="비밀번호를 입력해 주세요."
+            maxLength={20}
+          />
         </div>
         <div className="phone">
           <Intro>이름</Intro>
@@ -24,7 +33,7 @@ const Join = () => {
           <GetInfo
             id="classnum"
             type="number"
-            maxlength="4"
+            maxLength={4}
             placeholder="학번을 입력해 주세요."
           />
         </div>
@@ -43,6 +52,34 @@ const Outer = styled.div`
   display: flex;
   margin-left: 30%;
   margin-top: 11%;
+`;
+const GetEmail = styled.input`
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #939393;
+  outline: none;
+  box-sizing: border-box;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  font-size: 17px;
+  height: 45px;
+  width: 80%;
+  max-width: 400px;
+`;
+const GetCode = styled.input`
+  padding: 8px 5px;
+  display: inline-block;
+  border: 1px solid #939393;
+  outline: none;
+  box-sizing: border-box;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: white;
+  background-color: #082d5f;
+  font-size: 14px;
+  height: 45px;
+  width: 20%;
+  max-width: 100px;
 `;
 const GetInfo = styled.input`
   padding: 12px 20px;
