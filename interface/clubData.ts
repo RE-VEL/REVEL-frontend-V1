@@ -13,3 +13,5 @@ export interface clubType {
   members: string[];
   mentor: mentorType[];
 }
+
+export type clubDocsValue = string[] | mentorType[];

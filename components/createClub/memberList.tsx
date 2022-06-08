@@ -1,9 +1,10 @@
 import { ChangeEvent, useEffect, useState } from 'react';
+import { clubDocsValue } from '../../interface/clubData';
 import { memberType } from '../../interface/clubMember';
 import MemberListView from './memberListView';
 
 interface props {
-  changeClubDoc: (name: string, value: any) => void;
+  changeClubDoc: (name: string, value: clubDocsValue) => void;
 }
 
 const MemberList = ({ changeClubDoc }: props) => {

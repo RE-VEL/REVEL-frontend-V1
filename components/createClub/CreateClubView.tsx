@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent } from 'react';
-import { clubType } from '../../interface/clubData';
+import { clubDocsValue, clubType } from '../../interface/clubData';
 import ClubRoom from './clubRoom';
 import CorporateMentor from './corporateMentor';
 import Information from './information';
@@ -13,7 +13,7 @@ interface props {
   changeClubData: (
     e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
   ) => void;
-  changeClubDoc: (name: string, value: any) => void;
+  changeClubDoc: (name: string, value: clubDocsValue) => void;
 }
 
 const CreateClubView: NextPage<props> = ({

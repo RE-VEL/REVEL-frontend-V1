@@ -1,10 +1,11 @@
 import { NextPage } from 'next';
 import { ChangeEvent, useEffect, useState } from 'react';
+import { clubDocsValue } from '../../interface/clubData';
 import { mentorHashType } from '../../interface/corporateMentor';
 import CorporateMentorView from './corporateMentorView';
 
 interface props {
-  changeClubDoc: (name: string, value: any) => void;
+  changeClubDoc: (name: string, value: clubDocsValue) => void;
 }
 
 const CorporateMentor: NextPage<props> = ({ changeClubDoc }: props) => {

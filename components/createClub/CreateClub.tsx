@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import { ChangeEvent, useState } from 'react';
-import { clubType } from '../../interface/clubData';
+import { clubDocsValue, clubType } from '../../interface/clubData';
 import { mentorType } from '../../interface/corporateMentor';
 import CreateClubView from './CreateClubView';
 
@@ -29,7 +29,6 @@ const CreateClub: NextPage = () => {
     setClubData({ ...clubData, [name]: value });
   };
 
-  type clubDocsValue = string[] | mentorType[];
   const changeClubDoc = (name: string, value: clubDocsValue): void => {
     setClubData({ ...clubData, [name]: value });
     console.log(clubData);
