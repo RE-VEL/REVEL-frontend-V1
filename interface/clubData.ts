@@ -1,9 +1,4 @@
-export interface mentorType {
-  name: string;
-  belong: string;
-  email: string;
-  phoneNum: string;
-}
+import { mentorType } from './corporateMentor';
 
 export interface clubType {
   purpose: string;
