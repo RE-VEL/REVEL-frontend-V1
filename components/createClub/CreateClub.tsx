@@ -1,7 +1,6 @@
 import { NextPage } from 'next';
 import { ChangeEvent, useState } from 'react';
 import { clubDocsValue, clubType } from '../../interface/clubData';
-import { mentorType } from '../../interface/corporateMentor';
 import CreateClubView from './CreateClubView';
 
 const CreateClub: NextPage = () => {
@@ -24,14 +23,11 @@ const CreateClub: NextPage = () => {
   ): void => {
     const { value, name } = e.target;
 
-    console.log(clubData);
-
     setClubData({ ...clubData, [name]: value });
   };
 
   const changeClubDoc = (name: string, value: clubDocsValue): void => {
     setClubData({ ...clubData, [name]: value });
-    console.log(clubData);
   };
 
   const props = {
