@@ -1,25 +1,48 @@
 import { NextPage } from 'next';
-import { useState } from 'react';
-import { mentorType } from '../../interface/corporateMentor';
+import { ChangeEvent, useEffect, useState } from 'react';
+import { mentorHashType } from '../../interface/corporateMentor';
 import CorporateMentorView from './corporateMentorView';
 
-const CorporateMentor: NextPage = () => {
-  const [mentors, setMentors] = useState<mentorType[]>([
-    { id: 0, name: '', belong: '', email: '', phoneNum: '' },
-  ]);
+interface props {
+  changeClubDoc: (name: string, value: any) => void;
+}
 
-  const addMentor = () => {
-    const id = mentors[mentors.length - 1].id + 1;
+const CorporateMentor: NextPage<props> = ({ changeClubDoc }: props) => {
+  const [mentors, setMentors] = useState<mentorHashType>({
+    0: { name: '', belong: '', email: '', phoneNum: '' },
+  });
 
-    setMentors([
+  useEffect(() => {
+    changeClubDoc('mentor', Object.values(mentors));
+  }, [mentors]);
+
+  const addMentor = (): void => {
+    const key =
+      Math.max(...Object.keys(mentors).map((key) => parseInt(key))) + 1;
+
+    setMentors({
       ...mentors,
-      { id, name: '', belong: '', email: '', phoneNum: '' },
-    ]);
+      [key]: { name: '', belong: '', email: '', phoneNum: '' },
+    });
+  };
+
+  const changeMentor = (e: ChangeEvent<HTMLInputElement>): void => {
+    const { name, value } = e.target;
+    const [id, item] = name.split('_');
+
+    setMentors({
+      ...mentors,
+      [id]: {
+        ...mentors[parseInt(id)],
+        [item]: value,
+      },
+    });
   };
 
   const props = {
     mentors,
     addMentor,
+    changeMentor,
   };
 
   return <CorporateMentorView {...props} />;

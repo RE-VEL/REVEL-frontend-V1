@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import { mentorType } from '../../interface/corporateMentor';
+import { ChangeEvent } from 'react';
+import { mentorHashType } from '../../interface/corporateMentor';
 import {
   FormInput,
   FormLabel,
@@ -9,13 +10,15 @@ import {
 } from './inputFormStyle';
 
 interface props {
-  mentors: mentorType[];
+  mentors: mentorHashType;
   addMentor: () => void;
+  changeMentor: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const CorporateMentorView: NextPage<props> = ({
   mentors,
   addMentor,
+  changeMentor,
 }: props) => {
   return (
     <div>
@@ -30,12 +33,32 @@ const CorporateMentorView: NextPage<props> = ({
           <EmailFormLabel>연락처</EmailFormLabel>
         </Form>
         <Mentor>
-          {mentors.map((mentor: mentorType) => (
-            <Form key={mentor.id}>
-              <FormInput placeholder="고길동" />
-              <FormInput placeholder="대전적십자회" />
-              <EmailInput placeholder="daemahs@dsm.hs.kr" />
-              <FormInput placeholder="042-8282-8282" />
+          {Object.keys(mentors).map((key: string) => (
+            <Form key={key}>
+              <FormInput
+                name={`${key}_name`}
+                onChange={changeMentor}
+                value={mentors[parseInt(key)].name}
+                placeholder="고길동"
+              />
+              <FormInput
+                name={`${key}_belong`}
+                onChange={changeMentor}
+                value={mentors[parseInt(key)].belong}
+                placeholder="대전적십자회"
+              />
+              <EmailInput
+                name={`${key}_email`}
+                onChange={changeMentor}
+                value={mentors[parseInt(key)].email}
+                placeholder="daemahs@dsm.hs.kr"
+              />
+              <FormInput
+                name={`${key}_phoneNum`}
+                onChange={changeMentor}
+                value={mentors[parseInt(key)].phoneNum}
+                placeholder="042-8282-8282"
+              />
             </Form>
           ))}
         </Mentor>

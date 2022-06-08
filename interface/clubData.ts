@@ -1,3 +1,10 @@
+export interface mentorType {
+  name: string;
+  belong: string;
+  email: string;
+  phoneNum: string;
+}
+
 export interface clubType {
   purpose: string;
   achievement: string;
@@ -9,4 +16,5 @@ export interface clubType {
   rep: string;
   teacher: string;
   members: string[];
+  mentor: mentorType[];
 }

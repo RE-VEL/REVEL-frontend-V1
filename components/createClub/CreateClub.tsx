@@ -15,6 +15,7 @@ const CreateClub: NextPage = () => {
     rep: '',
     teacher: '',
     members: [],
+    mentor: [],
   });
 
   const changeClubData = (
