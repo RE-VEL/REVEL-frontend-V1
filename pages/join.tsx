@@ -1,6 +1,9 @@
 import styled from '@emotion/styled';
+import { kMaxLength } from 'buffer';
 
 const Join = () => {
+  const limitNum = () => {};
+
   return (
     <Outer>
       <Whole>
@@ -35,8 +38,8 @@ const Join = () => {
             type="number"
             maxLength={4}
             placeholder="학번을 입력해 주세요."
-            max={3420}
             min={0}
+            max={3420}
           />
         </div>
         <div className="signUp">
