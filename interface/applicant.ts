@@ -8,5 +8,5 @@ export interface applicantType {
     hours: number | null;
     minute: number | null;
   };
-  interviewCompleted: boolean;
+  interviewCompleted: boolean | null;
 }

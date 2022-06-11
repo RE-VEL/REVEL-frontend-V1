@@ -3,22 +3,28 @@ import { NextPage } from 'next';
 import { applicantType } from '../../../interface/applicant';
 
 const AppliedForClub: NextPage<applicantType> = ({
-  id,
   name,
   interviewDay,
   interviewCompleted,
 }: applicantType) => {
   const Btn: NextPage = () => {
-    return interviewCompleted ? (
-      <BtnWrap>
-        <PassBtn>합격</PassBtn>
-        <NotBtn>불합격</NotBtn>
-      </BtnWrap>
-    ) : (
-      <InterDate>
-        {`${interviewDay.month}월 ${interviewDay.date}일 ${interviewDay.hours}시 ${interviewDay.minute}분`}
-      </InterDate>
-    );
+    if (interviewCompleted === true) {
+      return (
+        <BtnWrap>
+          <PassBtn>합격</PassBtn>
+          <NotBtn>불합격</NotBtn>
+        </BtnWrap>
+      );
+    } else if (interviewCompleted === false) {
+      return (
+        <InterDate>
+          {`${interviewDay.month}월 ${interviewDay.date}일 ${interviewDay.hours}시 ${interviewDay.minute}분`}
+        </InterDate>
+      );
+    } else if (interviewCompleted === null) {
+      return <button>면접일 지정</button>;
+    }
+    return <></>;
   };
 
   return (

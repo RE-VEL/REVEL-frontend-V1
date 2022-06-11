@@ -38,7 +38,7 @@ const clubList: applicantType[] = [
       hours: 20,
       minute: 30,
     },
-    interviewCompleted: true,
+    interviewCompleted: null,
   },
 ];
 
