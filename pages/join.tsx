@@ -1,50 +1,48 @@
 import styled from '@emotion/styled';
-import { kMaxLength } from 'buffer';
 
 const Join = () => {
   const limitNum = () => {};
 
   return (
-    <Outer>
-      <Whole>
-        <Intro>이메일</Intro>
+    <Outer className="whole">
+      <Whole className="outer">
+        <h3>이메일</h3>
         <GetEmail
           id="email"
           type="text"
           placeholder="이메일을 입력해 주세요."
         />
-        <GetCode type="button" value="인증번호 전송"></GetCode>
-        <div>
-          <Intro>인증번호 입력</Intro>
-          <GetInfo type="number" placeholder="인증번호를 입력해 주세요." />
+        <GetCode>인증번호 전송</GetCode>
+        <div className="code">
+          <h3>인증번호 입력</h3>
+          <GetInfo
+            id="code"
+            type="number"
+            placeholder="인증번호를 입력해 주세요."
+          />
         </div>
         <div className="password">
-          <Intro>비밀번호</Intro>
+          <h3>비밀번호</h3>
           <GetInfo
+            id="password"
             type="password"
             placeholder="비밀번호를 입력해 주세요."
-            maxLength={20}
           />
         </div>
         <div className="phone">
-          <Intro>이름</Intro>
+          <h3>이름</h3>
           <GetFirst id="firstName" type="text" placeholder="성" />
           <GetRight id="lastName" type="text" placeholder="이름" />
         </div>
         <div className="classnum">
-          <Intro>학번</Intro>
+          <h3>학번</h3>
           <GetInfo
             id="classnum"
             type="number"
-            maxLength={4}
             placeholder="학번을 입력해 주세요."
-            min={0}
-            max={3420}
           />
         </div>
-        <div className="signUp">
-          <Joined disabled>가입하기</Joined>
-        </div>
+        <Joined disabled>가입하기</Joined>
       </Whole>
     </Outer>
   );
@@ -56,7 +54,7 @@ const Outer = styled.div`
   width: 45%;
   display: flex;
   margin-left: 30%;
-  margin-top: 11%;
+  margin-top: 7%;
 `;
 const GetEmail = styled.input`
   padding: 12px 20px;
@@ -145,7 +143,7 @@ const Joined = styled.button`
   display: inline-block;
   cursor: pointer;
   border-radius: 10px;
-  font-size: 32px;
+  font-size: 2vw;
   height: 55px;
   width: 100%;
   max-width: 500px;
