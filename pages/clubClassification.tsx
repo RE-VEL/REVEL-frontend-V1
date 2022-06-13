@@ -79,32 +79,16 @@ const cards = [
 const ClubClassification = () => {
   const [scrollNum, setScrollNum] = useState<number>(0);
 
-  const preClub = () => {
-    if (scrollNum) {
-      setScrollNum((pre) => pre - 4);
-    }
-  };
-
-  const nextClub = () => {
-    if (Math.floor(cards.length / 4) !== scrollNum) {
-      setScrollNum((pre) => pre + 4);
-    }
-  };
-
   return (
     <MyPage>
       <form action="">
         <ClubSel>
-          <option value="Major" selected>
-            전공동아리(자율)
-          </option>
+          <option value="Major">전공동아리(자율)</option>
           <option value="creative">창체동아리</option>
           <option value="autonomy">자율동아리</option>
         </ClubSel>
         <ClubSel>
-          <option value="back" selected>
-            back-end
-          </option>
+          <option value="back">back-end</option>
           <option value="front">front-end</option>
           <option value="android">android</option>
           <option value="ios">ios</option>
@@ -117,7 +101,8 @@ const ClubClassification = () => {
         </ClubSel>
       </form>
       <InfoWraper>
-        WEB ______________________________________________________
+        WEB
+        __________________________________________________________________________________
       </InfoWraper>
       <div>
         <MyClub>
@@ -137,6 +122,7 @@ const ClubSel = styled.select`
   margin-left: 140px;
   margin-top: 30px;
   margin-bottom: 0px;
+  outline: 1px;
 `;
 
 const MyClub = styled.div`
@@ -162,7 +148,7 @@ const InfoWraper = styled.div`
   display: grid;
   align-items: flex-end;
   position: relative;
-  font-size: 3vw;
+  font-size: 2vw;
 `;
 
 export default ClubClassification;
