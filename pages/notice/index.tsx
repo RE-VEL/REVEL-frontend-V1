@@ -15,6 +15,7 @@ const NoticeListPage = styled.main`
   height: 100vh;
   padding-top: 80px;
   position: relative;
+  overflow: hidden;
 `;
 
 export default NoticeList;
