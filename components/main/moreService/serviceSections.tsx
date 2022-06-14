@@ -50,7 +50,7 @@ const Notice = styled.div`
     content: '';
     width: 100%;
     height: 100%;
-    border-radius: 20px;
+    border-radius: 30px;
     background-color: rgba(0, 0, 0, 0.2);
     position: absolute;
     top: 0;
@@ -91,7 +91,7 @@ const CreateClub = styled.div`
     content: '';
     width: 100%;
     height: 100%;
-    border-radius: 20px;
+    border-radius: 30px;
     background-color: rgba(0, 0, 0, 0.2);
     position: absolute;
     top: 0;
@@ -129,7 +129,7 @@ const ClubManegement = styled.div`
     content: '';
     width: 100%;
     height: 100%;
-    border-radius: 20px;
+    border-radius: 30px;
     background-color: rgba(0, 0, 0, 0.2);
     position: absolute;
     top: 0;
