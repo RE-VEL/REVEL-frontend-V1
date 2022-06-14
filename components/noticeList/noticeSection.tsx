@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
+import NoticeHead from './noticeHead';
 import Notices from './notices';
 
 const NoticeSection: NextPage = () => {
@@ -7,7 +8,7 @@ const NoticeSection: NextPage = () => {
     <NoticeListContainer>
       <Title>NOTICE</Title>
       <NoticeWrap>
-        <ToticesHead></ToticesHead>
+        <NoticeHead />
         <Notices />
         <PaginationBunBar>
           <PreSectionBtn />
@@ -25,11 +26,6 @@ const NoticeSection: NextPage = () => {
   );
 };
 
-const ToticesHead = styled.div`
-  flex: 0 0 70px;
-  border-top: #b7b7b7 2px solid;
-  border-bottom: #b7b7b7 2px solid;
-`;
 const PaginationBunBar = styled.div`
   flex: 0 0 50px;
   display: flex;
@@ -81,7 +77,7 @@ const Title = styled.h1`
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  font-size: 30px;
+  font-size: 36px;
   padding-bottom: 10px;
 `;
 
