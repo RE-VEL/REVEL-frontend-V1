@@ -1,8 +1,55 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
+import { ChangeEvent, useEffect, useState } from 'react';
+
+interface fileObjType {
+  fileName: string;
+  binary: string;
+}
 
 const Aside: NextPage = () => {
-  const getFile = () => {};
+  const [iconFile, setIconFIle] = useState<fileObjType>({
+    fileName: '',
+    binary: '',
+  });
+  const [bannerFile, setBannerFile] = useState<fileObjType>({
+    fileName: '',
+    binary: '',
+  });
+
+  const getIconFile = async (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const file: File = e.target.files[0];
+      setIconFIle((pre) => ({ ...pre, fileName: file.name }));
+
+      const reader = new FileReader();
+      reader.onloadend = (finishedEvent) => {
+        const {
+          currentTarget: { result },
+        }: any = finishedEvent;
+
+        setIconFIle((pre) => ({ ...pre, binary: result }));
+      };
+      await reader.readAsDataURL(file);
+    }
+  };
+
+  const getBannerFile = async (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const file: File = e.target.files[0];
+      setBannerFile((pre) => ({ ...pre, fileName: file.name }));
+
+      const reader = new FileReader();
+      reader.onloadend = (finishedEvent) => {
+        const {
+          currentTarget: { result },
+        }: any = finishedEvent;
+
+        setBannerFile((pre) => ({ ...pre, binary: result }));
+      };
+      await reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <AsideSection>
@@ -13,12 +60,17 @@ const Aside: NextPage = () => {
       <Form>
         <FromLabel>동아리 로고</FromLabel>
         <FileInputWrap>
-          <FormInput placeholder="revel.png" readOnly />
+          <FormInput
+            placeholder="revel.png"
+            readOnly
+            value={iconFile.fileName}
+          />
           <input
             type="file"
             id="clubIcon"
-            onChange={getFile}
+            onChange={getIconFile}
             style={{ display: 'none' }}
+            accept="image/*"
           />
           <Choice htmlFor="clubIcon">파일 추가</Choice>
         </FileInputWrap>
@@ -26,12 +78,17 @@ const Aside: NextPage = () => {
       <Form>
         <FromLabel>동아리 배너</FromLabel>
         <FileInputWrap>
-          <FormInput placeholder="revel.png" readOnly />
+          <FormInput
+            placeholder="revel.png"
+            readOnly
+            value={bannerFile.fileName}
+          />
           <input
             type="file"
             id="clubBanner"
-            onChange={getFile}
             style={{ display: 'none' }}
+            onChange={getBannerFile}
+            accept="image/*"
           />
           <Choice htmlFor="clubBanner">파일 추가</Choice>
         </FileInputWrap>
