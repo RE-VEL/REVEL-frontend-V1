@@ -1,10 +1,14 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 interface fileObjType {
   fileName: string;
   binary: string;
+}
+
+interface categoryType {
+  [id: number]: string;
 }
 
 const Aside: NextPage = () => {
@@ -12,10 +16,35 @@ const Aside: NextPage = () => {
     fileName: '',
     binary: '',
   });
+
   const [bannerFile, setBannerFile] = useState<fileObjType>({
     fileName: '',
     binary: '',
   });
+
+  const [category, setCategory] = useState<categoryType>({
+    0: '',
+  });
+
+  const addCategoryInput = () => {
+    if (Object.keys(category).length < 3) {
+      const id = Math.max(...Object.keys(category).map((k) => Number(k))) + 1;
+
+      setCategory({
+        ...category,
+        [id]: '',
+      });
+    }
+  };
+
+  const changeCategory = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    setCategory({
+      ...category,
+      [name]: value,
+    });
+  };
 
   const getIconFile = async (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -53,6 +82,26 @@ const Aside: NextPage = () => {
 
   return (
     <AsideSection>
+      <Form>
+        <CategoryHeadWrap>
+          <FromLabel>동아리 분야</FromLabel>
+          <AddCategory>
+            <AddBtn onClick={addCategoryInput} />
+            <Label>3개까지 입력 가능</Label>
+          </AddCategory>
+        </CategoryHeadWrap>
+        <Categorys>
+          {Object.keys(category).map((cate) => (
+            <CategoryInput
+              key={cate}
+              name={cate}
+              placeholder="Embedded"
+              value={category[Number(cate)]}
+              onChange={changeCategory}
+            />
+          ))}
+        </Categorys>
+      </Form>
       <Form>
         <FromLabel>facebook page URL</FromLabel>
         <FormInput placeholder="https://facebook.com" />
@@ -96,6 +145,44 @@ const Aside: NextPage = () => {
     </AsideSection>
   );
 };
+
+const CategoryHeadWrap = styled.div`
+  position: relative;
+`;
+
+const Label = styled.label`
+  color: #bcb5b5;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 600;
+`;
+
+const AddCategory = styled.div`
+  position: absolute;
+  top: 0;
+  left: 90px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+const AddBtn = styled.button`
+  background-image: url('/img/plus.svg');
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 14px 14px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border-radius: 15px;
+  border: none;
+  box-shadow: inset 0 0 4px #00000030;
+
+  &:active {
+    transform: scale(0.95);
+  }
+`;
 
 const FileInputWrap = styled.div`
   position: relative;
@@ -145,6 +232,15 @@ const FormInput = styled.input`
   font-size: 16px;
   padding: 0 5px 7px 5px;
   text-align: center;
+`;
+
+const CategoryInput = styled(FormInput)`
+  width: 130px;
+`;
+
+const Categorys = styled.div`
+  display: flex;
+  gap: 10px;
 `;
 
 export default Aside;
