@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
 
 const Join = () => {
-  const limitNum = () => {};
-
   return (
     <Outer className="whole">
       <Whole className="outer">
@@ -13,6 +11,7 @@ const Join = () => {
           placeholder="이메일을 입력해 주세요."
         />
         <GetCode>인증번호 전송</GetCode>
+
         <div className="code">
           <h3>인증번호 입력</h3>
           <GetInfo
@@ -21,6 +20,7 @@ const Join = () => {
             placeholder="인증번호를 입력해 주세요."
           />
         </div>
+
         <div className="password">
           <h3>비밀번호</h3>
           <GetInfo
@@ -69,7 +69,7 @@ const GetEmail = styled.input`
   width: 80%;
   max-width: 400px;
 `;
-const GetCode = styled.input`
+const GetCode = styled.button`
   padding: 8px 5px;
   display: inline-block;
   border: 1px solid #939393;
