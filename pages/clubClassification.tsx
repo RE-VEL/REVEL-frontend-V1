@@ -21,14 +21,14 @@ const cards = [
   {
     id: 2,
     clubName: 'Reverie1',
-    tags: ['전공동아리운영위원회', '자율동아리'],
+    tags: ['전공동아리운영위원회', '전공동아리(창체)'],
     banner: '/img/banner.png',
     icon: '/img/icon.png',
   },
   {
     id: 3,
     clubName: 'Reverie2',
-    tags: ['전공동아리운영위원회', '자율동아리'],
+    tags: ['전공동아리운영위원회', '창체동아리'],
     banner: '/img/banner.png',
     icon: '/img/icon.png',
   },
@@ -42,14 +42,14 @@ const cards = [
   {
     id: 5,
     clubName: 'Reverie4',
-    tags: ['전공동아리운영위원회', '자율동아리'],
+    tags: ['전공동아리운영위원회', '창체동아리'],
     banner: '/img/banner.png',
     icon: '/img/icon.png',
   },
   {
     id: 6,
     clubName: 'Reverie5',
-    tags: ['전공동아리운영위원회', '자율동아리'],
+    tags: ['전공동아리운영위원회', '전공동아리(자율)'],
     banner: '/img/banner.png',
     icon: '/img/icon.png',
   },
@@ -102,7 +102,7 @@ const ClubClassification = () => {
       </form>
       <InfoWraper>
         WEB
-        __________________________________________________________________________________
+        _____________________________________________________________________________________
       </InfoWraper>
       <div>
         <MyClub>
