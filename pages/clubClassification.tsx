@@ -100,10 +100,10 @@ const ClubClassification = () => {
           <option value="EndOfRecruitment">모집완료</option>
         </ClubSel>
       </form>
-      <InfoWraper>
-        WEB
-        _____________________________________________________________________________________
-      </InfoWraper>
+      <span>
+        <InfoWraper>WEB</InfoWraper>
+        <Line></Line>
+      </span>
       <div>
         <MyClub>
           {cards.slice(scrollNum * 4, scrollNum * 4 + 4).map((card: card) => (
@@ -121,8 +121,11 @@ const ClubSel = styled.select`
   padding: 10px;
   margin-left: 140px;
   margin-top: 30px;
-  margin-bottom: 0px;
+  border-radius: 5px;
+  color: #082d5f;
+  border-color: #707070;
   outline: 1px;
+  font-family: 나눔스퀘어라운드;
 `;
 
 const MyClub = styled.div`
@@ -140,8 +143,6 @@ const MyPage = styled.main`
   height: 100vh;
   display: grid;
   padding: 10vh 12vw;
-  gap: 50px;
-  grid-template-rows: repeat(2, 1fr);
 `;
 
 const InfoWraper = styled.div`
@@ -149,6 +150,18 @@ const InfoWraper = styled.div`
   align-items: flex-end;
   position: relative;
   font-size: 2vw;
+  font-weight: bold;
+  color: #082d5f;
+  width: 7%;
+  float: left;
+`;
+
+const Line = styled.p`
+  color: #082d5f;
+  border-bottom-style: solid;
+  width: 93%;
+  float: left;
+  margin-top: 2.5%;
 `;
 
 export default ClubClassification;
