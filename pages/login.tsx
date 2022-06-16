@@ -20,9 +20,7 @@ const Login = () => {
       <div>
         <SendLog type="submit">로그인</SendLog>
       </div>
-      <Joined>
-        <b>회원가입</b>
-      </Joined>
+      <Joined>회원가입</Joined>
     </Outer>
   );
 };
@@ -36,22 +34,24 @@ const GetInfo = styled.input`
   box-shadow: 5px 10px 30px 10px #ccc;
   box-sizing: border-box;
   border-radius: 10px;
-  font-size: 28px;
+  font-size: 20px;
+  font-family: Noto Sans CJK KR;
   height: 80px;
-  width: 100%;
+  width: 450px;
   max-width: 626px;
 `;
 const SendLog = styled.button`
   background-color: #082d5f;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin: 8px 5px;
   border: none;
   cursor: pointer;
   border-radius: 10px;
-  font-size: 32px;
+  font-size: 25px;
+  font-family: Noto Sans CJK KR;
   height: 80px;
-  width: 100%;
+  width: 450px;
   max-width: 626px;
 `;
 const Joined = styled.label`
@@ -61,6 +61,8 @@ const Joined = styled.label`
   cursor: pointer;
   display: flex;
   justify-content: center;
+  font-size: 18px;
+  font-family: Noto Sans CJK KR;
   width: 100%;
 `;
 const Outer = styled.div`
