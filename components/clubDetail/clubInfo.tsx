@@ -21,10 +21,40 @@ const ClubInfo: NextPage = () => {
           ))}
         </ClubTagWrap>
         <Explanation>{eplanation}</Explanation>
+        <ClubMainDataWrap>
+          <ClubName>NONAMED</ClubName>
+          <ClubIcon />
+        </ClubMainDataWrap>
       </Information>
     </ClubInfoSection>
   );
 };
+
+const ClubName = styled.p`
+  font-size: 60px;
+  font-weight: 500;
+  margin: 0;
+  color: #002e63;
+`;
+
+const ClubIcon = styled.div`
+  width: 200px;
+  height: 200px;
+  background-image: url('/img/banner.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 100px;
+`;
+
+const ClubMainDataWrap = styled.div`
+  position: absolute;
+  right: 30px;
+  top: -50px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+`;
 
 const Tag = styled.span`
   color: #002e63;
@@ -71,6 +101,7 @@ const Information = styled.div`
   flex: 1 1 auto;
   width: 100vw;
   padding: 15px 25px;
+  position: relative;
 `;
 
 const Apply = styled.button`
