@@ -11,9 +11,11 @@ const Reverie: NextPage = () => {
             <TextDiv>
               <AboutUs>
                 <LineDiv></LineDiv>
-                <Mtxt>ABOUT US</Mtxt>
+                <Mtxt style={{ marginBottom: '20px' }}>ABOUT US</Mtxt>
               </AboutUs>
-              <RevelTxt>Reverie Easily Vouch Everything with Labor</RevelTxt>
+              <RevelTxt style={{ textAlign: 'right' }}>
+                Reverie Easily Vouch Everything with Labor
+              </RevelTxt>
             </TextDiv>
             <TextDiv style={{ margin: 0 }}>
               <Mtxt
@@ -50,10 +52,10 @@ const Reverie: NextPage = () => {
               </DevDiv>
             </Line>
 
-            <Line style={{ marginTop: 30 }}>
+            <Line style={{ marginTop: 30, position: 'relative', top: '-85px' }}>
               <DevDiv>
                 <Filed>front-end & disign</Filed>
-                <OutCir>
+                <OutCir style={{ alignItems: 'flex-end' }}>
                   <InCir></InCir>
                 </OutCir>
                 <Name>김순호</Name>
@@ -61,7 +63,7 @@ const Reverie: NextPage = () => {
 
               <DevDiv>
                 <Filed style={{ marginBottom: 23 }}>front-end </Filed>
-                <OutCir>
+                <OutCir style={{ alignItems: 'flex-end' }}>
                   <InCir></InCir>
                 </OutCir>
                 <Name>배준수</Name>
@@ -69,7 +71,7 @@ const Reverie: NextPage = () => {
 
               <DevDiv>
                 <Filed>front-end & disign</Filed>
-                <OutCir>
+                <OutCir style={{ alignItems: 'flex-end' }}>
                   <InCir></InCir>
                 </OutCir>
                 <Name>홍아연</Name>
@@ -118,7 +120,7 @@ const TextDiv = styled.div`
 
 const TextDiv2 = styled.div`
   margin-top: 30px;
-  width: 50vw;
+  width: 60vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -138,14 +140,14 @@ const BackDiv = styled.div`
   height: 100vh;
   width: 100vw;
   display: flex;
-  justify-content: right;
+  justify-content: center;
 `;
 
 const InDiv = styled.div`
   height: 100vh;
   width: 95vw;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 `;
 const ImgDiv = styled.div`
   height: 90vh;
@@ -162,12 +164,14 @@ const Name = styled.p`
   font-size: 20pt;
   background-color: white;
   margin: 0%;
+  color: #1d3078;
 `;
 const Filed = styled.p`
   font-family: 'suncheon';
   font-size: 20pt;
   margin: 0%;
   text-align: center;
+  color: #1d3078;
 `;
 const DevDiv = styled.div`
   display: flex;
@@ -181,7 +185,7 @@ const OutCir = styled.div`
   border-radius: 100%;
   border: 1px solid black;
   display: flex;
-  align-items: flex-end;
+
   justify-content: center;
   margin: 5px;
 `;
@@ -202,6 +206,7 @@ const Line = styled.div`
   align-items: center;
   justify-content: space-around;
   width: 60vw;
+  position: relative;
 `;
 
 export default Reverie;
