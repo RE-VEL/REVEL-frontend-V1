@@ -80,47 +80,62 @@ const ClubClassification = () => {
   const [scrollNum, setScrollNum] = useState<number>(0);
 
   return (
-    <MyPage>
-      <form action="">
-        <ClubSel>
-          <option value="Major">전공동아리(자율)</option>
-          <option value="creative">창체동아리</option>
-          <option value="autonomy">자율동아리</option>
-        </ClubSel>
-        <ClubSel>
-          <option value="back">back-end</option>
-          <option value="front">front-end</option>
-          <option value="android">android</option>
-          <option value="ios">ios</option>
-          <option value="AI">AI</option>
-          <option value="security">security</option>
-        </ClubSel>
-        <ClubSel>
-          <option value="Recruitment">모집중</option>
-          <option value="EndOfRecruitment">모집완료</option>
-        </ClubSel>
-      </form>
-      <span>
-        <InfoWraper>WEB</InfoWraper>
-        <Line></Line>
-      </span>
-      <div>
-        <MyClub>
-          {cards.slice(scrollNum * 4, scrollNum * 4 + 4).map((card: card) => (
-            <Card key={card.id} card={card}></Card>
-          ))}
-        </MyClub>
-      </div>
-    </MyPage>
+    <div>
+      <Ractan></Ractan>
+      <MyPage>
+        <form action="">
+          <ClubSelec>
+            <option value="Major">전공동아리(자율)</option>
+            <option value="creative">창체동아리</option>
+            <option value="autonomy">자율동아리</option>
+          </ClubSelec>
+          <ClubSelec>
+            <option value="back">back-end</option>
+            <option value="front">front-end</option>
+            <option value="android">android</option>
+            <option value="ios">ios</option>
+            <option value="AI">AI</option>
+            <option value="security">security</option>
+          </ClubSelec>
+          <ClubSelec>
+            <option value="Recruitment">모집중</option>
+            <option value="EndOfRecruitment">모집완료</option>
+          </ClubSelec>
+        </form>
+        <span>
+          <InfoWraper>WEB</InfoWraper>
+          <Line></Line>
+        </span>
+        <div>
+          <MyClub>
+            {cards.slice(scrollNum * 4, scrollNum * 4 + 4).map((card: card) => (
+              <Card key={card.id} card={card}></Card>
+            ))}
+          </MyClub>
+        </div>
+      </MyPage>
+    </div>
   );
 };
 
-const ClubSel = styled.select`
+const Ractan = styled.div`
+  border-width: 88px;
+  border-color: #e6edf6;
+  border-style: solid;
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 170px;
+  padding-left: none;
+`;
+
+const ClubSelec = styled.select`
   width: 200px;
   height: 40px;
   padding: 10px;
   margin-left: 140px;
   margin-top: 30px;
+  margin-bottom: 5px;
   border-radius: 5px;
   color: #082d5f;
   border-color: #707070;
@@ -138,14 +153,15 @@ const MyClub = styled.div`
   overflow: hidden;
 `;
 
-const MyPage = styled.main`
+const MyPage = styled.div`
   width: 100vw;
   height: 100vh;
   display: grid;
   padding: 10vh 12vw;
+  position: absolute;
 `;
 
-const InfoWraper = styled.div`
+const InfoWraper = styled.p`
   display: grid;
   align-items: flex-end;
   position: relative;
@@ -156,12 +172,12 @@ const InfoWraper = styled.div`
   float: left;
 `;
 
-const Line = styled.p`
+const Line = styled.div`
   color: #082d5f;
   border-bottom-style: solid;
   width: 93%;
   float: left;
-  margin-top: 2.5%;
+  margin-top: 5.5%;
 `;
 
 export default ClubClassification;
