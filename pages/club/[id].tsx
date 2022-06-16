@@ -13,7 +13,6 @@ const Club: NextPage = () => {
 const ClubPage = styled.main`
   width: 100vw;
   height: fit-content;
-  padding-top: 80px;
 `;
 
 export default Club;
