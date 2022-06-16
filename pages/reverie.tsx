@@ -15,33 +15,42 @@ const Reverie: NextPage = () => {
               </AboutUs>
               <RevelTxt>Reverie Easily Vouch Everything with Labor</RevelTxt>
             </TextDiv>
+            <TextDiv style={{ margin: 0 }}>
+              <Mtxt
+                style={{ fontSize: '15pt', textAlign: 'left', float: 'right' }}
+              >
+                본교의 전공동아리를 관리하기 위한 시스템을 제공합니다. <br />{' '}
+                물품 신청, 동아리원 모집, 공지사항 안내 등을 지원하며
+                <br /> 동아리 관련 규칙도 공지합니다.
+              </Mtxt>
+            </TextDiv>
 
             <TextDiv2>
               <AboutUs>
-                <LineDiv></LineDiv>
+                <LineDiv style={{ height: '3.5px' }}></LineDiv>
                 <Mtxt>DEVELOPER</Mtxt>
               </AboutUs>
             </TextDiv2>
 
-            <Line>
+            <Line style={{ width: '40vw' }}>
               <DevDiv>
                 <Filed>back-end</Filed>
+                <Name>박준형</Name>
                 <OutCir>
                   <InCir></InCir>
                 </OutCir>
-                <Name>박준형</Name>
               </DevDiv>
 
               <DevDiv>
                 <Filed>back-end</Filed>
+                <Name>안진우</Name>
                 <OutCir>
                   <InCir></InCir>
                 </OutCir>
-                <Name>안진우</Name>
               </DevDiv>
             </Line>
 
-            <Line>
+            <Line style={{ marginTop: 30 }}>
               <DevDiv>
                 <Filed>front-end & disign</Filed>
                 <OutCir>
@@ -51,7 +60,7 @@ const Reverie: NextPage = () => {
               </DevDiv>
 
               <DevDiv>
-                <Filed>front-end </Filed>
+                <Filed style={{ marginBottom: 23 }}>front-end </Filed>
                 <OutCir>
                   <InCir></InCir>
                 </OutCir>
@@ -83,6 +92,7 @@ const AboutUs = styled.div`
 const InfDiv = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 const RevelTxt = styled.p`
   font-family: 'nanumgothic';
@@ -92,6 +102,7 @@ const RevelTxt = styled.p`
 `;
 
 const LineDiv = styled.div`
+  float: left;
   height: 3px;
   width: 100px;
   background-color: #1d3078;
@@ -99,7 +110,7 @@ const LineDiv = styled.div`
 
 const TextDiv = styled.div`
   margin-top: 120px;
-  width: 50vw;
+  width: 60vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -107,7 +118,7 @@ const TextDiv = styled.div`
 
 const TextDiv2 = styled.div`
   margin-top: 30px;
-  width: 60vw;
+  width: 50vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -120,6 +131,8 @@ const Mtxt = styled.p`
   text-align: center;
   color: #1d3078;
   margin-top: 10px;
+  overflow: hiddlen;
+  white-space: nowrap;
 `;
 const BackDiv = styled.div`
   height: 100vh;
@@ -132,6 +145,7 @@ const InDiv = styled.div`
   height: 100vh;
   width: 95vw;
   display: flex;
+  justify-content: space-around;
 `;
 const ImgDiv = styled.div`
   height: 90vh;
@@ -162,17 +176,18 @@ const DevDiv = styled.div`
   width: 150px;
 `;
 const OutCir = styled.div`
-  height: 150px;
-  width: 150px;
+  height: 120px;
+  width: 120px;
   border-radius: 100%;
   border: 1px solid black;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  margin: 5px;
 `;
 const InCir = styled.div`
-  height: 120px;
-  width: 120px;
+  height: 100px;
+  width: 100px;
   border-radius: 100%;
   border: 1px solid black;
   background-image: url('/img/레이어 1.png');
@@ -187,7 +202,6 @@ const Line = styled.div`
   align-items: center;
   justify-content: space-around;
   width: 60vw;
-  margin-top: 30px;
 `;
 
 export default Reverie;
