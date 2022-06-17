@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import ClubMember from '../clubMember/clubMember';
+import ClubMember from './clubMember';
 
 const tags = ['EMBEDDED', 'WEB', '전공동아리'];
 const eplanation = `상상만 해도 웃음이 나요 바나나 한입 먹지 못하는 원숭이라니 
