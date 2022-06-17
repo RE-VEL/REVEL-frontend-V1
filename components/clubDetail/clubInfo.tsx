@@ -94,17 +94,29 @@ const ClubInfo: NextPage = () => {
 };
 
 const Memebrs = styled.div`
-  width: 500px;
+  width: 510px;
   height: 150px;
+  padding-right: 10px;
   position: absolute;
   bottom: 10px;
   right: 30px;
   display: grid;
   overflow-y: auto;
+  overflow-x: hidden;
   grid-template-columns: repeat(5, 1fr);
   scroll-snap-type: y mandatory;
-  grid-row-start: 1;
-  grid-column-start: 1;
+
+  &::-webkit-scrollbar {
+    width: 7px; // 스크롤바의 너비
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #002e63; // 스크롤바의 색상
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #f6f6f6;
+  }
 `;
 
 const ClubName = styled.p`
