@@ -204,6 +204,11 @@ const Apply = styled.button`
   color: #002e63;
   padding: 7px 25px;
   border-radius: 10px;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(0.98);
+  }
 `;
 
 const Banner = styled.div`
