@@ -42,6 +42,7 @@ const ManagementOption: NextPage = () => {
           </MultiLineSubLabel>
         </Label>
       </Option>
+      <AdministratorDelegation>관리자 위임</AdministratorDelegation>
     </OptionSection>
   );
 };
@@ -102,5 +103,23 @@ const OptionSection = styled.section`
   align-items: center;
   justify-content: center;
   gap: 50px;
+  position: relative;
 `;
+
+const AdministratorDelegation = styled.div`
+  position: absolute;
+  background-color: #87a4c5;
+  bottom: 10px;
+  right: 10px;
+  font-size: 12px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 8px 14px;
+
+  &:active {
+    transform: scale(0.98);
+  }
+`;
+
 export default ManagementOption;
