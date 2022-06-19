@@ -1,12 +1,25 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
+import { ChangeEvent, useState } from 'react';
 
-const Member: NextPage = ({}) => {
+interface props {
+  name: string;
+  profile: string;
+  major: string;
+}
+
+const Member: NextPage<props> = ({ name, profile, major: major_ }: props) => {
+  const [major, setMajor] = useState<string>(major_);
+
+  const changeMajor = (e: ChangeEvent<HTMLInputElement>) => {
+    setMajor(e.target.value);
+  };
+
   return (
     <MemberWrap>
-      <Profile />
-      <Name>{'김순호'}</Name>
-      <Major placeholder="분야 입력" />
+      <Profile profile={profile} />
+      <Name>{name}</Name>
+      <Major placeholder="분야 입력" value={major} onChange={changeMajor} />
     </MemberWrap>
   );
 };
@@ -31,6 +44,11 @@ const Profile = styled.div`
   height: 90px;
   border-radius: 45px;
   background-color: red;
+
+  background-image: url(${({ profile }: { profile: string }) => profile});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 const MemberWrap = styled.div`
