@@ -97,6 +97,18 @@ const cards = [
 const ClubClassification = () => {
   const [scrollNum, setScrollNum] = useState<number>(0);
 
+  const preClub = () => {
+    if (scrollNum) {
+      setScrollNum((pre) => pre - 1);
+    }
+  };
+
+  const nextClub = () => {
+    if (Math.floor(cards.length / 4) !== scrollNum) {
+      setScrollNum((pre) => pre + 1);
+    }
+  };
+
   return (
     <div>
       <Ractan></Ractan>
@@ -139,6 +151,11 @@ const ClubClassification = () => {
             {cards.slice(scrollNum * 4, scrollNum * 4 + 4).map((card: card) => (
               <Card key={card.id} card={card}></Card>
             ))}
+            <PrevBtn onClick={preClub} scrollNum={!!scrollNum} />
+            <NextBtn
+              onClick={nextClub}
+              scrollNum={Math.floor(cards.length / 4) !== scrollNum}
+            />
           </MyClub>
         </div>
       </MyPage>
@@ -206,6 +223,43 @@ const Line = styled.div`
   width: 93%;
   float: left;
   margin-top: 5.5%;
+`;
+
+const NextBtn = styled.button`
+  border: none;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  background-color: transparent;
+  cursor: pointer;
+  width: 40px;
+  height: 50px;
+  padding: 0;
+  display: block;
+  transform: translate(0, -50%);
+
+  background-image: url('/img/nextBtn.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  ${({ scrollNum }: { scrollNum: boolean }) =>
+    scrollNum ||
+    css`
+      display: none;
+    `}
+`;
+
+const PrevBtn = styled(NextBtn)`
+  transform: translate(0, -50%) rotate(180deg);
+  right: 0;
+  left: 10px;
+
+  ${({ scrollNum }: { scrollNum: boolean }) =>
+    scrollNum ||
+    css`
+      display: none;
+    `}
 `;
 
 export default ClubClassification;
