@@ -25,6 +25,15 @@ const NoticeMore: NextPage = () => {
                 </IconBox>
                 <SmallTextHo>첨부파일</SmallTextHo>
               </ContentBox>
+              {/* <FilesBack>
+                <FilesBoxBack> </FilesBoxBack>
+                <FilesBox>
+                  <Files>
+                    <SmallText>첨부파일명.pdf</SmallText>
+                    <DownImg></DownImg>
+                  </Files>
+                </FilesBox>
+              </FilesBack> */}
 
               <ContentBox>
                 <ContentTxt>
@@ -108,10 +117,42 @@ const SmallTextHo = styled.p`
   color: #868686;
 `;
 
-const Files = styled.div`
+const FilesBack = styled.div`
+  width: 200px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  position: relative;
+`;
+const FilesBoxBack = styled.div`
   width: 200px;
   height: 150px;
   background-color: #8da3c2;
+  border-radius: 5%;
+  position: relative;
+  opacity: 25%;
+`;
+
+const FilesBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: absolute;
+`;
+const Files = styled.div`
+  display: flex;
+  width: 200px;
+  justify-content: space-evenly;
+`;
+const DownImg = styled.div`
+  width: 20px;
+  height: 20px;
+  background-image: url('./img/pngwing.com.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: end;
+  display: flex;
+  justify-content: flex-start;
 `;
 
 const NewDiv = styled.div`
