@@ -23,6 +23,7 @@ const AboutClubSection = styled.div`
   flex-direction: column;
   justify-content: center;
   position: relative;
+  overflow: hidden;
 `;
 
 export default AboutClubView;

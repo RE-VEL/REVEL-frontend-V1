@@ -34,7 +34,7 @@ const ClubCarouselView: NextPage<props> = ({
 
 const BannerCarouselSection = styled.section`
   width: 100vw;
-  height: 100vh;
+  height: 47vw;
   position: relative;
 
   padding-top: 80px;
