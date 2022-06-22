@@ -1,4 +1,43 @@
 @font-face {
-    font-family: "Noto Sans CJK KR";
-    src: url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+  font-family: "Noto Sans CJK KR";
+  src: url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+}
+@font-face {
+  font-family: 'dissolve';
+  src: url('./fontfiles/DISOLVE_REGULAR.TTF');
+}
+
+@font-face {
+  font-family: 'nanumbarun';
+  src: url('./fontfiles/NANUMBARUNPENR.TTF');
+}
+
+@font-face {
+  font-family: 'nanumgothic';
+  src: url('./fontfiles/NANUMGOTHIC.TTF');
+}
+
+@font-face {
+  font-family: 'nanumsquare';
+  src: url('./fontfiles/NANUMSQUARE.TTF');
+}
+
+@font-face {
+  font-family: 'nanumsquareround';
+  src: url('./fontfiles/NANUMSQUAREROUNDR.TTF');
+}
+
+@font-face {
+  font-family: 'natosans';
+  src: url('./fontfiles/NOTOSANSKR-REGULAR.OTF');
+}
+
+@font-face {
+  font-family: 'suncheon';
+  src: url('./fontfiles/SuncheonR.ttf');
+}
+
+@font-face {
+  font-family: 'digikyokasho';
+  src: url('./fontfiles/UDDIGIKYOKASHON-B.TTC');
 }
