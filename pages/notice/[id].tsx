@@ -252,3 +252,5 @@ const DownImg = styled.div`
   </FilesBox>
 </FilesBack> 
 */
+
+      <MoreView>
