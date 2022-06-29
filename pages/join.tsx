@@ -1,74 +1,92 @@
 import styled from '@emotion/styled';
+import { NextPage } from 'next';
 
-const Join = () => {
+const Join: NextPage = () => {
   return (
-    <Outer className="whole">
-      <Whole className="outer">
-        <h3>이메일</h3>
-        <GetEmail
-          id="email"
-          type="text"
-          placeholder="이메일을 입력해 주세요."
-        />
-        <GetCode>인증번호 전송</GetCode>
-
-        <div className="code">
-          <h3>인증번호 입력</h3>
+    <Outer>
+      <Whole>
+        <GetInfoWrap>
+          <Label>이메일</Label>
+          <GetEmail
+            id="email"
+            type="text"
+            placeholder="이메일을 입력해 주세요."
+          />
+          <GetCode>인증번호 전송</GetCode>
+        </GetInfoWrap>
+        <GetInfoWrap>
+          <Label>인증번호 입력</Label>
           <GetInfo
             id="code"
             type="number"
             placeholder="인증번호를 입력해 주세요."
           />
-        </div>
-
-        <div className="password">
-          <h3>비밀번호</h3>
+        </GetInfoWrap>
+        <GetInfoWrap>
+          <Label>비밀번호</Label>
           <GetInfo
             id="password"
             type="password"
             placeholder="비밀번호를 입력해 주세요."
           />
-        </div>
-        <div className="phone">
-          <h3>이름</h3>
-          <GetFirst id="firstName" type="text" placeholder="성" />
-          <GetRight id="lastName" type="text" placeholder="이름" />
-        </div>
-        <div className="classnum">
-          <h3>학번</h3>
+        </GetInfoWrap>
+        <GetInfoWrap>
+          <Label>이름</Label>
+          <GetInfo id="firstName" type="text" placeholder="이름" />
+        </GetInfoWrap>
+        <GetInfoWrap>
+          <Label>학번</Label>
           <GetInfo
             id="classnum"
             type="number"
             placeholder="학번을 입력해 주세요."
           />
-        </div>
+        </GetInfoWrap>
         <Joined disabled>가입하기</Joined>
       </Whole>
     </Outer>
   );
 };
 
-const Outer = styled.div`
-  box-sizing: border-box;
-  font-size: 11px;
-  width: 45%;
-  display: flex;
-  margin-left: 30%;
-  margin-top: 7%;
+const GetInfoWrap = styled.div`
+  width: 100%;
+  height: fit-content;
 `;
-const GetEmail = styled.input`
+
+const Label = styled.p`
+  margin: 10px 0 5px 0;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+`;
+
+const Outer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const GetInfo = styled.input`
   padding: 12px 20px;
   display: inline-block;
   border: 1px solid #939393;
   outline: none;
   box-sizing: border-box;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-radius: 10px;
   font-size: 17px;
   height: 45px;
-  width: 80%;
-  max-width: 400px;
+  width: 100%;
 `;
+
+const GetEmail = styled(GetInfo)`
+  border-right: none;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  width: 80%;
+`;
+
 const GetCode = styled.button`
   padding: 8px 5px;
   display: inline-block;
@@ -82,20 +100,8 @@ const GetCode = styled.button`
   font-size: 14px;
   height: 45px;
   width: 20%;
-  max-width: 100px;
 `;
-const GetInfo = styled.input`
-  padding: 12px 20px;
-  display: inline-block;
-  border: 1px solid #939393;
-  outline: none;
-  box-sizing: border-box;
-  border-radius: 10px;
-  font-size: 17px;
-  height: 45px;
-  width: 100%;
-  max-width: 500px;
-`;
+
 const GetFirst = styled.input`
   padding: 12px 20px;
   margin-right: 20px;
@@ -109,6 +115,7 @@ const GetFirst = styled.input`
   width: 46%;
   max-width: 240px;
 `;
+
 const GetRight = styled.input`
   padding: 12px 20px;
   display: inline-block;
@@ -121,6 +128,7 @@ const GetRight = styled.input`
   width: 46%;
   max-width: 240px;
 `;
+
 const Intro = styled.h4`
   margin-left: 15%;
   margin-top: 1%;
@@ -129,24 +137,27 @@ const Intro = styled.h4`
   float: left;
   width: 100%;
 `;
+
 const Whole = styled.div`
-  width: 100%;
   text-align: center;
   font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 `;
+
 const Joined = styled.button`
   background-color: #082d5f;
   color: white;
-  margin: 10px;
-  margin-top: 3%;
+  margin-top: 20px;
   border: none;
   display: inline-block;
   cursor: pointer;
   border-radius: 10px;
   font-size: 2vw;
   height: 55px;
-  width: 100%;
-  max-width: 500px;
+  /* width: 100%; */
+  width: 500px;
 `;
 
 export default Join;
