@@ -7,12 +7,13 @@ const Join: NextPage = () => {
       <Whole>
         <GetInfoWrap>
           <Label>이메일</Label>
-          <GetEmail
-            id="email"
-            type="text"
-            placeholder="이메일을 입력해 주세요."
-          />
-          <GetCode>인증번호 전송</GetCode>
+          <GetEmailWrap>
+            <GetEmail>
+              <GetEmailInput id="email" placeholder="이메일을 입력해 주세요." />
+              <EmailDomain>@dsm.hs.kr</EmailDomain>
+            </GetEmail>
+            <GetCode>인증번호 전송</GetCode>
+          </GetEmailWrap>
         </GetInfoWrap>
         <GetInfoWrap>
           <Label>인증번호 입력</Label>
@@ -80,11 +81,39 @@ const GetInfo = styled.input`
   width: 100%;
 `;
 
-const GetEmail = styled(GetInfo)`
-  border-right: none;
+const EmailDomain = styled.p`
+  margin: 0;
+  font-size: 17px;
+  height: fit-content;
+  color: #808080;
+  padding-right: 10px;
+`;
+
+const GetEmailWrap = styled.div`
+  width: 100%;
+  height: 45px;
+  display: flex;
+`;
+
+const GetEmailInput = styled(GetInfo)`
+  width: 80%;
+  height: 100%;
+  border: none;
+  flex: 1 1 auto;
+  padding-right: 10px;
+`;
+
+const GetEmail = styled.div`
+  border: 1px solid #939393;
+  border-radius: 10px;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
+  border-right: none;
   width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 `;
 
 const GetCode = styled.button`
