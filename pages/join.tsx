@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import JoinView from '../components/join/joinView';
 import { userInfoType } from '../interface/join';
 
@@ -38,8 +38,12 @@ const Join: NextPage = () => {
 
   const sendVerificationCode = (): void => {};
 
-  const join = (): void => {
+  const join = (e: FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
     console.log(userInfo);
+    if (userInfo.password !== userInfo.checkPassword) {
+      alert('비밀번호가 동일하지 않습니다');
+    }
   };
 
   const props = {

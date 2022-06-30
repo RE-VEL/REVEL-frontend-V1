@@ -1,13 +1,14 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, FormEvent } from 'react';
 import { userInfoType } from '../../interface/join';
 
 interface props {
   userInfo: userInfoType;
   changeUserInfo: (e: ChangeEvent<HTMLInputElement>) => void;
   sendVerificationCode: () => void;
-  join: () => void;
+  join: (e: FormEvent<HTMLFormElement>) => void;
 }
 
 const JoinView: NextPage<props> = ({
@@ -62,7 +63,8 @@ const JoinView: NextPage<props> = ({
         </GetInfoWrap>
         <GetInfoWrap>
           <Label>비밀번호 확인</Label>
-          <GetInfo
+          <PasswordCheck
+            userInfo={userInfo}
             name="checkPassword"
             value={userInfo.checkPassword}
             onChange={changeUserInfo}
@@ -126,6 +128,17 @@ const GetInfo = styled.input`
   font-size: 17px;
   height: 45px;
   width: 100%;
+`;
+
+const PasswordCheck = styled(GetInfo)`
+  ${({ userInfo: { password, checkPassword } }: { userInfo: userInfoType }) => {
+    return (
+      password !== checkPassword &&
+      css`
+        border-color: #ff184a;
+      `
+    );
+  }}
 `;
 
 const EmailDomain = styled.p`
