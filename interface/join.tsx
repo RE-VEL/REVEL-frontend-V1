@@ -2,7 +2,8 @@ export interface userInfoType {
   email: string;
   password: string;
   checkPassword: string;
-  name: string;
+  firstName: string;
+  lastName: string;
   number: string;
   certification: string;
 }

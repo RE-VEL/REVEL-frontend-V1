@@ -9,13 +9,14 @@ const Join: NextPage = () => {
     email: '',
     password: '',
     checkPassword: '',
-    name: '',
+    firstName: '',
+    lastName: '',
     number: '',
     certification: '',
   });
 
   const formatInputValue = (value: string, name: string): string => {
-    if (name === 'email' || name === 'name') {
+    if (name === 'email' || name === 'firstName' || name === 'lastName') {
       return value.replace(/\W/, '');
     }
     if (name === 'password' || name === 'checkPassword') {

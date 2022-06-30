@@ -1,4 +1,3 @@
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent, FormEvent } from 'react';
@@ -46,8 +45,8 @@ const JoinView: NextPage<props> = ({
             onChange={changeUserInfo}
             placeholder="인증번호를 입력해 주세요."
             minLength={6}
-            required
             maxLength={6}
+            required
           />
         </GetInfoWrap>
         <GetInfoWrap>
@@ -59,6 +58,8 @@ const JoinView: NextPage<props> = ({
             type="password"
             required
             placeholder="비밀번호를 입력해 주세요."
+            minLength={8}
+            maxLength={20}
           />
         </GetInfoWrap>
         <GetInfoWrap>
@@ -71,16 +72,26 @@ const JoinView: NextPage<props> = ({
             type="password"
             required
             placeholder="비밀번호를 입력해 주세요."
+            minLength={8}
+            maxLength={20}
           />
         </GetInfoWrap>
         <GetInfoWrap>
           <Label>이름</Label>
-          <GetInfo
-            name="name"
-            value={userInfo.name}
-            onChange={changeUserInfo}
-            placeholder="이름"
-          />
+          <NameInputWrap>
+            <GetInfo
+              name="firstName"
+              value={userInfo.firstName}
+              onChange={changeUserInfo}
+              placeholder="이름"
+            />
+            <GetInfo
+              name="lastName"
+              value={userInfo.lastName}
+              onChange={changeUserInfo}
+              placeholder="이름"
+            />
+          </NameInputWrap>
         </GetInfoWrap>
         <GetInfoWrap>
           <Label>학번</Label>
@@ -90,6 +101,8 @@ const JoinView: NextPage<props> = ({
             onChange={changeUserInfo}
             placeholder="학번을 입력해 주세요."
             required
+            min={1101}
+            max={3420}
           />
         </GetInfoWrap>
         <Joined>가입하기</Joined>
@@ -130,11 +143,18 @@ const GetInfo = styled.input`
   width: 100%;
 `;
 
+const NameInputWrap = styled.div`
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: space-between;
+`;
+
 const PasswordCheck = styled(GetInfo)`
   ${({ userInfo: { password, checkPassword } }: { userInfo: userInfoType }) => {
     return (
       password !== checkPassword &&
-      css`
+      `
         border-color: #ff184a;
       `
     );
