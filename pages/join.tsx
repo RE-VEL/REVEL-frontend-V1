@@ -1,4 +1,3 @@
-import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import JoinView from '../components/join/joinView';
