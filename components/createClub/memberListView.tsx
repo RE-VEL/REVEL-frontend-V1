@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { ChangeEvent } from 'react';
-import { memberType } from '../../interface/clubMember';
+import { memberType } from 'src/interface/clubMember';
 import { FormInput, InputForm, SectionLabel } from './inputFormStyle';
 
 interface props {

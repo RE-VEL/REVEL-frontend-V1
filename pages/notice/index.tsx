@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import Background from '../../components/noticeList/bacckground/background';
-import NoticeSection from '../../components/noticeList/noticeSection';
+import Background from 'components/noticeList/bacckground/background';
+import NoticeSection from 'components/noticeList/noticeSection';
 
 const NoticeList: NextPage = () => {
   return (

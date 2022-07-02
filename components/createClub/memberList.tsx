@@ -1,6 +1,6 @@
 import { ChangeEvent, useEffect, useState } from 'react';
-import { clubDocsValue } from '../../interface/clubData';
-import { memberType } from '../../interface/clubMember';
+import { clubDocsValue } from 'src/interface/clubData';
+import { memberType } from 'src/interface/clubMember';
 import MemberListView from './memberListView';
 
 interface props {

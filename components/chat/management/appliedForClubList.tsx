@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import { applicantType } from '../../../interface/applicant';
+import { applicantType } from 'src/interface/applicant';
 import AppliedForClub from './appliedForClub';
 
 interface props {

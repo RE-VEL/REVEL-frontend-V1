@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import { ChangeEvent, FormEvent, useState } from 'react';
-import JoinView from '../components/join/joinView';
-import { userInfoType } from '../interface/join';
+import JoinView from 'components/join/joinView';
+import { userInfoType } from 'src/interface/join';
 
 const Join: NextPage = () => {
   const [userInfo, setUserInfo] = useState<userInfoType>({
