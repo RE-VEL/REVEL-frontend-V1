@@ -2,8 +2,8 @@ import { NextPage } from 'next';
 import MargueeItemView from './margueeItemView';
 
 const items = [
-  '인석썜 어디계신지 보신분? 진짜 아무도 몰라요??',
-  '킹갓제너럴엠페러충무공마제스티 준형 선배 요즙 잘 안보이네요',
+  '인석썜 어디계신지 보신분? 진짜 아무도 몰라요?',
+  '회식하고 싶다',
   '인석쌤과 함께하고 있습니다',
   '도비는 무료에요!!',
   '레벨리가 인석쌤을 간절히 찾습니다',

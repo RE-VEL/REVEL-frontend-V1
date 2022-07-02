@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import { card } from '../../interface/card';
+import { card } from '../../src/interface/card';
 
 interface props {
   card: card;

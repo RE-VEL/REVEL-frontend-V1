@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import { ChangeEvent, useEffect, useState } from 'react';
-import { clubDocsValue } from '../../interface/clubData';
-import { mentorHashType } from '../../interface/corporateMentor';
+import { clubDocsValue } from 'src/interface/clubData';
+import { mentorHashType } from 'src/interface/corporateMentor';
 import CorporateMentorView from './corporateMentorView';
 
 interface props {
