@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { card } from '../interface/card';
-import Card from '../components/card/card';
+import { card } from 'src/interface/card';
+import Card from 'components/card/card';
 import { useState } from 'react';
 import { css } from '@emotion/react';
 
@@ -94,7 +94,7 @@ const cards = [
   },
 ];
 
-const ClubClassification = () => {
+const ClubClassification: NextPage = () => {
   const [scrollNum, setScrollNum] = useState<number>(0);
 
   const preClub = () => {

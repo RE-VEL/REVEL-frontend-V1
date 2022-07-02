@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import { ChangeEvent, useState } from 'react';
-import { clubDocsValue, clubType } from '../../interface/clubData';
+import { clubDocsValue, clubType } from 'src/interface/clubData';
 import CreateClubView from './CreateClubView';
 
 const CreateClub: NextPage = () => {

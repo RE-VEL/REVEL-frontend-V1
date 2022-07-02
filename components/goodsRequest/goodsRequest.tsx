@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { articleType } from '../../interface/goodsRequest/article';
+import { articleType } from 'src/interface/goodsRequest/article';
 import GoodsRequestView from './goodsRequestView';
 
 const GoodsRequest = () => {

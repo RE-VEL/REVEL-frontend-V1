@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent } from 'react';
-import { clubType } from '../../interface/clubData';
+import { clubType } from 'src/interface/clubData';
 
 interface props {
   clubData: clubType;

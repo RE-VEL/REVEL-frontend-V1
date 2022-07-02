@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import GoodsRequest from '../components/goodsRequest/goodsRequest';
+import GoodsRequest from 'components/goodsRequest/goodsRequest';
 
 const GoodsRequestPage: NextPage = () => {
   return (

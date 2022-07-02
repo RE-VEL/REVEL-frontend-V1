@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent } from 'react';
-import { clubDocsValue, clubType } from '../../interface/clubData';
+import { clubDocsValue, clubType } from 'src/interface/clubData';
 import ClubRoom from './clubRoom';
 import CorporateMentor from './corporateMentor';
 import DocsForm from './DocsForm';

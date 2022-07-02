@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
-import { ChangeEvent, useState } from 'react';
-import { applicantType } from '../../../interface/applicant';
-import { interTimeType } from '../../../interface/interTime';
+import { useState } from 'react';
+import { applicantType } from 'src/interface/applicant';
+import { interTimeType } from 'src/interface/interTime';
 import AppliedForClubView from './appliedForClubView';
 
 const AppliedForClub: NextPage<applicantType> = ({

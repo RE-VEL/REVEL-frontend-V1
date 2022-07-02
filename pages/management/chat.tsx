@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import ChatPage from '../../components/chat/management/chat';
+import ChatPage from 'components/chat/management/chat';
 
 const Chat: NextPage = () => {
   return (

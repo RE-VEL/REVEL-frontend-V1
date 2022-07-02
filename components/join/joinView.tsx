@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent, FormEvent } from 'react';
-import { userInfoType } from '../../interface/join';
+import { userInfoType } from 'src/interface/join';
 
 interface props {
   userInfo: userInfoType;

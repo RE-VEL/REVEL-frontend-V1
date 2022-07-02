@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { studentSignupType } from 'interface/auth';
+import { studentSignupType } from 'src/interface/auth';
 
 export const studentSignup = async (signupInfo: studentSignupType) => {
   try {

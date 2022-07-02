@@ -1,4 +1,8 @@
 @font-face {
+  font-family: "Noto Sans CJK KR";
+  src: url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+}
+@font-face {
   font-family: 'dissolve';
   src: url('./fontfiles/DISOLVE_REGULAR.TTF');
 }

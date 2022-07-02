@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import { applicantType } from '../../../interface/applicant';
+import { applicantType } from 'src/interface/applicant';
 import ChatSection from '../chatSection';
 import AppliedForClubList from './appliedForClubList';
 const clubList: applicantType[] = [
