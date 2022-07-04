@@ -7,3 +7,7 @@ export interface studentSignupType {
   studentKey: string; //ex.2407
   major: string; //SW, EMB, SECU
 }
+
+export interface signupInfoType extends studentSignupType {
+  checkPassword: string;
+}

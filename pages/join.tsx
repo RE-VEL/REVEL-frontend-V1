@@ -1,17 +1,19 @@
 import { NextPage } from 'next';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import JoinView from 'components/join/joinView';
-import { userInfoType } from 'src/interface/join';
+import { signupInfoType, studentSignupType } from 'src/interface/auth';
+import { getEmailAuthCode } from 'src/utils/apis/signup';
 
 const Join: NextPage = () => {
-  const [userInfo, setUserInfo] = useState<userInfoType>({
+  const [userInfo, setUserInfo] = useState<signupInfoType>({
     email: '',
-    password: '',
-    checkPassword: '',
+    emailAuthCode: '',
     firstName: '',
     lastName: '',
-    number: '',
-    certification: '',
+    password: '',
+    studentKey: '',
+    major: '',
+    checkPassword: '',
   });
 
   const formatInputValue = (value: string, name: string): string => {
@@ -21,7 +23,7 @@ const Join: NextPage = () => {
     if (name === 'password' || name === 'checkPassword') {
       return value.replace(/[^\w!@#$_\-\.,?]/, '');
     }
-    if (name === 'certification' || name === 'number') {
+    if (name === 'emailAuthCode' || name === 'studentKey') {
       return value.replace(/\D/, '');
     }
 
@@ -36,20 +38,23 @@ const Join: NextPage = () => {
     setUserInfo((pre) => ({ ...pre, [name]: newValue }));
   };
 
-  const sendVerificationCode = (): void => {};
+  const sendEmailAuthCode = (): void => {};
 
   const join = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     console.log(userInfo);
     if (userInfo.password !== userInfo.checkPassword) {
       alert('비밀번호가 동일하지 않습니다');
+      return;
     }
+
+    getEmailAuthCode('artns25@dsm.hs.kr');
   };
 
   const props = {
     userInfo,
     changeUserInfo,
-    sendVerificationCode,
+    sendEmailAuthCode,
     join,
   };
 

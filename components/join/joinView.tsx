@@ -1,19 +1,19 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent, FormEvent } from 'react';
-import { userInfoType } from 'src/interface/join';
+import { signupInfoType } from 'src/interface/auth';
 
 interface props {
-  userInfo: userInfoType;
+  userInfo: signupInfoType;
   changeUserInfo: (e: ChangeEvent<HTMLInputElement>) => void;
-  sendVerificationCode: () => void;
+  sendEmailAuthCode: () => void;
   join: (e: FormEvent<HTMLFormElement>) => void;
 }
 
 const JoinView: NextPage<props> = ({
   userInfo,
   changeUserInfo,
-  sendVerificationCode,
+  sendEmailAuthCode,
   join,
 }: props) => {
   return (
@@ -32,7 +32,7 @@ const JoinView: NextPage<props> = ({
               />
               <EmailDomain>@dsm.hs.kr</EmailDomain>
             </GetEmail>
-            <GetCode type="button" onClick={sendVerificationCode}>
+            <GetCode type="button" onClick={sendEmailAuthCode}>
               인증번호 전송
             </GetCode>
           </GetEmailWrap>
@@ -40,8 +40,8 @@ const JoinView: NextPage<props> = ({
         <GetInfoWrap>
           <Label>인증번호 입력</Label>
           <GetInfo
-            name="certification"
-            value={userInfo.certification}
+            name="emailAuthCode"
+            value={userInfo.emailAuthCode}
             onChange={changeUserInfo}
             placeholder="인증번호를 입력해 주세요."
             minLength={6}
@@ -96,8 +96,8 @@ const JoinView: NextPage<props> = ({
         <GetInfoWrap>
           <Label>학번</Label>
           <GetInfo
-            name="number"
-            value={userInfo.number}
+            name="studentKey"
+            value={userInfo.studentKey}
             onChange={changeUserInfo}
             placeholder="학번을 입력해 주세요."
             required
@@ -151,7 +151,11 @@ const NameInputWrap = styled.div`
 `;
 
 const PasswordCheck = styled(GetInfo)`
-  ${({ userInfo: { password, checkPassword } }: { userInfo: userInfoType }) => {
+  ${({
+    userInfo: { password, checkPassword },
+  }: {
+    userInfo: signupInfoType;
+  }) => {
     return (
       password !== checkPassword &&
       `
