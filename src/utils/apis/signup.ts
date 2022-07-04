@@ -32,10 +32,9 @@ export const getEmailAuthCode = async (email: string) => {
   console.log(res);
   if (res) {
     try {
-      const response = await axios.put(
+      await axios.put(
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/user?email=${email}`,
       );
-      return response;
     } catch (error) {
       throw error;
     }
