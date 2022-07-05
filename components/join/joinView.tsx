@@ -1,20 +1,26 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import { ChangeEvent, FormEvent } from 'react';
-import { signupInfoType } from 'src/interface/auth';
+import { ChangeEvent, FormEvent, LegacyRef } from 'react';
+import { studentsignupInfoType } from 'src/interface/auth';
 
 interface props {
-  userInfo: signupInfoType;
+  userInfo: studentsignupInfoType;
   changeUserInfo: (e: ChangeEvent<HTMLInputElement>) => void;
   sendEmailAuthCode: () => void;
   join: (e: FormEvent<HTMLFormElement>) => void;
+  changeMajor: (e: ChangeEvent<HTMLSelectElement>) => void;
+  majorList: string[];
+  majorRef: LegacyRef<HTMLSelectElement>;
 }
 
 const JoinView: NextPage<props> = ({
   userInfo,
+  majorList,
+  majorRef,
   changeUserInfo,
   sendEmailAuthCode,
   join,
+  changeMajor,
 }: props) => {
   return (
     <Outer>
@@ -94,6 +100,14 @@ const JoinView: NextPage<props> = ({
           </NameInputWrap>
         </GetInfoWrap>
         <GetInfoWrap>
+          <Label>전공</Label>
+          <GetMajor onChange={changeMajor} ref={majorRef}>
+            {majorList.map((major, i) => (
+              <option key={i}>{major}</option>
+            ))}
+          </GetMajor>
+        </GetInfoWrap>
+        <GetInfoWrap>
           <Label>학번</Label>
           <GetInfo
             name="studentKey"
@@ -132,7 +146,7 @@ const Outer = styled.div`
 `;
 
 const GetInfo = styled.input`
-  padding: 12px 20px;
+  padding: 0px 20px;
   display: inline-block;
   border: 1px solid #939393;
   outline: none;
@@ -141,6 +155,19 @@ const GetInfo = styled.input`
   font-size: 17px;
   height: 45px;
   width: 100%;
+`;
+
+const GetMajor = styled.select`
+  padding: 0px 20px;
+  display: inline-block;
+  border: 1px solid #939393;
+  outline: none;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-size: 17px;
+  height: 45px;
+  width: 100%;
+  background-color: white;
 `;
 
 const NameInputWrap = styled.div`
@@ -154,7 +181,7 @@ const PasswordCheck = styled(GetInfo)`
   ${({
     userInfo: { password, checkPassword },
   }: {
-    userInfo: signupInfoType;
+    userInfo: studentsignupInfoType;
   }) => {
     return (
       password !== checkPassword &&
