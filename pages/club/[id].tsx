@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
+import ClubInfo from 'components/clubDetail/clubInfo';
+import Gallery from 'components/clubDetail/gallery/gallery';
 import { NextPage } from 'next';
-import ClubInfo from '../../components/clubDetail/clubInfo';
-import Gallery from '../../components/clubDetail/gallery/gallery';
 
 const Club: NextPage = () => {
   return (

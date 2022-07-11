@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import { applicantType } from '../../../interface/applicant';
-import { interTimeType } from '../../../interface/interTime';
+import { applicantType } from 'src/interface/applicant';
+import { interTimeType } from 'src/interface/interTime';
 import DateInput from './dateInput';
 
 interface props extends applicantType {

@@ -1,152 +1,103 @@
-import styled from '@emotion/styled';
+import { NextPage } from 'next';
+import { ChangeEvent, FormEvent, useRef, useState } from 'react';
+import JoinView from 'components/join/joinView';
+import { studentsignupInfoType, studentSignupType } from 'src/interface/auth';
+import { getEmailAuthCode, studentSignup } from 'src/utils/apis/signup';
 
-const Join = () => {
-  return (
-    <Outer className="whole">
-      <Whole className="outer">
-        <h3>이메일</h3>
-        <GetEmail
-          id="email"
-          type="text"
-          placeholder="이메일을 입력해 주세요."
-        />
-        <GetCode>인증번호 전송</GetCode>
+const majorList = [
+  '미정',
+  'front-end',
+  'back-end',
+  'android',
+  'ios',
+  'AI',
+  'security',
+  'game',
+  'embedded',
+  'design',
+  '기타',
+];
 
-        <div className="code">
-          <h3>인증번호 입력</h3>
-          <GetInfo
-            id="code"
-            type="number"
-            placeholder="인증번호를 입력해 주세요."
-          />
-        </div>
+const Join: NextPage = () => {
+  const [userInfo, setUserInfo] = useState<studentsignupInfoType>({
+    email: '',
+    emailAuthCode: '',
+    firstName: '',
+    lastName: '',
+    password: '',
+    studentKey: '',
+    checkPassword: '',
+  });
+  const majorRef = useRef<HTMLSelectElement>(null);
 
-        <div className="password">
-          <h3>비밀번호</h3>
-          <GetInfo
-            id="password"
-            type="password"
-            placeholder="비밀번호를 입력해 주세요."
-          />
-        </div>
-        <div className="phone">
-          <h3>이름</h3>
-          <GetFirst id="firstName" type="text" placeholder="성" />
-          <GetRight id="lastName" type="text" placeholder="이름" />
-        </div>
-        <div className="classnum">
-          <h3>학번</h3>
-          <GetInfo
-            id="classnum"
-            type="number"
-            placeholder="학번을 입력해 주세요."
-          />
-        </div>
-        <Joined disabled>가입하기</Joined>
-      </Whole>
-    </Outer>
-  );
+  const formatInputValue = (value: string, name: string): string => {
+    value = value.replace(/\s/, '');
+
+    if (name === 'email' || name === 'firstName' || name === 'lastName') {
+      return value.replace(/\W/, '');
+    }
+    if (name === 'password' || name === 'checkPassword') {
+      return value.replace(/[^\w!@#$_\-\.,?]/, '');
+    }
+    if (name === 'emailAuthCode' || name === 'studentKey') {
+      return value.replace(/\D/, '');
+    }
+
+    throw new Error('허용되지 않은 name value');
+  };
+
+  const changeUserInfo = (e: ChangeEvent<HTMLInputElement>): void => {
+    const { name, value } = e.target;
+
+    const newValue = formatInputValue(value, name);
+
+    setUserInfo((pre) => ({ ...pre, [name]: newValue }));
+  };
+
+  const changeMajor = (e: ChangeEvent<HTMLSelectElement>): void => {
+    const { value } = e.target;
+    console.log(value);
+  };
+
+  const sendEmailAuthCode = (): void => {
+    getEmailAuthCode('artns25@dsm.hs.kr');
+  };
+
+  const join = (e: FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+
+    if (userInfo.password !== userInfo.checkPassword) {
+      alert('비밀번호가 동일하지 않습니다');
+      return;
+    }
+
+    const major: string = majorRef.current?.value || majorList[0];
+
+    const signupData: studentSignupType = {
+      email: userInfo.email,
+      emailAuthCode: userInfo.emailAuthCode,
+      firstName: userInfo.firstName,
+      lastName: userInfo.lastName,
+      password: userInfo.password,
+      studentKey: userInfo.studentKey,
+      major: major,
+    };
+
+    const res = studentSignup(signupData);
+    console.log(res);
+  };
+
+  const props = {
+    userInfo,
+    majorList,
+    majorRef,
+    changeUserInfo,
+    sendEmailAuthCode,
+    join,
+    changeMajor,
+  };
+
+  return <JoinView {...props} />;
 };
-
-const Outer = styled.div`
-  box-sizing: border-box;
-  font-size: 11px;
-  width: 45%;
-  display: flex;
-  margin-left: 30%;
-  margin-top: 7%;
-`;
-const GetEmail = styled.input`
-  padding: 12px 20px;
-  display: inline-block;
-  border: 1px solid #939393;
-  outline: none;
-  box-sizing: border-box;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  font-size: 17px;
-  height: 45px;
-  width: 80%;
-  max-width: 400px;
-`;
-const GetCode = styled.button`
-  padding: 8px 5px;
-  display: inline-block;
-  border: 1px solid #939393;
-  outline: none;
-  box-sizing: border-box;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  color: white;
-  background-color: #082d5f;
-  font-size: 14px;
-  height: 45px;
-  width: 20%;
-  max-width: 100px;
-`;
-const GetInfo = styled.input`
-  padding: 12px 20px;
-  display: inline-block;
-  border: 1px solid #939393;
-  outline: none;
-  box-sizing: border-box;
-  border-radius: 10px;
-  font-size: 17px;
-  height: 45px;
-  width: 100%;
-  max-width: 500px;
-`;
-const GetFirst = styled.input`
-  padding: 12px 20px;
-  margin-right: 20px;
-  display: inline-block;
-  border: 1px solid #939393;
-  outline: none;
-  box-sizing: border-box;
-  border-radius: 10px;
-  font-size: 17px;
-  height: 45px;
-  width: 46%;
-  max-width: 240px;
-`;
-const GetRight = styled.input`
-  padding: 12px 20px;
-  display: inline-block;
-  border: 1px solid #939393;
-  outline: none;
-  box-sizing: border-box;
-  border-radius: 10px;
-  font-size: 17px;
-  height: 45px;
-  width: 46%;
-  max-width: 240px;
-`;
-const Intro = styled.h4`
-  margin-left: 15%;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  display: flex;
-  float: left;
-  width: 100%;
-`;
-const Whole = styled.div`
-  width: 100%;
-  text-align: center;
-  font-size: 15px;
-`;
-const Joined = styled.button`
-  background-color: #082d5f;
-  color: white;
-  margin: 10px;
-  margin-top: 3%;
-  border: none;
-  display: inline-block;
-  cursor: pointer;
-  border-radius: 10px;
-  font-size: 2vw;
-  height: 55px;
-  width: 100%;
-  max-width: 500px;
-`;
 
 export default Join;

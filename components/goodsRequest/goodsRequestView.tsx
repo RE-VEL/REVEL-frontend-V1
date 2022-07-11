@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import { articleType } from '../../interface/goodsRequest/article';
+import { articleType } from 'src/interface/goodsRequest/article';
 import Demand from './demand';
 
 interface props {

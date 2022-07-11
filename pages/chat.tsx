@@ -1,5 +1,5 @@
+import Chat from 'components/chat/chat';
 import { NextPage } from 'next';
-import Chat from '../components/chat/chat';
 
 const ChatPage: NextPage = () => {
   return <Chat />;

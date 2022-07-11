@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import ClubMembers from '../components/clubManagement/clubMembers';
-import ManagementOption from '../components/clubManagement/managementOption';
+import ClubMembers from 'components/clubManagement/clubMembers';
+import ManagementOption from 'components/clubManagement/managementOption';
 
 const ClubManagement: NextPage = () => {
   return (
