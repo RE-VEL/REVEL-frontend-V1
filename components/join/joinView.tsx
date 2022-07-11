@@ -1,20 +1,26 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import { ChangeEvent, FormEvent } from 'react';
-import { userInfoType } from 'src/interface/join';
+import { ChangeEvent, FormEvent, LegacyRef } from 'react';
+import { studentsignupInfoType } from 'src/interface/auth';
 
 interface props {
-  userInfo: userInfoType;
+  userInfo: studentsignupInfoType;
   changeUserInfo: (e: ChangeEvent<HTMLInputElement>) => void;
-  sendVerificationCode: () => void;
+  sendEmailAuthCode: () => void;
   join: (e: FormEvent<HTMLFormElement>) => void;
+  changeMajor: (e: ChangeEvent<HTMLSelectElement>) => void;
+  majorList: string[];
+  majorRef: LegacyRef<HTMLSelectElement>;
 }
 
 const JoinView: NextPage<props> = ({
   userInfo,
+  majorList,
+  majorRef,
   changeUserInfo,
-  sendVerificationCode,
+  sendEmailAuthCode,
   join,
+  changeMajor,
 }: props) => {
   return (
     <Outer>
@@ -32,7 +38,7 @@ const JoinView: NextPage<props> = ({
               />
               <EmailDomain>@dsm.hs.kr</EmailDomain>
             </GetEmail>
-            <GetCode type="button" onClick={sendVerificationCode}>
+            <GetCode type="button" onClick={sendEmailAuthCode}>
               인증번호 전송
             </GetCode>
           </GetEmailWrap>
@@ -40,8 +46,8 @@ const JoinView: NextPage<props> = ({
         <GetInfoWrap>
           <Label>인증번호 입력</Label>
           <GetInfo
-            name="certification"
-            value={userInfo.certification}
+            name="emailAuthCode"
+            value={userInfo.emailAuthCode}
             onChange={changeUserInfo}
             placeholder="인증번호를 입력해 주세요."
             minLength={6}
@@ -80,24 +86,32 @@ const JoinView: NextPage<props> = ({
           <Label>이름</Label>
           <NameInputWrap>
             <GetInfo
-              name="firstName"
-              value={userInfo.firstName}
-              onChange={changeUserInfo}
-              placeholder="이름"
-            />
-            <GetInfo
               name="lastName"
               value={userInfo.lastName}
+              onChange={changeUserInfo}
+              placeholder="성"
+            />
+            <GetInfo
+              name="firstName"
+              value={userInfo.firstName}
               onChange={changeUserInfo}
               placeholder="이름"
             />
           </NameInputWrap>
         </GetInfoWrap>
         <GetInfoWrap>
+          <Label>전공</Label>
+          <GetMajor onChange={changeMajor} ref={majorRef}>
+            {majorList.map((major, i) => (
+              <option key={i}>{major}</option>
+            ))}
+          </GetMajor>
+        </GetInfoWrap>
+        <GetInfoWrap>
           <Label>학번</Label>
           <GetInfo
-            name="number"
-            value={userInfo.number}
+            name="studentKey"
+            value={userInfo.studentKey}
             onChange={changeUserInfo}
             placeholder="학번을 입력해 주세요."
             required
@@ -132,7 +146,7 @@ const Outer = styled.div`
 `;
 
 const GetInfo = styled.input`
-  padding: 12px 20px;
+  padding: 0px 20px;
   display: inline-block;
   border: 1px solid #939393;
   outline: none;
@@ -143,6 +157,19 @@ const GetInfo = styled.input`
   width: 100%;
 `;
 
+const GetMajor = styled.select`
+  padding: 0px 20px;
+  display: inline-block;
+  border: 1px solid #939393;
+  outline: none;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-size: 17px;
+  height: 45px;
+  width: 100%;
+  background-color: white;
+`;
+
 const NameInputWrap = styled.div`
   display: flex;
   gap: 10px;
@@ -151,7 +178,11 @@ const NameInputWrap = styled.div`
 `;
 
 const PasswordCheck = styled(GetInfo)`
-  ${({ userInfo: { password, checkPassword } }: { userInfo: userInfoType }) => {
+  ${({
+    userInfo: { password, checkPassword },
+  }: {
+    userInfo: studentsignupInfoType;
+  }) => {
     return (
       password !== checkPassword &&
       `

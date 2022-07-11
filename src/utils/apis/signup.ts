@@ -9,9 +9,35 @@ export const studentSignup = async (signupInfo: studentSignupType) => {
         ...signupInfo,
       },
     );
+    console.log('회원가입 성공');
     console.log(response);
-    return response.data;
+    return response;
   } catch (error) {
     throw error;
+  }
+};
+
+const emailCheck = async (email: string) => {
+  try {
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/user/check?email=${email}`,
+    );
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getEmailAuthCode = async (email: string) => {
+  const res = (await emailCheck(email)).status === 200;
+  console.log(res);
+  if (res) {
+    try {
+      await axios.put(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/user?email=${email}`,
+      );
+    } catch (error) {
+      throw error;
+    }
   }
 };
