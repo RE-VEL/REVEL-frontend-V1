@@ -8,6 +8,7 @@ export const login = async (loginData: LoginDataType) => {
     { ...loginData },
   );
 
+  console.log(response);
   const { accessToken, refreshToken } = response.data;
   saveToken(accessToken, refreshToken);
 };

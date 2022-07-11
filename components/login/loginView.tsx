@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent, FormEvent } from 'react';
-import { userInfoType } from '../interface/login';
+import { userInfoType } from 'src/interface/login';
 
 interface props {
   userInfo: userInfoType;
@@ -19,19 +19,19 @@ const LoginView: NextPage<props> = ({
       <UserInfoForm onSubmit={submitLog}>
         <GetInfo
           type="text"
-          placeholder="아이디를 입력해 주세요."
-          name="uId"
-          value={userInfo.uId}
+          placeholder="이메일을 입력해 주세요."
+          name="email"
+          value={userInfo.email}
           onChange={changeUserInfo}
           required
           minLength={6}
-          maxLength={20}
+          maxLength={100}
         />
         <GetInfo
           type="password"
           placeholder="비밀번호를 입력해 주세요."
-          name="pw"
-          value={userInfo.pw}
+          name="password"
+          value={userInfo.password}
           onChange={changeUserInfo}
           required
           minLength={6}

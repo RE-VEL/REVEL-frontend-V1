@@ -1,20 +1,21 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
-import LoginView from '../components/login.loginView';
-import { userInfoType } from '../interface/login';
+import { LoginDataType, userInfoType } from 'src/interface/login';
+import { login } from 'src/utils/apis/login';
+import LoginView from '../components/login/loginView';
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState<userInfoType>({
-    uId: '',
-    pw: '',
+    email: '',
+    password: '',
   });
 
   const changeUserInfo = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     let newValue = value;
 
-    if (name === 'uId') {
-      newValue = newValue.replace(/[^\w_]/, '');
-    } else if (name === 'pw') {
+    if (name === 'email') {
+      newValue = newValue.replace(/[^\w@\.]/, '');
+    } else if (name === 'password') {
       newValue = newValue.replace(/[^\w!@#$_\-\.,?]/, '');
     }
 
@@ -23,6 +24,15 @@ const Login = () => {
 
   const submitLog = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const loginData: LoginDataType = {
+      ...userInfo,
+      deviceToken: 'asdfghjkl',
+    };
+
+    console.log(loginData);
+
+    login(loginData);
   };
 
   const props = {
