@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { RefObject } from 'react';
 import Slider from 'react-slick';
-import { sliderSetting } from '../../../interface/sliderSetting';
+import { sliderSetting } from 'src/interface/sliderSetting';
 
 interface props {
   settings: sliderSetting;
