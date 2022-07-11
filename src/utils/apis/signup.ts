@@ -9,6 +9,7 @@ export const studentSignup = async (signupInfo: studentSignupType) => {
         ...signupInfo,
       },
     );
+    console.log('회원가입 성공');
     console.log(response);
     return response;
   } catch (error) {

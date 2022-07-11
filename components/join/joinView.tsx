@@ -86,14 +86,14 @@ const JoinView: NextPage<props> = ({
           <Label>이름</Label>
           <NameInputWrap>
             <GetInfo
-              name="firstName"
-              value={userInfo.firstName}
-              onChange={changeUserInfo}
-              placeholder="이름"
-            />
-            <GetInfo
               name="lastName"
               value={userInfo.lastName}
+              onChange={changeUserInfo}
+              placeholder="성"
+            />
+            <GetInfo
+              name="firstName"
+              value={userInfo.firstName}
               onChange={changeUserInfo}
               placeholder="이름"
             />

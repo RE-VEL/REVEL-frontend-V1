@@ -66,9 +66,6 @@ const Join: NextPage = () => {
   const join = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
-    // console.log(userInfo);
-    // console.log(majorRef.current?.value);
-
     if (userInfo.password !== userInfo.checkPassword) {
       alert('비밀번호가 동일하지 않습니다');
       return;
