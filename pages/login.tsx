@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { LoginDataType, userInfoType } from 'src/interface/login';
 import { login } from 'src/utils/apis/login';
@@ -8,6 +9,8 @@ const Login = () => {
     email: '',
     password: '',
   });
+
+  const router = useRouter();
 
   const changeUserInfo = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -22,7 +25,7 @@ const Login = () => {
     setUserInfo((pre) => ({ ...pre, [name]: newValue }));
   };
 
-  const submitLog = (e: FormEvent<HTMLFormElement>) => {
+  const submitLog = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const loginData: LoginDataType = {
@@ -32,7 +35,11 @@ const Login = () => {
 
     console.log(loginData);
 
-    login(loginData);
+    const state = await login(loginData);
+
+    if (state === 200) {
+      router.push('/');
+    }
   };
 
   const props = {

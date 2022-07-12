@@ -11,4 +11,6 @@ export const login = async (loginData: LoginDataType) => {
   console.log(response);
   const { accessToken, refreshToken } = response.data;
   saveToken(accessToken, refreshToken);
+
+  return response.status;
 };
