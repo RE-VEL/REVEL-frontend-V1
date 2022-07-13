@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
+import Link from 'next/link';
 import { ChangeEvent, FormEvent } from 'react';
 import { userInfoType } from 'src/interface/login';
 
@@ -39,7 +40,11 @@ const LoginView: NextPage<props> = ({
         />
         <SendLog>로그인</SendLog>
       </UserInfoForm>
-      <Joined>회원가입</Joined>
+      <Link href={'/join'}>
+        <a>
+          <Joined>회원가입</Joined>
+        </a>
+      </Link>
     </Outer>
   );
 };
