@@ -1,5 +1,5 @@
 import { ChangeEvent, useEffect, useState } from 'react';
-import { clubDocsValue } from '../../interface/clubData';
+import { clubDocsValue } from '../../interface/createClub';
 import { memberType } from '../../interface/clubMember';
 import MemberListView from './memberListView';
 

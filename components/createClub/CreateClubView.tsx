@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent } from 'react';
-import { clubDocsValue, clubType } from '../../interface/clubData';
+import { clubDocsValue, requestType } from '../../interface/createClub';
 import ClubRoom from './clubRoom';
 import CorporateMentor from './corporateMentor';
 import DocsForm from './DocsForm';
@@ -10,17 +10,19 @@ import MemberList from './memberList';
 import Represen from './represen';
 
 interface props {
-  clubData: clubType;
+  request: requestType;
   changeClubData: (
     e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
   ) => void;
   changeClubDoc: (name: string, value: clubDocsValue) => void;
+  selectSemester: (value: ChangeEvent<HTMLSelectElement>) => void;
 }
 
 const CreateClubView: NextPage<props> = ({
-  clubData,
+  request,
   changeClubData,
   changeClubDoc,
+  selectSemester,
 }: props) => {
   return (
     <CreateClubPage>
@@ -29,15 +31,19 @@ const CreateClubView: NextPage<props> = ({
           placeholder="동아리명"
           name="clubName"
           onChange={changeClubData}
-          value={clubData.clubName}
+          value={request.name}
         />
-        <Represen clubData={clubData} changeClubData={changeClubData} />
+        <Represen
+          request={request}
+          selectSemester={selectSemester}
+          changeClubData={changeClubData}
+        />
         <MemberList changeClubDoc={changeClubDoc} />
         <CorporateMentor changeClubDoc={changeClubDoc} />
-        <ClubRoom clubData={clubData} changeClubData={changeClubData} />
+        <ClubRoom request={request} changeClubData={changeClubData} />
         <Information />
       </ClubDataForm>
-      <DocsForm clubData={clubData} changeClubData={changeClubData} />
+      <DocsForm request={request} changeClubData={changeClubData} />
     </CreateClubPage>
   );
 };

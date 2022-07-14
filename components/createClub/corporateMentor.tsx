@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import { ChangeEvent, useEffect, useState } from 'react';
-import { clubDocsValue } from '../../interface/clubData';
+import { clubDocsValue } from '../../interface/createClub';
 import { mentorHashType } from '../../interface/corporateMentor';
 import CorporateMentorView from './corporateMentorView';
 
