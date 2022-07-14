@@ -1,17 +1,23 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
+import Link from 'next/link';
 
 interface props {
+  id: number;
   title: string;
   writer: string;
   date: string;
 }
 
-const Notice: NextPage<props> = ({ title, writer, date }: props) => {
+const Notice: NextPage<props> = ({ id, title, writer, date }: props) => {
   return (
     <NoticeWrap>
       <Title>
-        <p>{title}</p>
+        <Link href={`/club/${id}`}>
+          <a>
+            <p>{title}</p>
+          </a>
+        </Link>
       </Title>
       <NoticeInfo>
         <Info>
