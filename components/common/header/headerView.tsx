@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
+import Link from 'next/link';
 
 interface props {
   profileHover: boolean;
@@ -16,10 +17,22 @@ const HeaderView: NextPage<props> = ({
     <HedaerContaner>
       <Logo />
       <Nav>
-        <NavItem>Club</NavItem>
-        <NavItem>Notion</NavItem>
+        <Link href={'/club'}>
+          <a>
+            <NavItem>Club</NavItem>
+          </a>
+        </Link>
+        <Link href={'/notice'}>
+          <a>
+            <NavItem>Notion</NavItem>
+          </a>
+        </Link>
         <NavItem>About us</NavItem>
-        <NavItem>Chat</NavItem>
+        <Link href={'/chat'}>
+          <a>
+            <NavItem>Chat</NavItem>
+          </a>
+        </Link>
       </Nav>
       <Profile onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />
       <MenuFrame onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
