@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent } from 'react';
-import { mentorHashType } from '../../interface/corporateMentor';
+import { mentorHashType } from '../../interface/createClub';
 import {
   FormInput,
   FormLabel,
@@ -42,9 +42,9 @@ const CorporateMentorView: NextPage<props> = ({
                 placeholder="고길동"
               />
               <FormInput
-                name={`${key}_belong`}
+                name={`${key}_company`}
                 onChange={changeMentor}
-                value={mentors[parseInt(key)].belong}
+                value={mentors[parseInt(key)].company}
                 placeholder="대전적십자회"
               />
               <EmailInput
@@ -54,9 +54,9 @@ const CorporateMentorView: NextPage<props> = ({
                 placeholder="daemahs@dsm.hs.kr"
               />
               <FormInput
-                name={`${key}_phoneNum`}
+                name={`${key}_phone`}
                 onChange={changeMentor}
-                value={mentors[parseInt(key)].phoneNum}
+                value={mentors[parseInt(key)].phone}
                 placeholder="042-8282-8282"
               />
             </Form>

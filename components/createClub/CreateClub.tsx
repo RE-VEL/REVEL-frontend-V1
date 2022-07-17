@@ -56,7 +56,8 @@ const CreateClub: NextPage = () => {
   };
 
   const changeClubDoc = (name: string, value: clubDocsValue): void => {
-    setClubData({ ...clubData, [name]: value });
+    console.log(value);
+    setRequest({ ...request, [name]: value });
   };
 
   const submit = (): void => {

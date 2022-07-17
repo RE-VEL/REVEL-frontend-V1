@@ -1,5 +1,3 @@
-import { mentorType } from './corporateMentor';
-
 interface mentorApplyRequest {
   name: string;
   company: string;
@@ -29,4 +27,8 @@ export interface CreateClubType {
   email: string;
 }
 
-export type clubDocsValue = mentorType[];
+export interface mentorHashType {
+  [id: number]: mentorApplyRequest;
+}
+
+export type clubDocsValue = mentorApplyRequest[];

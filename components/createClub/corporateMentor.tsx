@@ -1,7 +1,10 @@
 import { NextPage } from 'next';
 import { ChangeEvent, useEffect, useState } from 'react';
-import { clubDocsValue } from '../../interface/createClub';
-import { mentorHashType } from '../../interface/corporateMentor';
+import {
+  clubDocsValue,
+  mentorApplyRequest,
+  mentorHashType,
+} from '../../interface/createClub';
 import CorporateMentorView from './corporateMentorView';
 
 interface props {
@@ -10,11 +13,18 @@ interface props {
 
 const CorporateMentor: NextPage<props> = ({ changeClubDoc }: props) => {
   const [mentors, setMentors] = useState<mentorHashType>({
-    0: { name: '', belong: '', email: '', phoneNum: '' },
+    0: { name: '', company: '', email: '', phone: '' },
   });
 
+  const changeMentorApplyRequest = () => {
+    const mentor = Object.values(mentors).filter((m: mentorApplyRequest) => {
+      return !Object.values(m).includes('');
+    });
+    changeClubDoc('mentorApplyRequest', mentor);
+  };
+
   useEffect(() => {
-    changeClubDoc('mentor', Object.values(mentors));
+    changeMentorApplyRequest();
   }, [mentors]);
 
   const addMentor = (): void => {
@@ -23,7 +33,7 @@ const CorporateMentor: NextPage<props> = ({ changeClubDoc }: props) => {
 
     setMentors({
       ...mentors,
-      [key]: { name: '', belong: '', email: '', phoneNum: '' },
+      [key]: { name: '', company: '', email: '', phone: '' },
     });
   };
 

@@ -6,7 +6,6 @@ import ClubRoom from './clubRoom';
 import CorporateMentor from './corporateMentor';
 import DocsForm from './DocsForm';
 import Information from './information';
-import MemberList from './memberList';
 import Represen from './represen';
 
 interface props {
@@ -40,7 +39,6 @@ const CreateClubView: NextPage<props> = ({
           selectSemester={selectSemester}
           changeClubData={changeClubData}
         />
-        <MemberList changeClubDoc={changeClubDoc} />
         <CorporateMentor changeClubDoc={changeClubDoc} />
         <ClubRoom request={request} changeClubData={changeClubData} />
         <Information />
