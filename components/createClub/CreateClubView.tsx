@@ -16,6 +16,7 @@ interface props {
   ) => void;
   changeClubDoc: (name: string, value: clubDocsValue) => void;
   selectSemester: (value: ChangeEvent<HTMLSelectElement>) => void;
+  submit: () => void;
 }
 
 const CreateClubView: NextPage<props> = ({
@@ -23,13 +24,14 @@ const CreateClubView: NextPage<props> = ({
   changeClubData,
   changeClubDoc,
   selectSemester,
+  submit,
 }: props) => {
   return (
     <CreateClubPage>
       <ClubDataForm>
         <ClubName
           placeholder="동아리명"
-          name="clubName"
+          name="name"
           onChange={changeClubData}
           value={request.name}
         />
@@ -43,7 +45,11 @@ const CreateClubView: NextPage<props> = ({
         <ClubRoom request={request} changeClubData={changeClubData} />
         <Information />
       </ClubDataForm>
-      <DocsForm request={request} changeClubData={changeClubData} />
+      <DocsForm
+        request={request}
+        submit={submit}
+        changeClubData={changeClubData}
+      />
     </CreateClubPage>
   );
 };

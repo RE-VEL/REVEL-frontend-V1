@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import {
   clubDocsValue,
   CreateClubType,
@@ -28,12 +28,19 @@ const CreateClub: NextPage = () => {
     email: '',
   });
 
+  useEffect(() => {
+    setClubData({
+      ...clubData,
+      request: request,
+    });
+  }, [request]);
+
   const changeClubData = (
     e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
   ): void => {
     const { value, name } = e.target;
 
-    setClubData({ ...clubData, [name]: value });
+    setRequest({ ...request, [name]: value });
   };
 
   const selectSemester = (e: ChangeEvent<HTMLSelectElement>): void => {
@@ -52,11 +59,16 @@ const CreateClub: NextPage = () => {
     setClubData({ ...clubData, [name]: value });
   };
 
+  const submit = (): void => {
+    console.log(request);
+  };
+
   const props = {
     request,
     changeClubData,
     changeClubDoc,
     selectSemester,
+    submit,
   };
 
   return <CreateClubView {...props} />;

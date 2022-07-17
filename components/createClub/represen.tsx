@@ -32,7 +32,7 @@ const Represen: NextPage<props> = ({
         <TeacherEmailLabel>지도교사 이메일</TeacherEmailLabel>
         <TeacherEmail
           placeholder="teacher12@dsm.hs.kr"
-          name="teacher"
+          name="teacherEmail"
           onChange={changeClubData}
           value={request.teacherEmail}
         />

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent } from 'react';
-import { CreateClubType, requestType } from '../../interface/createClub';
+import { requestType } from '../../interface/createClub';
 import { FormInput, FormLabel, InputForm } from './inputFormStyle';
 
 interface props {
@@ -26,7 +26,7 @@ const ClubRoom: NextPage<props> = ({ request, changeClubData }: props) => {
       <InputForm>
         <FormLabel>희망 세미나실 1</FormLabel>
         <FormInput
-          name="firstDesiredRoom"
+          name="hope1Room"
           onChange={changeClubData}
           value={request.hope1Room}
           placeholder="세미나실 2-1"
@@ -35,7 +35,7 @@ const ClubRoom: NextPage<props> = ({ request, changeClubData }: props) => {
       <InputForm>
         <FormLabel>희망 세미나실 2</FormLabel>
         <FormInput
-          name="secondDesiredRoom"
+          name="hope2Room"
           onChange={changeClubData}
           value={request.hope2Room}
           placeholder="세미나실 2-2"
