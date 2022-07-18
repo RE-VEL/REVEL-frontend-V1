@@ -1,11 +1,11 @@
-interface mentorApplyRequest {
+export interface mentorApplyRequest {
   name: string;
   company: string;
   email: string;
   phone: string;
 }
 
-type clubType = 'CREATIVE' | 'AUTO' | 'MAJOR';
+export type clubType = 'CREATIVE' | 'AUTO' | 'MAJOR';
 export type semesterType = 'FIRST' | 'SECOND';
 
 export interface requestType {

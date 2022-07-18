@@ -2,6 +2,7 @@ import { NextPage } from 'next';
 import { ChangeEvent, useEffect, useState } from 'react';
 import {
   clubDocsValue,
+  clubType,
   CreateClubType,
   requestType,
   semesterType,
@@ -10,7 +11,7 @@ import CreateClubView from './CreateClubView';
 
 const CreateClub: NextPage = () => {
   const [request, setRequest] = useState<requestType>({
-    establishedYear: `${new Date().getFullYear()}`, //반드시 4글자 숫자
+    establishedYear: '', //반드시 4글자 숫자
     establishedSemester: 'FIRST', //1학기는 FIRST, 2학기는 SECOND
     name: '',
     teacherEmail: '',
@@ -55,6 +56,18 @@ const CreateClub: NextPage = () => {
     }
   };
 
+  const selectClubType = (e: ChangeEvent<HTMLSelectElement>) => {
+    const { value } = e.target;
+
+    if (value === 'MAJOR' || value === 'AUTO' || value === 'CREATIVE') {
+      const clubType: clubType = value;
+      setRequest({
+        ...request,
+        clubType,
+      });
+    }
+  };
+
   const changeClubDoc = (name: string, value: clubDocsValue): void => {
     console.log(value);
     setRequest({ ...request, [name]: value });
@@ -69,6 +82,7 @@ const CreateClub: NextPage = () => {
     changeClubData,
     changeClubDoc,
     selectSemester,
+    selectClubType,
     submit,
   };
 
