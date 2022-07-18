@@ -8,14 +8,9 @@ interface props {
   changeClubData: (
     e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
   ) => void;
-  submit: () => void;
 }
 
-const DocsForm: NextPage<props> = ({
-  request,
-  changeClubData,
-  submit,
-}: props) => {
+const DocsForm: NextPage<props> = ({ request, changeClubData }: props) => {
   return (
     <DocsFormSection>
       <Textareas>
@@ -24,10 +19,11 @@ const DocsForm: NextPage<props> = ({
           onChange={changeClubData}
           value={request.info}
           spellCheck="false"
+          required
           placeholder="동아리 활동목적을 구체적으로 적어주세요."
         />
       </Textareas>
-      <CreateClubBtn onClick={submit}>생성요청</CreateClubBtn>
+      <CreateClubBtn>생성요청</CreateClubBtn>
     </DocsFormSection>
   );
 };

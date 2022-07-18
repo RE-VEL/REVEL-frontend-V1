@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, FormEvent } from 'react';
 import { clubDocsValue, requestType } from '../../interface/createClub';
 import ClubProperties from './ClubProperties';
 import ClubRoom from './clubRoom';
@@ -17,7 +17,7 @@ interface props {
   changeClubDoc: (name: string, value: clubDocsValue) => void;
   selectSemester: (value: ChangeEvent<HTMLSelectElement>) => void;
   selectClubType: (value: ChangeEvent<HTMLSelectElement>) => void;
-  submit: () => void;
+  submit: (e: FormEvent<HTMLFormElement>) => void;
 }
 
 const CreateClubView: NextPage<props> = ({
@@ -29,11 +29,12 @@ const CreateClubView: NextPage<props> = ({
   submit,
 }: props) => {
   return (
-    <CreateClubPage>
+    <CreateClubPage onSubmit={submit}>
       <ClubDataForm>
         <ClubName
           placeholder="동아리명"
           name="name"
+          required
           onChange={changeClubData}
           value={request.name}
         />
@@ -48,11 +49,7 @@ const CreateClubView: NextPage<props> = ({
         <ClubRoom request={request} changeClubData={changeClubData} />
         <Information />
       </ClubDataForm>
-      <DocsForm
-        request={request}
-        submit={submit}
-        changeClubData={changeClubData}
-      />
+      <DocsForm request={request} changeClubData={changeClubData} />
     </CreateClubPage>
   );
 };
@@ -77,7 +74,7 @@ const ClubName = styled.input`
   font-weight: 500;
 `;
 
-const CreateClubPage = styled.main`
+const CreateClubPage = styled.form`
   width: 100vw;
   height: 100vh;
   padding: 80px 100px 0 100px;

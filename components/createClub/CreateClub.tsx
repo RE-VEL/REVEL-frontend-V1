@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import {
   clubDocsValue,
   clubType,
@@ -69,11 +69,11 @@ const CreateClub: NextPage = () => {
   };
 
   const changeClubDoc = (name: string, value: clubDocsValue): void => {
-    console.log(value);
     setRequest({ ...request, [name]: value });
   };
 
-  const submit = (): void => {
+  const submit = (e: FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
     console.log(request);
   };
 

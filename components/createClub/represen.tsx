@@ -17,6 +17,7 @@ const Represen: NextPage<props> = ({ request, changeClubData }: props) => {
       <InputForm>
         <TeacherEmailLabel>지도교사 이메일</TeacherEmailLabel>
         <TeacherEmail
+          required
           placeholder="teacher12@dsm.hs.kr"
           name="teacherEmail"
           onChange={changeClubData}

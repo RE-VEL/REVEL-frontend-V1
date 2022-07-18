@@ -40,24 +40,28 @@ const CorporateMentorView: NextPage<props> = ({
                 onChange={changeMentor}
                 value={mentors[parseInt(key)].name}
                 placeholder="고길동"
+                required
               />
               <FormInput
                 name={`${key}_company`}
                 onChange={changeMentor}
                 value={mentors[parseInt(key)].company}
                 placeholder="대전적십자회"
+                required
               />
               <EmailInput
                 name={`${key}_email`}
                 onChange={changeMentor}
                 value={mentors[parseInt(key)].email}
                 placeholder="daemahs@dsm.hs.kr"
+                required
               />
               <FormInput
                 name={`${key}_phone`}
                 onChange={changeMentor}
                 value={mentors[parseInt(key)].phone}
                 placeholder="042-8282-8282"
+                required
               />
             </Form>
           ))}

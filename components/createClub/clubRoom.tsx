@@ -20,12 +20,14 @@ const ClubRoom: NextPage<props> = ({ request, changeClubData }: props) => {
           name="memo"
           onChange={changeClubData}
           value={request.memo}
+          required
           placeholder="특이사항이 있다면 적어주세요."
         />
       </InputForm>
       <InputForm>
         <FormLabel>희망 세미나실 1</FormLabel>
         <FormInput
+          required
           name="hope1Room"
           onChange={changeClubData}
           value={request.hope1Room}
@@ -35,6 +37,7 @@ const ClubRoom: NextPage<props> = ({ request, changeClubData }: props) => {
       <InputForm>
         <FormLabel>희망 세미나실 2</FormLabel>
         <FormInput
+          required
           name="hope2Room"
           onChange={changeClubData}
           value={request.hope2Room}

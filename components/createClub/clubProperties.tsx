@@ -24,6 +24,7 @@ const ClubProperties: NextPage<props> = ({
       <InputForm>
         <PropertiesLabel>창립년도</PropertiesLabel>
         <YearInput
+          required
           placeholder="2015"
           name="establishedYear"
           value={request.establishedYear}
@@ -53,6 +54,7 @@ const ClubProperties: NextPage<props> = ({
         <PropertiesLabel>해시태그</PropertiesLabel>
         <YearInput
           placeholder="web"
+          required
           name="hashTag"
           value={request.hashTag}
           onChange={changeClubData}
