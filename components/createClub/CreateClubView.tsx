@@ -45,7 +45,7 @@ const CreateClubView: NextPage<props> = ({
           changeClubData={changeClubData}
           selectClubType={selectClubType}
         />
-        <Represen request={request} changeClubData={changeClubData} />
+        <Represen request={request} changeClubDoc={changeClubDoc} />
         <CorporateMentor changeClubDoc={changeClubDoc} />
         <ClubRoom request={request} changeClubData={changeClubData} />
         <Information />

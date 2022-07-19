@@ -6,12 +6,16 @@ import { FormInput, FormLabel, InputForm } from './inputFormStyle';
 
 interface props {
   request: requestType;
-  changeClubData: (
-    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
-  ) => void;
+  changeClubDoc: (name: string, value: string) => void;
 }
 
-const Represen: NextPage<props> = ({ request, changeClubData }: props) => {
+const Represen: NextPage<props> = ({ request, changeClubDoc }: props) => {
+  const formatTeacherEmail = (e: ChangeEvent<HTMLInputElement>): void => {
+    const { value } = e.target;
+
+    const email = value.replace(/[^\w@.]/, '').replace(/\.+/g, '.');
+    changeClubDoc('teacherEmail', email);
+  };
   return (
     <RepresenInfo>
       <InputForm>
@@ -20,7 +24,7 @@ const Represen: NextPage<props> = ({ request, changeClubData }: props) => {
           required
           placeholder="teacher12@dsm.hs.kr"
           name="teacherEmail"
-          onChange={changeClubData}
+          onChange={formatTeacherEmail}
           value={request.teacherEmail}
         />
       </InputForm>
