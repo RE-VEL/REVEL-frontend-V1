@@ -22,11 +22,6 @@ export interface requestType {
   clubType: clubType;
 }
 
-export interface CreateClubType {
-  request: requestType;
-  email: string;
-}
-
 export interface mentorHashType {
   [id: number]: mentorApplyRequest;
 }

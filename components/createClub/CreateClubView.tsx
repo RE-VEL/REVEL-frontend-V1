@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent, FormEvent } from 'react';
 import { clubDocsValue, requestType } from '../../interface/createClub';
-import ClubProperties from './ClubProperties';
+import ClubProperties from './clubProperties';
 import ClubRoom from './clubRoom';
 import CorporateMentor from './corporateMentor';
 import DocsForm from './DocsForm';
@@ -14,7 +14,7 @@ interface props {
   changeClubData: (
     e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
   ) => void;
-  changeClubDoc: (name: string, value: clubDocsValue) => void;
+  changeClubDoc: (name: string, value: clubDocsValue | string) => void;
   selectSemester: (value: ChangeEvent<HTMLSelectElement>) => void;
   selectClubType: (value: ChangeEvent<HTMLSelectElement>) => void;
   submit: (e: FormEvent<HTMLFormElement>) => void;
@@ -39,6 +39,7 @@ const CreateClubView: NextPage<props> = ({
           value={request.name}
         />
         <ClubProperties
+          changeClubDoc={changeClubDoc}
           request={request}
           selectSemester={selectSemester}
           changeClubData={changeClubData}

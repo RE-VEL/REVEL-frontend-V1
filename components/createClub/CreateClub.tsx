@@ -3,7 +3,6 @@ import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import {
   clubDocsValue,
   clubType,
-  CreateClubType,
   requestType,
   semesterType,
 } from '../../interface/createClub';
@@ -23,18 +22,6 @@ const CreateClub: NextPage = () => {
     hashTag: '',
     clubType: 'MAJOR',
   });
-
-  const [clubData, setClubData] = useState<CreateClubType>({
-    request: request,
-    email: '',
-  });
-
-  useEffect(() => {
-    setClubData({
-      ...clubData,
-      request: request,
-    });
-  }, [request]);
 
   const changeClubData = (
     e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
@@ -61,6 +48,7 @@ const CreateClub: NextPage = () => {
 
     if (value === 'MAJOR' || value === 'AUTO' || value === 'CREATIVE') {
       const clubType: clubType = value;
+
       setRequest({
         ...request,
         clubType,
@@ -68,7 +56,7 @@ const CreateClub: NextPage = () => {
     }
   };
 
-  const changeClubDoc = (name: string, value: clubDocsValue): void => {
+  const changeClubDoc = (name: string, value: clubDocsValue | string): void => {
     setRequest({ ...request, [name]: value });
   };
 
