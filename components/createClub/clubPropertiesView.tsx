@@ -8,18 +8,16 @@ interface props {
   request: requestType;
   selectSemester: (value: ChangeEvent<HTMLSelectElement>) => void;
   selectClubType: (value: ChangeEvent<HTMLSelectElement>) => void;
-  changeClubData: (
-    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
-  ) => void;
   formatYear: (e: ChangeEvent<HTMLInputElement>) => void;
+  formatHashTag: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const ClubPropertiesView: NextPage<props> = ({
-  selectSemester,
-  changeClubData,
-  selectClubType,
   request,
+  selectSemester,
+  selectClubType,
   formatYear,
+  formatHashTag,
 }: props) => {
   return (
     <PropertiesInfo>
@@ -61,7 +59,7 @@ const ClubPropertiesView: NextPage<props> = ({
           required
           name="hashTag"
           value={request.hashTag}
-          onChange={changeClubData}
+          onChange={formatHashTag}
         />
       </InputForm>
     </PropertiesInfo>

@@ -26,7 +26,7 @@ const ClubProperties: NextPage<props> = ({
     const thisYear = new Date().getFullYear();
 
     // 입력 값이 숫자가 아닌 경우 처리 X
-    if (isNaN(Number(value))) return;
+    if (isNaN(numberValue)) return;
 
     // 입력한 년도가 현재년도보다 크면 현재년도로 값을 강제 변환
     if (numberValue > thisYear) {
@@ -43,12 +43,18 @@ const ClubProperties: NextPage<props> = ({
     changeClubDoc('establishedYear', value);
   };
 
+  const formatHashTag = (e: ChangeEvent<HTMLInputElement>): void => {
+    const value = e.target.value.toLowerCase().replace(/[^a-z]/, '');
+    changeClubDoc('hashTag', value);
+  };
+
   const props = {
     request,
     selectSemester,
     selectClubType,
     changeClubData,
     formatYear,
+    formatHashTag,
   };
   return <ClubPropertiesView {...props} />;
 };
