@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent } from 'react';
-import { mentorHashType } from '../../interface/createClub';
+import { mentorHashType } from 'src/interface/corporateMentor';
+
 import {
   FormInput,
   FormLabel,

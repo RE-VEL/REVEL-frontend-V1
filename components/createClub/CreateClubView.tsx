@@ -1,8 +1,10 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent, FormEvent } from 'react';
-import { clubDocsValue, requestType } from '../../interface/createClub';
+import { clubDocsValue, clubType } from 'src/interface/clubData';
+import { requestType } from 'src/interface/createClub';
 import ClubProperties from './clubProperties';
+
 import ClubRoom from './clubRoom';
 import CorporateMentor from './corporateMentor';
 import DocsForm from './DocsForm';

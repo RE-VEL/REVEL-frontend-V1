@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent } from 'react';
-import { requestType } from '../../interface/createClub';
+import { requestType } from 'src/interface/createClub';
 import { FormInput, FormLabel, InputForm } from './inputFormStyle';
 
 interface props {

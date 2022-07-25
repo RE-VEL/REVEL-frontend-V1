@@ -1,6 +1,7 @@
 import { NextPage } from 'next';
 import { ChangeEvent } from 'react';
-import { clubDocsValue, requestType } from '../../interface/createClub';
+import { clubDocsValue } from 'src/interface/clubData';
+import { requestType } from 'src/interface/createClub';
 import ClubPropertiesView from './clubPropertiesView';
 
 interface props {

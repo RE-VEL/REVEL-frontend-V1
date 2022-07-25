@@ -1,11 +1,8 @@
 import { NextPage } from 'next';
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
-import {
-  clubDocsValue,
-  clubType,
-  requestType,
-  semesterType,
-} from '../../interface/createClub';
+import { ChangeEvent, FormEvent, useState } from 'react';
+import { clubDocsValue } from 'src/interface/clubData';
+import { clubType, requestType, semesterType } from 'src/interface/createClub';
+
 import CreateClubView from './CreateClubView';
 
 const CreateClub: NextPage = () => {

@@ -1,10 +1,9 @@
 import { NextPage } from 'next';
 import { ChangeEvent, useEffect, useState } from 'react';
-import {
-  clubDocsValue,
-  mentorApplyRequest,
-  mentorHashType,
-} from '../../interface/createClub';
+import { clubDocsValue } from 'src/interface/clubData';
+import { mentorHashType } from 'src/interface/corporateMentor';
+import { mentorApplyRequest } from 'src/interface/createClub';
+
 import CorporateMentorView from './corporateMentorView';
 
 interface props {
