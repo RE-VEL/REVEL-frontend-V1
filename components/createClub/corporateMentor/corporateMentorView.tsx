@@ -8,7 +8,7 @@ import {
   FormLabel,
   InputForm,
   SectionLabel,
-} from './inputFormStyle';
+} from '../inputFormStyle';
 
 interface props {
   mentors: mentorHashType;
