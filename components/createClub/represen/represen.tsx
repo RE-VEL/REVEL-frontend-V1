@@ -1,8 +1,7 @@
-import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent } from 'react';
 import { requestType } from 'src/interface/createClub';
-import { FormInput, FormLabel, InputForm } from '../inputFormStyle';
+import RepresenView from './represenView';
 
 interface props {
   request: requestType;
@@ -16,33 +15,13 @@ const Represen: NextPage<props> = ({ request, changeClubDoc }: props) => {
     const email = value.replace(/[^\w@.]/, '').replace(/\.+/g, '.');
     changeClubDoc('teacherEmail', email);
   };
-  return (
-    <RepresenInfo>
-      <InputForm>
-        <TeacherEmailLabel>지도교사 이메일</TeacherEmailLabel>
-        <TeacherEmail
-          required
-          placeholder="teacher12@dsm.hs.kr"
-          name="teacherEmail"
-          onChange={formatTeacherEmail}
-          value={request.teacherEmail}
-        />
-      </InputForm>
-    </RepresenInfo>
-  );
+
+  const props = {
+    request,
+    formatTeacherEmail,
+  };
+
+  return <RepresenView {...props} />;
 };
-
-const TeacherEmail = styled(FormInput)`
-  width: 15vw;
-`;
-
-const TeacherEmailLabel = styled(FormLabel)`
-  width: 15vw;
-`;
-
-const RepresenInfo = styled.div`
-  display: flex;
-  gap: 20px;
-`;
 
 export default Represen;
