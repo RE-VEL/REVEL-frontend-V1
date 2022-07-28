@@ -1,43 +1,58 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, FormEvent } from 'react';
 import { clubDocsValue, clubType } from 'src/interface/clubData';
+import { requestType } from 'src/interface/createClub';
+import ClubProperties from './clubProperties';
+
 import ClubRoom from './clubRoom';
 import CorporateMentor from './corporateMentor';
 import DocsForm from './DocsForm';
 import Information from './information';
-import MemberList from './memberList';
 import Represen from './represen';
 
 interface props {
-  clubData: clubType;
+  request: requestType;
   changeClubData: (
     e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
   ) => void;
-  changeClubDoc: (name: string, value: clubDocsValue) => void;
+  changeClubDoc: (name: string, value: clubDocsValue | string) => void;
+  selectSemester: (value: ChangeEvent<HTMLSelectElement>) => void;
+  selectClubType: (value: ChangeEvent<HTMLSelectElement>) => void;
+  submit: (e: FormEvent<HTMLFormElement>) => void;
 }
 
 const CreateClubView: NextPage<props> = ({
-  clubData,
+  request,
   changeClubData,
   changeClubDoc,
+  selectSemester,
+  selectClubType,
+  submit,
 }: props) => {
   return (
-    <CreateClubPage>
+    <CreateClubPage onSubmit={submit}>
       <ClubDataForm>
         <ClubName
           placeholder="동아리명"
-          name="clubName"
+          name="name"
+          required
           onChange={changeClubData}
-          value={clubData.clubName}
+          value={request.name}
         />
-        <Represen clubData={clubData} changeClubData={changeClubData} />
-        <MemberList changeClubDoc={changeClubDoc} />
+        <ClubProperties
+          changeClubDoc={changeClubDoc}
+          request={request}
+          selectSemester={selectSemester}
+          changeClubData={changeClubData}
+          selectClubType={selectClubType}
+        />
+        <Represen request={request} changeClubDoc={changeClubDoc} />
         <CorporateMentor changeClubDoc={changeClubDoc} />
-        <ClubRoom clubData={clubData} changeClubData={changeClubData} />
+        <ClubRoom request={request} changeClubData={changeClubData} />
         <Information />
       </ClubDataForm>
-      <DocsForm clubData={clubData} changeClubData={changeClubData} />
+      <DocsForm request={request} changeClubData={changeClubData} />
     </CreateClubPage>
   );
 };
@@ -62,7 +77,7 @@ const ClubName = styled.input`
   font-weight: 500;
 `;
 
-const CreateClubPage = styled.main`
+const CreateClubPage = styled.form`
   width: 100vw;
   height: 100vh;
   padding: 80px 100px 0 100px;

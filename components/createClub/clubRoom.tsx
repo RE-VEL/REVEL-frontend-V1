@@ -1,17 +1,18 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent } from 'react';
-import { clubType } from 'src/interface/clubData';
+
+import { requestType } from 'src/interface/createClub';
 import { FormInput, FormLabel, InputForm } from './inputFormStyle';
 
 interface props {
-  clubData: clubType;
+  request: requestType;
   changeClubData: (
     e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
   ) => void;
 }
 
-const ClubRoom: NextPage<props> = ({ clubData, changeClubData }: props) => {
+const ClubRoom: NextPage<props> = ({ request, changeClubData }: props) => {
   return (
     <Container>
       <InputForm>
@@ -19,25 +20,28 @@ const ClubRoom: NextPage<props> = ({ clubData, changeClubData }: props) => {
         <MemoInput
           name="memo"
           onChange={changeClubData}
-          value={clubData.memo}
+          value={request.memo}
+          required
           placeholder="특이사항이 있다면 적어주세요."
         />
       </InputForm>
       <InputForm>
         <FormLabel>희망 세미나실 1</FormLabel>
         <FormInput
-          name="firstDesiredRoom"
+          required
+          name="hope1Room"
           onChange={changeClubData}
-          value={clubData.firstDesiredRoom}
+          value={request.hope1Room}
           placeholder="세미나실 2-1"
         />
       </InputForm>
       <InputForm>
         <FormLabel>희망 세미나실 2</FormLabel>
         <FormInput
-          name="secondDesiredRoom"
+          required
+          name="hope2Room"
           onChange={changeClubData}
-          value={clubData.secondDesiredRoom}
+          value={request.hope2Room}
           placeholder="세미나실 2-2"
         />
       </InputForm>

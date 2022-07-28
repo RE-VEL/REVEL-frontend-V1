@@ -1,49 +1,44 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent } from 'react';
-import { clubType } from 'src/interface/clubData';
+import { requestType } from 'src/interface/createClub';
 import { FormInput, FormLabel, InputForm } from './inputFormStyle';
 
 interface props {
-  clubData: clubType;
-  changeClubData: (
-    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
-  ) => void;
+  request: requestType;
+  changeClubDoc: (name: string, value: string) => void;
 }
 
-const Represen: NextPage<props> = ({ clubData, changeClubData }: props) => {
+const Represen: NextPage<props> = ({ request, changeClubDoc }: props) => {
+  const formatTeacherEmail = (e: ChangeEvent<HTMLInputElement>): void => {
+    const { value } = e.target;
+
+    const email = value.replace(/[^\w@.]/, '').replace(/\.+/g, '.');
+    changeClubDoc('teacherEmail', email);
+  };
   return (
     <RepresenInfo>
       <InputForm>
-        <FormLabel>창립학기</FormLabel>
-        <FormInput
-          placeholder="2022년 1학기"
-          name="founding"
-          onChange={changeClubData}
-          value={clubData.founding}
-        />
-      </InputForm>
-      <InputForm>
-        <FormLabel>대표학생</FormLabel>
-        <FormInput
-          placeholder="2501 홍길동"
-          name="rep"
-          onChange={changeClubData}
-          value={clubData.rep}
-        />
-      </InputForm>
-      <InputForm>
-        <FormLabel>지도교사</FormLabel>
-        <FormInput
-          placeholder="황희"
-          name="teacher"
-          onChange={changeClubData}
-          value={clubData.teacher}
+        <TeacherEmailLabel>지도교사 이메일</TeacherEmailLabel>
+        <TeacherEmail
+          required
+          placeholder="teacher12@dsm.hs.kr"
+          name="teacherEmail"
+          onChange={formatTeacherEmail}
+          value={request.teacherEmail}
         />
       </InputForm>
     </RepresenInfo>
   );
 };
+
+const TeacherEmail = styled(FormInput)`
+  width: 15vw;
+`;
+
+const TeacherEmailLabel = styled(FormLabel)`
+  width: 15vw;
+`;
 
 const RepresenInfo = styled.div`
   display: flex;

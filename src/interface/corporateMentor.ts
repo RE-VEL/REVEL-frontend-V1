@@ -1,8 +1,8 @@
 export interface mentorType {
   name: string;
-  belong: string;
+  company: string;
   email: string;
-  phoneNum: string;
+  phone: string;
 }
 
 export interface mentorHashType {

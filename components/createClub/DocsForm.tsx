@@ -1,32 +1,26 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent } from 'react';
-import { clubType } from 'src/interface/clubData';
+import { requestType } from 'src/interface/createClub';
 
 interface props {
-  clubData: clubType;
+  request: requestType;
   changeClubData: (
     e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
   ) => void;
 }
 
-const DocsForm: NextPage<props> = ({ clubData, changeClubData }: props) => {
+const DocsForm: NextPage<props> = ({ request, changeClubData }: props) => {
   return (
     <DocsFormSection>
       <Textareas>
         <DocInputField
-          name="purpose"
+          name="info"
           onChange={changeClubData}
-          value={clubData.purpose}
+          value={request.info}
           spellCheck="false"
+          required
           placeholder="동아리 활동목적을 구체적으로 적어주세요."
-        />
-        <DocInputField
-          name="achievement"
-          value={clubData.achievement}
-          onChange={changeClubData}
-          spellCheck="false"
-          placeholder="동아리 예상 성과물을 작성해 주세요."
         />
       </Textareas>
       <CreateClubBtn>생성요청</CreateClubBtn>
