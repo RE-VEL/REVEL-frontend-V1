@@ -19,14 +19,9 @@ const Notice: NextPage<noticeType> = ({
           </a>
         </Link>
       </Title>
-      <NoticeInfo>
-        <Info>
-          <p>Revel</p>
-        </Info>
-        <Info>
-          <p>{createAt.replaceAll('-', '.')}</p>
-        </Info>
-      </NoticeInfo>
+      <Info>
+        <p>{createAt.replaceAll('-', '.')}</p>
+      </Info>
     </NoticeWrap>
   );
 };
@@ -51,7 +46,7 @@ const Info = styled.div`
     font-size: 1.1em;
     color: #7d7d7d;
   }
-  width: 45%;
+  width: 200px;
   height: 100%;
   display: flex;
   justify-content: center;
