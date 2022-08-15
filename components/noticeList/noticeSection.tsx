@@ -99,7 +99,7 @@ const PaginationBunBar = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
 `;
 
 const NextSectionBtn = styled.button`
@@ -131,6 +131,7 @@ const Nav = styled.nav`
 const NavNumber = styled.p`
   width: 20px;
   cursor: pointer;
+  text-align: center;
   color: ${({ isPoint }: { isPoint: boolean }) =>
     isPoint ? 'blue' : '#7d7d7d'};
 `;
