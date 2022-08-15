@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { noticeType } from 'interface/notice';
+import { noticeType } from 'src/interface/notice';
 import { NextPage } from 'next';
 import Link from 'next/link';
 
