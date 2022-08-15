@@ -1,6 +1,7 @@
 export interface noticeType {
   id: number;
   title: string;
-  writer: string;
-  date: string;
+  content: string;
+  createAt: string;
+  updateAt: string;
 }

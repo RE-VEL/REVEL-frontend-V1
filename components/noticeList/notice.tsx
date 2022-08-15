@@ -1,20 +1,19 @@
 import styled from '@emotion/styled';
+import { noticeType } from 'interface/notice';
 import { NextPage } from 'next';
 import Link from 'next/link';
 
-interface props {
-  id: number;
-  title: string;
-  writer: string;
-  date: string;
-}
-
-
-const Notice: NextPage<props> = ({ id, title, writer, date }: props) => {
+const Notice: NextPage<noticeType> = ({
+  id,
+  title,
+  content,
+  createAt,
+  updateAt,
+}: noticeType) => {
   return (
     <NoticeWrap>
       <Title>
-        <Link href={`/club/${id}`}>
+        <Link href={`/notice/${id}`}>
           <a>
             <p>{title}</p>
           </a>
@@ -22,10 +21,10 @@ const Notice: NextPage<props> = ({ id, title, writer, date }: props) => {
       </Title>
       <NoticeInfo>
         <Info>
-          <p>{writer}</p>
+          <p>Revel</p>
         </Info>
         <Info>
-          <p>{date}</p>
+          <p>{createAt.replaceAll('-', '.')}</p>
         </Info>
       </NoticeInfo>
     </NoticeWrap>
