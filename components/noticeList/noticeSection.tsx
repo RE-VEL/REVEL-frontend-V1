@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { MouseEvent, useEffect, useState } from 'react';
 import { getNoticeList } from 'src/utils/apis/notice';
-import { noticeType } from '../../interface/notice';
+import { noticeType } from '../../src/interface/notice';
 import NoticeHead from './noticeHead';
 import Notices from './notices';
 
@@ -14,7 +14,6 @@ const NoticeSection: NextPage = () => {
 
   const getResponse = async () => {
     const res = await getNoticeList(pageNum - 1);
-    console.log(res);
     setNoticeList(res.content);
     setTotalPages(res.totalPages);
     setNavigationNumber(res.totalPages);
@@ -40,8 +39,6 @@ const NoticeSection: NextPage = () => {
     const leftmost = Math.max(1, pageNum - 2);
 
     const temp = [];
-
-    console.log(leftmost, totalPages);
 
     if (pageNum < 4) {
       for (let i = 1; i <= 5; i++) {

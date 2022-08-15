@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 
-import { noticeType } from '../../interface/notice';
+import { noticeType } from '../../src/interface/notice';
 import Notice from './notice';
 
 interface props {
