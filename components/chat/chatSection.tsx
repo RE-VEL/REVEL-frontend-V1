@@ -69,18 +69,25 @@ const ChatSection: NextPage = () => {
 
 const ChattingWrap = styled.div`
   width: 100%;
-  height: 85%;
+  height: 88%;
   background-color: #eff3f7;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
   padding: 0 1.5vw;
   padding-bottom: 20px;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
 `;
 
 const ChatInputWrap = styled.div`
   width: 100%;
-  height: 15%;
+  height: 12%;
   background-color: #cfdae8;
   display: flex;
   align-items: center;
@@ -88,7 +95,7 @@ const ChatInputWrap = styled.div`
 `;
 
 const ChatInput = styled.input`
-  height: 80%;
+  height: 70%;
   width: 85%;
   border-radius: 20px;
   border: none;
@@ -98,8 +105,8 @@ const ChatInput = styled.input`
 `;
 
 const SubmitBtn = styled.button`
-  height: 8vh;
-  width: 8vh;
+  height: 7vh;
+  width: 7vh;
   cursor: pointer;
   background-color: transparent;
   background-image: url('/img/chatSubmit.png');
@@ -111,7 +118,7 @@ const SubmitBtn = styled.button`
 
 const ChatContainer = styled.section`
   height: 100%;
-  width: 70vw;
+  width: 100%;
 `;
 
 export default ChatSection;

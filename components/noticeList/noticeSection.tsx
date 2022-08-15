@@ -49,7 +49,7 @@ const NoticeSection: NextPage = () => {
     setNoticeSlice(noticeList.slice((pageNum - 1) * 8, pageNum * 8));
     setNavigationNumber();
   }, [pageNum]);
-
+  
   return (
     <NoticeListContainer>
       <Title>NOTICE</Title>

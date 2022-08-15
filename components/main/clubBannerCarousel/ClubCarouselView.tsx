@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { RefObject } from 'react';
 import Slider from 'react-slick';
-import { sliderSetting } from '../../../interface/sliderSetting';
+import { sliderSetting } from 'src/interface/sliderSetting';
 
 interface props {
   settings: sliderSetting;
@@ -34,7 +34,7 @@ const ClubCarouselView: NextPage<props> = ({
 
 const BannerCarouselSection = styled.section`
   width: 100vw;
-  height: 100vh;
+  height: 47vw;
   position: relative;
 
   padding-top: 80px;

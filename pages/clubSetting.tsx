@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { ChangeEvent, useState } from 'react';
-import Aside from '../components/ClubSetting/aside';
-import MemberSection from '../components/ClubSetting/memberSection';
+import Aside from 'components/ClubSetting/aside';
+import MemberSection from 'components/ClubSetting/memberSection';
 
 const ClubSetting: NextPage = () => {
   const [text, setText] = useState<string>('');

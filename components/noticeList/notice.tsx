@@ -9,6 +9,7 @@ interface props {
   date: string;
 }
 
+
 const Notice: NextPage<props> = ({ id, title, writer, date }: props) => {
   return (
     <NoticeWrap>

@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import { useCallback, useRef } from 'react';
 import Slider from 'react-slick';
-import { sliderSetting } from '../../../interface/sliderSetting';
+import { sliderSetting } from 'src/interface/sliderSetting';
 import ClubCarouselView from './ClubCarouselView';
 
 const settings: sliderSetting = {
