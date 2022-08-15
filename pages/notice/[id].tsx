@@ -30,10 +30,6 @@ const NoticeMore: NextPage<props> = ({ notice }: props) => {
             <Content>{notice.content}</Content>
           </ContentContainer>
         </ContentWrap>
-        <NoticeNav>
-          <NextNotice>다음글</NextNotice>
-          <NextNotice>이전글</NextNotice>
-        </NoticeNav>
       </MoreView>
     </BackGround>
   );
@@ -95,16 +91,6 @@ const DateCreated = styled.p`
 
 const Writer = styled(DateCreated)``;
 
-const NextNotice = styled.button`
-  font-family: 'nanumgothic';
-  font-size: 15px;
-  margin: 0;
-  color: #868686;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-`;
-
 const SmallTextHo = styled.p`
   font-family: 'nanumgothic';
   font-size: 15px;
@@ -161,14 +147,6 @@ const ContentWrap = styled.div`
   width: 70vw;
   padding: 20px 0;
   flex: auto 1 1;
-`;
-
-const NoticeNav = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  width: 50vw;
-  height: 50px;
-  flex: auto 0 0;
 `;
 
 export default NoticeMore;
