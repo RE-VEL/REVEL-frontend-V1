@@ -1,40 +1,28 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
+import { noticeType } from 'src/interface/notice';
+import { getNotice } from 'src/utils/apis/notice';
 
-const notice = {
-  // title:
-  //   '신규동아리 등록 관련 공지신규동아리신규동아리 등록 관련 공지신규동아리신규동아리 등록 관련 공지신규동아리신규동아리 등록 관련 공지신규동아리신규동아리 등록 관련 공지신규동아리신규동아리 등록 관련 공지신규동아리신규동아리 등록 관련 공지신규동아리신규동아리 등록 관련 공지신규동아리신규동아리 등록 관련 공지신규동아리 ',
-  title: '신규동아리 등록 관련 공지',
-  date: '22.03.13',
-  writer: 'Revel',
-  content: `전공동아리 시작일 관련 공지합니다.
-2학년, 3학년 먼저 전공동아리 활동 시작하고, 동아리 시작일은
-2,3학년 3월 29일 1학년들 동아리 4월 5일부터 시작합니다. 전공동아리
-시작일 관련 공지합니다. 전공동아리 시작일 관련 공지합니다.`,
-  isNew: true,
-};
+interface props {
+  notice: noticeType;
+}
 
-const NoticeMore: NextPage = () => {
+const NoticeMore: NextPage<props> = ({ notice }: props) => {
   return (
     <BackGround>
       <PageTitle>NOTICE</PageTitle>
       <MoreView>
         <SectionHeader>
           <TitleWrap>
-            {notice.isNew && (
-              <NewNoticeMark>
-                <p>N</p>
-              </NewNoticeMark>
-            )}
             <Title>{notice.title}</Title>
           </TitleWrap>
-          <DateCreated>{notice.date}</DateCreated>
+          <DateCreated>{notice.updateAt.replaceAll('-', '.')}</DateCreated>
         </SectionHeader>
         <ContentWrap>
           <TitleSection>
             <WriterWrap>
               <Icon />
-              <Writer>{notice.writer}</Writer>
+              <Writer>Revel</Writer>
             </WriterWrap>
             <SmallTextHo>첨부파일</SmallTextHo>
           </TitleSection>
@@ -124,24 +112,6 @@ const SmallTextHo = styled.p`
   color: #868686;
 `;
 
-const NewNoticeMark = styled.div`
-  height: 25px;
-  width: 25px;
-  border-radius: 5px;
-  display: flex;
-  background-color: #7b99c3;
-  margin-right: 15px;
-  align-items: center;
-  justify-content: center;
-
-  & > p {
-    font-family: 'nanumsquareround';
-    font-size: 16px;
-    color: white;
-    margin: 0;
-  }
-`;
-
 const TitleWrap = styled.div`
   width: fit-content;
   height: fit-content;
@@ -168,10 +138,11 @@ const Icon = styled.div`
 `;
 
 const WriterWrap = styled.div`
-  width: 70px;
+  width: fit-content;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
 `;
 
 const Content = styled.p`
@@ -180,6 +151,7 @@ const Content = styled.p`
   color: #7d7d7d;
   max-height: 100%;
   white-space: pre-wrap;
+  word-break: break-all;
 `;
 
 const ContentWrap = styled.div`
@@ -201,54 +173,13 @@ const NoticeNav = styled.div`
 
 export default NoticeMore;
 
-/*
-const FilesBack = styled.div`
-  width: 200px;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  position: relative;
-`;
-const FilesBoxBack = styled.div`
-  width: 200px;
-  height: 150px;
-  background-color: #8da3c2;
-  border-radius: 5%;
-  position: relative;
-  opacity: 25%;
-`;
+export async function getServerSideProps(context: any) {
+  const id: string = context.params.id;
+  const res = await getNotice(id);
 
-const FilesBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  position: absolute;
-`;
-const Files = styled.div`
-  display: flex;
-  width: 200px;
-  justify-content: space-evenly;
-`;
-const DownImg = styled.div`
-  width: 20px;
-  height: 20px;
-  background-image: url('./img/pngwing.com.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: end;
-  display: flex;
-  justify-content: flex-start;
-`;
-*/
-
-/* 
-<FilesBack>
-  <FilesBoxBack> </FilesBoxBack>
-  <FilesBox>
-    <Files>
-      <SmallText>첨부파일명.pdf</SmallText>
-      <DownImg></DownImg>
-    </Files>
-  </FilesBox>
-</FilesBack> 
-*/
+  return {
+    props: {
+      notice: res,
+    },
+  };
+}
