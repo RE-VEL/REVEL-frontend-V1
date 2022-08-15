@@ -1,23 +1,69 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
+import { MouseEvent, useEffect, useState } from 'react';
+import { noticeType } from '../../interface/notice';
 import NoticeHead from './noticeHead';
 import Notices from './notices';
 
+const noticeList: noticeType[] = [...Array(100).fill(0)].map((_, i) => ({
+  id: i + 1,
+  title: `신규 동아리 시작일 관련 공지${i + 1}`,
+  writer: 'Revel',
+  date: '22.03.13',
+}));
+
 const NoticeSection: NextPage = () => {
+  const [pageNum, setPageNum] = useState<number>(1);
+  const [noticeSlice, setNoticeSlice] = useState<noticeType[]>([]);
+  const [navNum, setNavNum] = useState<number[]>([]);
+
+  const setNavigationNumber = () => {
+    const leftmost = Math.max(1, pageNum - 2);
+    const lastPage = Math.ceil(noticeList.length / 8);
+
+    const temp = [];
+
+    if (pageNum < 3) {
+      for (let i = 1; i <= 5; i++) {
+        if (i > lastPage) break;
+        temp.push(i);
+      }
+    } else if (leftmost + 4 >= lastPage) {
+      for (let i = lastPage - 4; i <= lastPage; i++) {
+        temp.push(i);
+      }
+    } else {
+      for (let i = 0; i < 5; i++) {
+        temp.push(leftmost + i);
+      }
+    }
+
+    setNavNum(temp);
+  };
+
+  const changePageNum = (e: MouseEvent<HTMLSpanElement>) => {
+    setPageNum(Number(e.currentTarget.innerText));
+  };
+
+  useEffect(() => {
+    setNoticeSlice(noticeList.slice((pageNum - 1) * 8, pageNum * 8));
+    setNavigationNumber();
+  }, [pageNum]);
+  
   return (
     <NoticeListContainer>
       <Title>NOTICE</Title>
       <NoticeWrap>
         <NoticeHead />
-        <Notices />
+        <Notices noticeList={noticeSlice} />
         <PaginationBunBar>
           <PreSectionBtn />
           <Nav>
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>5</span>
+            {navNum.map((num) => (
+              <p key={num} onClick={changePageNum}>
+                {num}
+              </p>
+            ))}
           </Nav>
           <NextSectionBtn />
         </PaginationBunBar>
